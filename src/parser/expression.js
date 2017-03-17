@@ -684,6 +684,12 @@ pp.parseExprAtom = function (refShorthandDefaultPos) {
         return this.parseIfExpression(node);
       }
 
+    case tt.arrow:
+      if (this.hasPlugin("lightscript")) {
+        node = this.startNode();
+        return this.parseArrowExpression(node, []);
+      }
+
     case tt.awaitArrow:
       if (this.hasPlugin("lightscript")) {
         node = this.startNode();
