@@ -43,7 +43,8 @@
     "unicode-9.0.0": "~0.7.0"
   },
   "bin": {
-    "babylon": "./bin/babylon.js"
+    "babylon": "./bin/babylon.js",
+    "babylon-lightscript": "./bin/babylon-lightscript.js"
   },
   "scripts": {
     "build": "npm run clean && rollup -c",
