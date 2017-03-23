@@ -1,4 +1,4 @@
-if x > 1:
+if x > 1
   'a'
-else
+else:
   'b'
