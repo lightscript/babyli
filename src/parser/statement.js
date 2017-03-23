@@ -343,12 +343,39 @@ pp.parseFunctionStatement = function (node) {
 pp.parseIfStatement = function (node) {
   this.next();
   node.test = this.parseParenExpression();
+  node.isColonDelimited = this.match(tt.colon);
+  let elseColon = false;
+  let errorPos = null;
   node.consequent = this.parseStatement(false);
   if (this.hasPlugin("lightscript") && this.match(tt._elif)) {
+    errorPos = this.state.lastTokEnd;
     node.alternate = this.parseIfStatement(this.startNode());
   } else {
-    node.alternate = this.eat(tt._else) ? this.parseStatement(false) : null;
+    if (this.eat(tt._else)) {
+      elseColon = this.match(tt.colon);
+      errorPos = this.state.lastTokEnd;
+      node.alternate = this.parseStatement(false);
+    } else {
+      node.alternate = null;
+    }
   }
+
+  // Enforce matching colons
+  if (this.hasPlugin("lightscript") && node.alternate) {
+    if (node.alternate.type === "IfStatement") {
+      // If the node's alternate clause is an IfStatement, it must have the same colon
+      // convention as this one.
+      if (node.isColonDelimited !== node.alternate.isColonDelimited) {
+        this.raise(errorPos, "If/else colons must match.");
+      }
+    } else {
+      // If the node's alternate clause is anything else, the else must have a colon.
+      if (node.isColonDelimited !== elseColon) {
+        this.raise(errorPos, "If/else colons must match.");
+      }
+    }
+  }
+
   return this.finishNode(node, "IfStatement");
 };
 
