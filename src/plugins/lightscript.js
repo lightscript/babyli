@@ -181,15 +181,10 @@ pp.parseNumericLiteralMember = function () {
 
 // c/p parseBlock
 
-pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
+pp.parseWhiteBlock = function (allowDirectives?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
 
-  // must start with colon or arrow
-  if (isIfExpression) {
-    this.expect(tt.colon);
-    // TODO: allow braces
-    if (!this.isLineBreak()) return this.parseMaybeAssign();
-  } else if (this.eat(tt.colon)) {
+  if (this.eat(tt.colon)) {
     if (!this.isLineBreak()) return this.parseStatement(false);
   } else if (this.eat(tt.arrow)) {
     if (!this.isLineBreak()) {
@@ -396,17 +391,29 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 
 // c/p parseIfStatement
 
-pp.parseIfExpression = function (node) {
+pp.parseIfExpression = function (node, mustBeWhiteBlock) {
   this.next();
   node.test = this.parseExpression();
-  node.consequent = this.parseWhiteBlock(false, true);
+  const isWhiteBlock = this.match(tt.colon);
+  if (mustBeWhiteBlock && !isWhiteBlock) this.unexpected(null, tt.colon);
+  node.consequent = this.isLineBreak()
+    ? this.parseWhiteBlock(false)
+    : this.parseMaybeAssign();
 
   if (this.match(tt._elif)) {
-    node.alternate = this.parseIfExpression(this.startNode());
+    node.alternate = this.parseIfExpression(this.startNode(), isWhiteBlock);
   } else if (this.eat(tt._else)) {
-    node.alternate = this.match(tt._if) ?
-      this.parseIfExpression(this.startNode()) :
-      this.parseWhiteBlock(false, true);
+    if (this.match(tt._if)) {
+      node.alternate = this.parseIfExpression(this.startNode(), isWhiteBlock);
+    } else if (this.match(tt.colon)) {
+      if (!isWhiteBlock) this.unexpected(null, tt.braceL);
+      node.alternate = this.isLineBreak()
+        ? this.parseWhiteBlock(false)
+        : this.parseMaybeAssign();
+    } else {
+      if (isWhiteBlock) this.unexpected(null, tt.colon);
+      node.alternate = this.parseBlock();
+    }
   } else {
     node.alternate = null;
   }
