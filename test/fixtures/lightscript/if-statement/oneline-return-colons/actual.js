@@ -1,2 +1,2 @@
-f = ->
-  if true: return 1 else: return 2
+f() ->
+  if true: 1 else: 2
