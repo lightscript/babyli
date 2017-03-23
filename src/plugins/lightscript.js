@@ -187,7 +187,6 @@ pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
   // must start with colon or arrow
   if (isIfExpression) {
     this.expect(tt.colon);
-    // TODO: allow braces
     if (!this.isLineBreak()) return this.parseMaybeAssign();
   } else if (this.eat(tt.colon)) {
     if (!this.isLineBreak()) return this.parseStatement(false);
@@ -398,15 +397,21 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 
 pp.parseIfExpression = function (node) {
   this.next();
-  node.test = this.parseExpression();
-  node.consequent = this.parseWhiteBlock(false, true);
+  node.test = this.parseParenExpression();
+  node.consequent = this.match(tt.braceL)
+    ? this.parseBlock(false)
+    : this.parseWhiteBlock(false, true);
 
   if (this.match(tt._elif)) {
     node.alternate = this.parseIfExpression(this.startNode());
   } else if (this.eat(tt._else)) {
-    node.alternate = this.match(tt._if) ?
-      this.parseIfExpression(this.startNode()) :
-      this.parseWhiteBlock(false, true);
+    if (this.match(tt._if)) {
+      node.alternate = this.parseIfExpression(this.startNode());
+    } else {
+      node.alternate = this.match(tt.braceL)
+        ? this.parseBlock(false)
+        : this.parseWhiteBlock(false, true);
+    }
   } else {
     node.alternate = null;
   }
