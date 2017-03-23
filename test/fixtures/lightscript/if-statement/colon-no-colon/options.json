@@ -1,3 +1,3 @@
 {
-  "throws": "If/else colons must match. (3:4)"
+  "throws": "Unexpected token, expected : (4:2)"
 }

@@ -95,7 +95,6 @@
             "value": 1
           }
         },
-        "isColonDelimited": false,
         "consequent": {
           "type": "BlockStatement",
           "start": 9,
