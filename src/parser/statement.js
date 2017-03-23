@@ -340,15 +340,31 @@ pp.parseFunctionStatement = function (node) {
   return this.parseFunction(node, true);
 };
 
-pp.parseIfStatement = function (node) {
+pp.parseIfStatement = function (node, mustBeWhiteBlock) {
   this.next();
   node.test = this.parseParenExpression();
+  const isWhiteBlock = this.match(tt.colon);
+  if (mustBeWhiteBlock && !isWhiteBlock) this.unexpected(null, tt.colon);
   node.consequent = this.parseStatement(false);
   if (this.hasPlugin("lightscript") && this.match(tt._elif)) {
-    node.alternate = this.parseIfStatement(this.startNode());
+    node.alternate = this.parseIfStatement(this.startNode(), isWhiteBlock);
   } else {
-    node.alternate = this.eat(tt._else) ? this.parseStatement(false) : null;
+    if (this.eat(tt._else)) {
+      if (this.hasPlugin("lightscript")) {
+        if (this.match(tt._if)) {
+          node.alternate = this.parseIfStatement(this.startNode(), isWhiteBlock);
+        } else {
+          if (isWhiteBlock && !(this.match(tt.colon))) this.unexpected(null, tt.colon);
+          node.alternate = this.parseStatement(false);
+        }
+      } else {
+        node.alternate = this.parseStatement(false);
+      }
+    } else {
+      node.alternate = null;
+    }
   }
+
   return this.finishNode(node, "IfStatement");
 };
 
