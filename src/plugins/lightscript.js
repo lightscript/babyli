@@ -181,11 +181,14 @@ pp.parseNumericLiteralMember = function () {
 
 // c/p parseBlock
 
-pp.parseWhiteBlock = function (allowDirectives?) {
+pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
 
   // must start with colon or arrow
-  if (this.eat(tt.colon)) {
+  if (isIfExpression) {
+    this.expect(tt.colon);
+    if (!this.isLineBreak()) return this.parseMaybeAssign();
+  } else if (this.eat(tt.colon)) {
     if (!this.isLineBreak()) return this.parseStatement(false);
   } else if (this.eat(tt.arrow)) {
     if (!this.isLineBreak()) {
@@ -392,28 +395,22 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 
 // c/p parseIfStatement
 
-pp.parseIfExpression = function (node, mustBeWhiteBlock) {
+pp.parseIfExpression = function (node) {
   this.next();
-  node.test = this.parseExpression();
-  const isWhiteBlock = this.match(tt.colon);
-  if (mustBeWhiteBlock && !isWhiteBlock) this.unexpected(null, tt.colon);
-  node.consequent = this.isLineBreak()
-    ? this.parseWhiteBlock(false)
-    : this.parseMaybeAssign();
+  node.test = this.parseParenExpression();
+  node.consequent = this.match(tt.braceL)
+    ? this.parseBlock(false)
+    : this.parseWhiteBlock(false, true);
 
   if (this.match(tt._elif)) {
-    node.alternate = this.parseIfExpression(this.startNode(), isWhiteBlock);
+    node.alternate = this.parseIfExpression(this.startNode());
   } else if (this.eat(tt._else)) {
     if (this.match(tt._if)) {
-      node.alternate = this.parseIfExpression(this.startNode(), isWhiteBlock);
-    } else if (this.match(tt.colon)) {
-      if (!isWhiteBlock) this.unexpected(null, tt.braceL);
-      node.alternate = this.isLineBreak()
-        ? this.parseWhiteBlock(false)
-        : this.parseMaybeAssign();
+      node.alternate = this.parseIfExpression(this.startNode());
     } else {
-      if (isWhiteBlock) this.unexpected(null, tt.colon);
-      node.alternate = this.parseBlock();
+      node.alternate = this.match(tt.braceL)
+        ? this.parseBlock(false)
+        : this.parseWhiteBlock(false, true);
     }
   } else {
     node.alternate = null;
