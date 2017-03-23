@@ -1,0 +1,103 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 21,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 1,
+      "column": 21
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 21,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 21
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "ForInArrayStatement",
+        "start": 0,
+        "end": 21,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 21
+          }
+        },
+        "idx": {
+          "type": "Identifier",
+          "start": 8,
+          "end": 9,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 8
+            },
+            "end": {
+              "line": 1,
+              "column": 9
+            },
+            "identifierName": "i"
+          },
+          "name": "i"
+        },
+        "body": {
+          "type": "BlockStatement",
+          "start": 19,
+          "end": 21,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 19
+            },
+            "end": {
+              "line": 1,
+              "column": 21
+            }
+          },
+          "body": [],
+          "directives": [],
+          "extra": {
+            "curly": true
+          }
+        },
+        "array": {
+          "type": "Identifier",
+          "start": 13,
+          "end": 18,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 13
+            },
+            "end": {
+              "line": 1,
+              "column": 18
+            },
+            "identifierName": "array"
+          },
+          "name": "array"
+        }
+      }
+    ],
+    "directives": []
+  }
+}

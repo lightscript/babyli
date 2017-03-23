@@ -65,64 +65,44 @@ pp.rewriteOperator = function (node) {
   }
 };
 
-pp.parseForFrom = function (node, iterator) {
-  this.expectContextual("from");
-  // `for i from`
-  const arrayOrRangeStart = this.parseExpression(true);
-  if (this.match(tt._thru) || this.match(tt._til)) {
-    return this.parseForFromRange(node, iterator, arrayOrRangeStart);
-  } else {
-    return this.parseForFromArray(node, iterator, null, arrayOrRangeStart);
-  }
+const MATCHING_ITER_VARS = {
+  "idx": "elem",
+  "elem": "idx",
+  "key": "val",
+  "val": "key",
 };
 
-pp.parseForFromArray = function (node, iterator, element = null, array = null) {
-  if (iterator.type !== "Identifier") this.unexpected(iterator.start);
-  if (element && element.type !== "Identifier") this.unexpected(element.start);
-  node.id = iterator;
-  node.elem = element;
-
-  if (array) {
-    node.array = array;
-  } else {
-    this.expectContextual("from");
-    node.array = this.parseMaybeAssign(true);
+pp.parseForInIterationVariable = function (node, targetType = null) {
+  const iterType = this.state.value;
+  if (targetType && targetType !== iterType) {
+    this.unexpected(null, `Unexpected token, expected ${targetType}`);
   }
+
+  this.next();
+  node[iterType] = this.parseBindingIdentifier();
+  return MATCHING_ITER_VARS[iterType];
+};
+
+pp.parseEnhancedForIn = function (node) {
+  const matchingIterationType = this.parseForInIterationVariable(node);
+  if (this.eat(tt.comma)) {
+    this.parseForInIterationVariable(node, matchingIterationType);
+  }
+
+  this.expect(tt._in);
+
+  const iterable = this.parseMaybeAssign(true);
 
   this.expectParenFreeBlockStart();
   node.body = this.parseStatement(false);
-  return this.finishNode(node, "ForFromArrayStatement");
-};
 
-pp.parseForFromRange = function (node, iterator = null, rangeStart = null) {
-  if (iterator && iterator.type === "SequenceExpression") {
-    this.unexpected(iterator.expressions[1].start, "Ranges only iterate over one variable.");
-  }
-  node.id = iterator;
-
-  if (rangeStart) {
-    // `for 0 til`
-    if (rangeStart.type === "SequenceExpression") {
-      this.unexpected(rangeStart.expressions[1].start, "Unexpected comma.");
-    }
-    node.rangeStart = rangeStart;
+  if ((matchingIterationType === "idx") || (matchingIterationType === "elem")) {
+    node.array = iterable;
+    return this.finishNode(node, "ForInArrayStatement");
   } else {
-    // `for i from 0 til`
-    this.expectContextual("from");
-    node.rangeStart = this.parseMaybeAssign(true);
+    node.object = iterable;
+    return this.finishNode(node, "ForInObjectStatement");
   }
-
-  if (this.eat(tt._thru)) {
-    node.inclusive = true;
-  } else {
-    this.expect(tt._til);
-    node.inclusive = false;
-  }
-
-  node.rangeEnd = this.parseMaybeAssign(true);
-  this.expectParenFreeBlockStart();
-  node.body = this.parseStatement(false);
-  return this.finishNode(node, "ForFromRangeStatement");
 };
 
 pp.expectParenFreeBlockStart = function () {

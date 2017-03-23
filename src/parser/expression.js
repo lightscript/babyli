@@ -184,7 +184,7 @@ pp.parseMaybeAssign = function (noIn, refShorthandDefaultPos, afterLeftParse, re
   }
 
   if (this.hasPlugin("lightscript") && isNowAssign) {
-    if (left.type === "UpdateExpression") {
+    if (left.type === "UpdateExpression" || noIn) {
       left.isNowAssign = true;
     } else {
       this.unexpected(left.start, "`now` can only be used with assignments and updates.");

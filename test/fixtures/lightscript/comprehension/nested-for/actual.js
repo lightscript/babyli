@@ -1,1 +1,1 @@
-[for let i of []: for j in {}: i + j ]
+[for let i of []: for const j in {}: i + j ]

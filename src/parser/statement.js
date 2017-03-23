@@ -303,35 +303,38 @@ pp.parseForStatement = function (node) {
     return this.parseFor(node, init);
   }
 
+  if (this.hasPlugin("lightscript") && (!forAwait)) {
+    // idx, elem, key, or val begins a LS-enhanced loop.
+    if (
+      (this.isContextual("idx") || this.isContextual("elem") || this.isContextual("key") || this.isContextual("val"))
+    ) {
+      return this.parseEnhancedForIn(node);
+    }
+  }
+
   const refShorthandDefaultPos = { start: 0 };
   const init = this.parseExpression(true, refShorthandDefaultPos);
   if (this.match(tt._in) || this.isContextual("of")) {
+    if (this.hasPlugin("lightscript") && (!init.isNowAssign)) {
+      if (this.match(tt._in)) {
+        this.raise(this.state.lastTokStart, "for-in requires a variable qualifier: `now` to reassign an existing variable, or `const`, `let`, `var` to declare a new one. Use `idx` or `elem` to iterate an array. Use `key` or `val` to iterate an object.");
+      } else {
+        this.raise(this.state.lastTokStart, "for-of requires a variable qualifier: `now` to reassign an existing variable, or `const`, `let`, `var` to declare a new one.");
+      }
+    }
+
     const description = this.isContextual("of") ? "for-of statement" : "for-in statement";
     this.toAssignable(init, undefined, description);
     this.checkLVal(init, undefined, undefined, description);
     return this.parseForIn(node, init, forAwait);
-  } else if (this.hasPlugin("lightscript") && this.isContextual("from")) {
-    if (forAwait) this.unexpected();
-
-    if (init.type === "SequenceExpression") {
-      // `for i, x from`
-      if (init.expressions.length > 2) this.unexpected(init.expressions[2].start);
-      return this.parseForFromArray(node, init.expressions[0], init.expressions[1]);
-    } else {
-      // `for i from`
-      this.toAssignable(init, undefined, "for-from statement");
-      this.checkLVal(init, undefined, undefined, "for-from statement");
-      return this.parseForFrom(node, init);
-    }
-  } else if (this.hasPlugin("lightscript") && this.match(tt._til)) {
-    // `for 0 til`
-    return this.parseForFromRange(node, null, init);
   } else if (refShorthandDefaultPos.start) {
     this.unexpected(refShorthandDefaultPos.start);
   }
+
   if (forAwait) {
     this.unexpected();
   }
+
   return this.parseFor(node, init);
 };
 

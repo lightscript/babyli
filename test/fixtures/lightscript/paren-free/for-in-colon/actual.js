@@ -1,1 +1,1 @@
-for i in []: x()
+for const i in []: x()

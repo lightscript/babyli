@@ -1,5 +1,5 @@
 <ul>
-  {[for thing of things:
+  {[for const thing of things:
       <SpecialThing />
   ]}
 </ul>

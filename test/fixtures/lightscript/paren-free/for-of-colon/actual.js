@@ -1,1 +1,1 @@
-for {x} of []: x()
+for now {x} of []: x()
