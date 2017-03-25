@@ -124,6 +124,13 @@ pp.parseArrayComprehension = function (node) {
   return this.finishNode(node, "ArrayComprehension");
 };
 
+pp.parseObjectComprehension = function(node) {
+  const loop = this.startNode();
+  node.loop = this.parseForStatement(loop);
+  this.expect(tt.braceR);
+  return this.finishNode(node, "ObjectComprehension");
+};
+
 pp.isNumberStartingWithDot = function () {
   return (
     this.match(tt.num) &&

@@ -896,6 +896,14 @@ pp.parseObj = function (isPattern, refShorthandDefaultPos) {
   node.properties = [];
   this.next();
 
+  // `for` keyword begins an object comprehension.
+  if (this.hasPlugin("lightscript") && this.match(tt._for)) {
+    // ...however, `{ for: x }` is a legal JS object.
+    if (this.lookahead().type !== tt.colon) {
+      return this.parseObjectComprehension(node);
+    }
+  }
+
   let firstRestLocation = null;
 
   while (!this.eat(tt.braceR)) {
