@@ -168,8 +168,9 @@ pp.parseNumericLiteralMember = function () {
 
 // c/p parseBlock
 
-pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?, allowEmptyBody?) {
+pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
+  let allowEmptyBody = false;
 
   // must start with colon or arrow
   if (isIfExpression) {
@@ -178,6 +179,8 @@ pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?, allowEmptyBody
   } else if (this.eat(tt.colon)) {
     if (!this.isLineBreak()) return this.parseStatement(false);
   } else if (this.eat(tt.arrow)) {
+    allowEmptyBody = true;
+
     if (!this.isLineBreak()) {
       if (this.match(tt.braceL)) {
         // restart node at brace start instead of arrow start
@@ -335,7 +338,7 @@ pp.parseArrowFunctionBody = function (node) {
   this.state.labels = [];
   this.state.inFunction = true;
 
-  node.body = this.parseWhiteBlock(true, false, true);
+  node.body = this.parseWhiteBlock(true);
 
   if (node.body.type !== "BlockStatement") {
     node.expression = true;
