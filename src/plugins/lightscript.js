@@ -168,7 +168,7 @@ pp.parseNumericLiteralMember = function () {
 
 // c/p parseBlock
 
-pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
+pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?, allowEmptyBody?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
 
   // must start with colon or arrow
@@ -197,7 +197,9 @@ pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
   // never parse directives if curly braces aren't used (TODO: document)
   this.parseBlockBody(node, false, false, indentLevel);
   this.addExtra(node, "curly", false);
-  if (!node.body.length) this.unexpected(node.start, "Expected an Indent or Statement");
+  if (!allowEmptyBody && !node.body.length) {
+    this.unexpected(node.start, "Expected an Indent or Statement");
+  }
 
   return this.finishNode(node, "BlockStatement");
 };
@@ -333,7 +335,7 @@ pp.parseArrowFunctionBody = function (node) {
   this.state.labels = [];
   this.state.inFunction = true;
 
-  node.body = this.parseWhiteBlock(true);
+  node.body = this.parseWhiteBlock(true, false, true);
 
   if (node.body.type !== "BlockStatement") {
     node.expression = true;
