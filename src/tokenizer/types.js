@@ -80,7 +80,7 @@ export const types = {
   doubleColon: new TokenType("::", { beforeExpr }),
   dot: new TokenType("."),
   question: new TokenType("?", { beforeExpr }),
-  arrow: new TokenType("=>", { beforeExpr }),
+  arrow: new TokenType("=>", { beforeExpr, startsExpr }),
   template: new TokenType("template"),
   ellipsis: new TokenType("...", { beforeExpr }),
   backQuote: new TokenType("`", { startsExpr }),

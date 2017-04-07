@@ -189,7 +189,7 @@ pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
         this.parseBlockBody(node, allowDirectives, false, tt.braceR);
         this.addExtra(node, "curly", true);
         return this.finishNode(node, "BlockStatement");
-      } else if (this.seemsLikeExpressionStart()) {
+      } else if (this.state.type.startsExpr) {
         return this.parseMaybeAssign();
       }
     }
@@ -233,19 +233,6 @@ pp.seemsLikeStatementStart = function () {
 
   // This is not accurate; could easily be a continuation of a previous expression.
   if (this.isLineBreak()) return true;
-};
-
-// ...but this may settle the aforementioned argument...
-
-pp.seemsLikeExpressionStart = function() {
-  // Check for whitespace
-  if (this.isLineBreak()) return false;
-
-  // Check token type
-  const type = this.state.type;
-  if ((type === tt.arrow) || type.startsExpr) return true;
-
-  return false;
 };
 
 pp.isFollowedByLineBreak = function () {
