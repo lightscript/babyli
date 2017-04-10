@@ -93,7 +93,7 @@ pp.parseEnhancedForIn = function (node) {
 
   const iterable = this.parseMaybeAssign(true);
 
-  this.expectParenFreeBlockStart();
+  this.expectParenFreeBlockStart(node);
   node.body = this.parseStatement(false);
 
   if ((matchingIterationType === "idx") || (matchingIterationType === "elem")) {
@@ -105,12 +105,13 @@ pp.parseEnhancedForIn = function (node) {
   }
 };
 
-pp.expectParenFreeBlockStart = function () {
+pp.expectParenFreeBlockStart = function (node) {
   // if true: blah
   // if true { blah }
   // if (true) blah
-  // TODO: ensure matching parens, not just allowing one on either side
-  if (!(this.match(tt.colon) || this.match(tt.braceL) || this.eat(tt.parenR))) {
+  if (node && node.extra && node.extra.hasParens) {
+    this.expect(tt.parenR);
+  } else if (!(this.match(tt.colon) || this.match(tt.braceL))) {
     this.unexpected(null, "Paren-free test expressions must be followed by braces or a colon.");
   }
 };
@@ -483,7 +484,29 @@ export default function (instance) {
 
   instance.extend("parseParenExpression", function (inner) {
     return function () {
-      if (this.match(tt.parenL)) return inner.apply(this, arguments);
+      // parens are special here; they might be `if (x) -1` or `if (x < 1) and y: -1`
+      if (this.match(tt.parenL)) {
+        const state = this.state.clone();
+
+        // first, try paren-free style
+        try {
+          const val = this.parseExpression();
+          if (this.match(tt.braceL) || this.match(tt.colon)) {
+            if (val.extra && val.extra.parenthesized) {
+              delete val.extra.parenthesized;
+              delete val.extra.parenStart;
+            }
+            return val;
+          }
+        } catch (_err) {
+          // fall-through, will re-raise if it's an error below
+        }
+
+        // otherwise, try traditional parseParenExpression
+        this.state = state;
+        return inner.apply(this, arguments);
+      }
+
       const val = this.parseExpression();
       this.expectParenFreeBlockStart();
       return val;

@@ -237,6 +237,8 @@ pp.parseDoStatement = function (node) {
 
   if (this.hasPlugin("lightscript")) {
     // allow parens; if not used, enforce semicolon or newline.
+    // TODO: either allow `while (a < b) and (b < c)` as per parseParenExpression
+    // or just require parens.
     if (this.eat(tt.parenL)) {
       node.test = this.parseExpression();
       this.expect(tt.parenR);
@@ -272,8 +274,9 @@ pp.parseForStatement = function (node) {
   }
 
   if (this.hasPlugin("lightscript")) {
-    // TODO: check that closing paren is/isnt there to match
-    this.eat(tt.parenL);
+    if (this.eat(tt.parenL)) {
+      this.addExtra(node, "hasParens", true);
+    }
   } else {
     this.expect(tt.parenL);
   }
@@ -450,14 +453,16 @@ pp.parseTryStatement = function (node) {
     this.next();
 
     if (this.hasPlugin("lightscript")) {
-      this.eat(tt.parenL);
+      if (this.eat(tt.parenL)) {
+        this.addExtra(clause, "hasParens", true);
+      }
     } else {
       this.expect(tt.parenL);
     }
     clause.param = this.parseBindingAtom();
     this.checkLVal(clause.param, true, Object.create(null), "catch clause");
     if (this.hasPlugin("lightscript")) {
-      this.eat(tt.parenR);
+      this.expectParenFreeBlockStart(clause);
     } else {
       this.expect(tt.parenR);
     }
@@ -617,7 +622,7 @@ pp.parseFor = function (node, init) {
   node.update = this.match(tt.parenR) ? null : this.parseExpression();
 
   if (this.hasPlugin("lightscript")) {
-    this.expectParenFreeBlockStart();
+    this.expectParenFreeBlockStart(node);
   } else {
     this.expect(tt.parenR);
   }
@@ -643,7 +648,7 @@ pp.parseForIn = function (node, init, forAwait) {
   node.right = this.parseExpression();
 
   if (this.hasPlugin("lightscript")) {
-    this.expectParenFreeBlockStart();
+    this.expectParenFreeBlockStart(node);
   } else {
     this.expect(tt.parenR);
   }
