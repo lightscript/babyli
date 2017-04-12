@@ -846,9 +846,15 @@ pp.parseNew = function () {
 
   node.callee = this.parseNoCallExpr();
 
-  if (this.eat(tt.parenL)) {
-    node.arguments = this.parseExprList(tt.parenR);
-    this.toReferencedList(node.arguments);
+  if (this.match(tt.parenL)) {
+    // Lightscript ASI: don't parse as arg list if on a different line
+    if (this.hasPlugin("lightscript") && this.isLineBreak()) {
+      node.arguments = [];
+    } else {
+      this.next();
+      node.arguments = this.parseExprList(tt.parenR);
+      this.toReferencedList(node.arguments);
+    }
   } else {
     node.arguments = [];
   }
