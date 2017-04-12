@@ -236,17 +236,14 @@ pp.parseDoStatement = function (node) {
   // b/c it expects a trailing colon or brace, which you don't have here.
 
   if (this.hasPlugin("lightscript")) {
-    // allow parens; if not used, enforce semicolon or newline.
-    // TODO: either allow `while (a < b) and (b < c)` as per parseParenExpression
-    // or just require parens.
-    if (this.eat(tt.parenL)) {
-      node.test = this.parseExpression();
-      this.expect(tt.parenR);
-      this.eat(tt.semi);
-    } else {
-      node.test = this.parseExpression();
-      this.semicolon();
+    // allow parens; enforce semicolon or newline whether they're used or not.
+    node.test = this.parseExpression();
+    if (node.test.extra && node.test.extra.parenthesized) {
+      delete node.test.extra.parenthesized;
+      delete node.test.extra.parenStart;
+      this.addExtra(node, "hasParens", true);
     }
+    this.semicolon();
   } else {
     node.test = this.parseParenExpression();
     this.eat(tt.semi);
