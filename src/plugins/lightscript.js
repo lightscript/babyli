@@ -521,6 +521,10 @@ export default function (instance) {
 
   instance.extend("parseParenExpression", function (inner) {
     return function () {
+      if (this.isLineBreak()) {
+        this.unexpected(this.state.lastTokEnd, "Illegal newline.");
+      }
+
       // parens are special here; they might be `if (x) -1` or `if (x < 1) and y: -1`
       if (this.match(tt.parenL)) {
         const state = this.state.clone();
