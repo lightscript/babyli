@@ -169,12 +169,12 @@ pp.parseNumericLiteralMember = function () {
 
 // c/p parseBlock
 
-pp.parseWhiteBlock = function (allowDirectives?, isIfExpression?) {
+pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
   let allowEmptyBody = false;
 
   // must start with colon or arrow
-  if (isIfExpression) {
+  if (isExpression) {
     this.expect(tt.colon);
     if (!this.isLineBreak()) return this.parseMaybeAssign();
   } else if (this.eat(tt.colon)) {
@@ -388,28 +388,65 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 
 // c/p parseIfStatement
 
-pp.parseIfExpression = function (node) {
+pp.parseIf = function (node, isExpression) {
   this.next();
   node.test = this.parseParenExpression();
-  node.consequent = this.match(tt.braceL)
-    ? this.parseBlock(false)
-    : this.parseWhiteBlock(false, true);
+  const indentLevel = this.state.indentLevel;
+
+  if (isExpression) {
+    node.consequent = this.match(tt.braceL)
+      ? this.parseBlock(false)
+      : this.parseWhiteBlock(false, true);
+  } else {
+    node.consequent = this.parseStatement(false);
+  }
+
+  node.alternate = this.parseIfAlternate(node, isExpression, indentLevel);
+
+  return this.finishNode(node, isExpression ? "IfExpression" : "IfStatement");
+};
+
+pp.parseIfAlternate = function (node, isExpression, indentLevel) {
+  const isColon = node.consequent.extra && node.consequent.extra.curly === false;
+
+  // if whitespace-block, must match indent level
+  if (isColon && this.state.indentLevel !== indentLevel) {
+    return null;
+  }
 
   if (this.match(tt._elif)) {
-    node.alternate = this.parseIfExpression(this.startNode());
-  } else if (this.eat(tt._else)) {
-    if (this.match(tt._if)) {
-      node.alternate = this.parseIfExpression(this.startNode());
-    } else {
-      node.alternate = this.match(tt.braceL)
-        ? this.parseBlock(false)
-        : this.parseWhiteBlock(false, true);
-    }
-  } else {
-    node.alternate = null;
+    return this.parseIf(this.startNode(), isExpression);
   }
-  return this.finishNode(node, "IfExpression");
+
+  if (this.eat(tt._else)) {
+    if (this.match(tt._if)) {
+      return this.parseIf(this.startNode(), isExpression);
+    }
+
+    if (this.isLineBreak()) {
+      this.unexpected(this.state.lastTokEnd, tt.colon);
+    }
+
+    if (isExpression) {
+      if (this.match(tt.braceL)) {
+        return this.parseBlock(false);
+      } else if (!this.match(tt.colon)) {
+        return this.parseMaybeAssign();
+      } else {
+        return this.parseWhiteBlock(false, true);
+      }
+    }
+
+    return this.parseStatement(false);
+  }
+
+  return null;
 };
+
+pp.parseIfExpression = function (node) {
+  return this.parseIf(node, true);
+};
+
 
 // c/p parseAwait
 
@@ -580,4 +617,12 @@ export default function (instance) {
       return block;
     };
   });
+
+  instance.extend("parseIfStatement", function () {
+    return function (node) {
+      return this.parseIf(node, false);
+    };
+  });
+
+
 }
