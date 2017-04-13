@@ -511,6 +511,9 @@ pp.parseCallExpressionArguments = function (close, possibleAsyncArrow, refShorth
 };
 
 pp.shouldParseAsyncArrow = function () {
+  if (this.hasPlugin("lightscript") && this.isLineBreak()) {
+    return false;
+  }
   return this.match(tt.arrow);
 };
 

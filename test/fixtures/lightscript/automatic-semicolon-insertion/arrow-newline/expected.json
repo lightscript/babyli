@@ -1,0 +1,126 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 8,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 2,
+      "column": 4
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 8,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 2,
+        "column": 4
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "ExpressionStatement",
+        "start": 0,
+        "end": 3,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 3
+          }
+        },
+        "expression": {
+          "type": "Identifier",
+          "start": 1,
+          "end": 2,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 1
+            },
+            "end": {
+              "line": 1,
+              "column": 2
+            },
+            "identifierName": "x"
+          },
+          "name": "x",
+          "extra": {
+            "parenthesized": true,
+            "parenStart": 0
+          }
+        }
+      },
+      {
+        "type": "ExpressionStatement",
+        "start": 4,
+        "end": 8,
+        "loc": {
+          "start": {
+            "line": 2,
+            "column": 0
+          },
+          "end": {
+            "line": 2,
+            "column": 4
+          }
+        },
+        "expression": {
+          "type": "ArrowFunctionExpression",
+          "start": 4,
+          "end": 8,
+          "loc": {
+            "start": {
+              "line": 2,
+              "column": 0
+            },
+            "end": {
+              "line": 2,
+              "column": 4
+            }
+          },
+          "id": null,
+          "generator": false,
+          "expression": true,
+          "async": false,
+          "params": [],
+          "skinny": false,
+          "body": {
+            "type": "NumericLiteral",
+            "start": 7,
+            "end": 8,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 3
+              },
+              "end": {
+                "line": 2,
+                "column": 4
+              }
+            },
+            "extra": {
+              "rawValue": 1,
+              "raw": "1"
+            },
+            "value": 1
+          }
+        }
+      }
+    ],
+    "directives": []
+  }
+}
