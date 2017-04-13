@@ -389,9 +389,9 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 // c/p parseIfStatement
 
 pp.parseIf = function (node, isExpression) {
+  const indentLevel = this.state.indentLevel;
   this.next();
   node.test = this.parseParenExpression();
-  const indentLevel = this.state.indentLevel;
 
   if (isExpression) {
     node.consequent = this.match(tt.braceL)

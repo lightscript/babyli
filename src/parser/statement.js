@@ -228,8 +228,16 @@ pp.parseDebuggerStatement = function (node) {
 pp.parseDoStatement = function (node) {
   this.next();
   this.state.labels.push(loopLabel);
+  let isWhiteBlock, indentLevel;
+  if (this.hasPlugin("lightscript") && this.match(tt.colon)) {
+    isWhiteBlock = true;
+    indentLevel = this.state.indentLevel;
+  }
   node.body = this.parseStatement(false);
   this.state.labels.pop();
+  if (this.hasPlugin("lightscript") && isWhiteBlock && this.state.indentLevel !== indentLevel) {
+    this.unexpected(null, "Mismatched indent.");
+  }
   this.expect(tt._while);
 
   // do-while can't use the lightscript-defined parseParenExpression
