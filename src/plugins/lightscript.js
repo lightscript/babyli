@@ -394,9 +394,13 @@ pp.parseIf = function (node, isExpression) {
   node.test = this.parseParenExpression();
 
   if (isExpression) {
-    node.consequent = this.match(tt.braceL)
-      ? this.parseBlock(false)
-      : this.parseWhiteBlock(false, true);
+    if (this.match(tt.braceL)) {
+      node.consequent = this.parseBlock(false);
+    } else if (!this.match(tt.colon)) {
+      node.consequent = this.parseMaybeAssign();
+    } else {
+      node.consequent = this.parseWhiteBlock(false, true);
+    }
   } else {
     node.consequent = this.parseStatement(false);
   }
