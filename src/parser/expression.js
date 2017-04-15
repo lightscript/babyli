@@ -701,7 +701,7 @@ pp.parseExprAtom = function (refShorthandDefaultPos) {
         return isSafe ? this.parseSafeAwait(node) : this.parseAwait(node);
       }
 
-    case tt._else:
+    case tt._else: case tt._elif:
       if (this.hasPlugin("lightscript")) {
         this.unexpected(null, "Unmatched `else` (must match indentation of the line with `if`).");
       }
