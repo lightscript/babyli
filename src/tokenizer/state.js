@@ -33,6 +33,8 @@ export default class State {
     this.leadingComments  = [];
     this.commentStack     = [];
 
+    this.blockStack = [];
+
     this.pos = this.lineStart = 0;
     this.curLine = options.startLine;
 

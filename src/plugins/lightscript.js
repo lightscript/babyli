@@ -387,19 +387,15 @@ pp.parseNamedArrowFromCallExpression = function (node, call) {
 };
 
 pp.pushBlockState = function (blockType, indentLevel) {
-  this.state.blockStack = this.state.blockStack || [];
   this.state.blockStack.push({ blockType, indentLevel });
 };
 
 pp.matchBlockState = function(blockType, indentLevel) {
-  const stack = this.state.blockStack;
-  return (stack && stack.find( (x) => x.blockType === blockType && x.indentLevel === indentLevel ))
-    ? true
-    : false;
+  return this.state.blockStack.some( (x) => x.blockType === blockType && x.indentLevel === indentLevel );
 };
 
 pp.popBlockState = function() {
-  if (this.state.blockStack) this.state.blockStack.pop();
+  this.state.blockStack.pop();
 };
 
 // c/p parseIfStatement
@@ -439,8 +435,8 @@ pp.parseIfAlternate = function (node, isExpression, ifIsWhiteBlock, ifIndentLeve
   // clause does not match the current `if` -- so unwind the recursive descent.
   const alternateIndentLevel = this.state.indentLevel;
   if (
-    ( alternateIndentLevel !== ifIndentLevel ) &&
-    ( ifIsWhiteBlock || this.matchBlockState("if", alternateIndentLevel) )
+    (alternateIndentLevel !== ifIndentLevel) &&
+    (ifIsWhiteBlock || this.matchBlockState("if", alternateIndentLevel))
   ) {
     return null;
   }
