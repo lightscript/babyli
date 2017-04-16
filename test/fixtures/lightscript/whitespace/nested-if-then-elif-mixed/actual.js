@@ -1,5 +1,5 @@
 x = if a:
-  if(b) {
+  if (b) {
     c
   }
 else:

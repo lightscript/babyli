@@ -1,4 +1,3 @@
-x =
-  if false: 1
+x = if false: 1
   elif true:
     2
