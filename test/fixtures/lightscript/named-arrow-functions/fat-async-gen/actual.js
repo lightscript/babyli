@@ -1,0 +1,2 @@
+fn() =/*>
+  yield await x
