@@ -544,6 +544,15 @@ pp.tryParseNamedArrowDeclaration = function () {
   return node;
 };
 
+pp.isBitwiseOp = function () {
+  return (
+    this.match(tt.bitwiseOR) ||
+    this.match(tt.bitwiseAND) ||
+    this.match(tt.bitwiseXOR) ||
+    this.match(tt.bitShift)
+  );
+};
+
 
 export default function (instance) {
 

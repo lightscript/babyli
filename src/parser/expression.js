@@ -246,6 +246,11 @@ pp.parseExprOp = function(left, leftStartPos, leftStartLoc, minPrec, noIn) {
     }
   }
 
+  if (this.hasPlugin("lightscript") && this.isBitwiseOp()) {
+    this.unexpected(null, "Bitwise operators have been disabled in LightScript. " +
+      "Use the stdlib functions instead (eg; `bitwiseAnd(a, b)`).");
+  }
+
   const prec = this.state.type.binop;
   if (prec != null && (!noIn || !this.match(tt._in))) {
     if (prec > minPrec) {
