@@ -413,10 +413,12 @@ export default class Tokenizer extends LocationParser {
         return this.finishToken(tt.arrow, "-*>");
       }
 
-      const next3 = this.input.charCodeAt(this.state.pos + 3);
-      if (next === 47 && next2 === 42 && next3 === 62) {
-        this.state.pos += 4;
-        return this.finishToken(tt.arrow, "-/*>");
+      if (this.hasPlugin("asyncGenerators")) {
+        const next3 = this.input.charCodeAt(this.state.pos + 3);
+        if (next === 47 && next2 === 42 && next3 === 62) {
+          this.state.pos += 4;
+          return this.finishToken(tt.arrow, "-/*>");
+        }
       }
 
       let getOrSet;
@@ -497,10 +499,12 @@ export default class Tokenizer extends LocationParser {
         return this.finishToken(tt.arrow, "=*>");
       }
 
-      const next3 = this.input.charCodeAt(this.state.pos + 3);
-      if (next === 47 && next2 === 42 && next3 === 62) {
-        this.state.pos += 4;
-        return this.finishToken(tt.arrow, "=/*>");
+      if (this.hasPlugin("asyncGenerators")) {
+        const next3 = this.input.charCodeAt(this.state.pos + 3);
+        if (next === 47 && next2 === 42 && next3 === 62) {
+          this.state.pos += 4;
+          return this.finishToken(tt.arrow, "=/*>");
+        }
       }
     }
 

@@ -1,0 +1,3 @@
+{
+  "plugins": ["lightscript", "jsx", "flow", "asyncGenerators"]
+}
