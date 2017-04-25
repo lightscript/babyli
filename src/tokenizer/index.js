@@ -297,7 +297,8 @@ export default class Tokenizer {
   //
   readToken_dot() {
     const next = this.input.charCodeAt(this.state.pos + 1);
-    if (next >= 48 && next <= 57) {
+    // in lightscript, numbers cannot start with a naked `.`
+    if (next >= 48 && next <= 57 && !this.hasPlugin("lightscript")) {
       return this.readNumber(true);
     }
 
@@ -688,9 +689,14 @@ export default class Tokenizer {
     const octal = this.input.charCodeAt(this.state.pos) === 48;
     let isFloat = false;
 
+    // for numeric array access (eg; arr.0), don't read floats (numbers with a decimal).
+    const noFloatsAllowed = this.hasPlugin("lightscript") &&
+      this.state.tokens.length > 0 &&
+      this.state.tokens[this.state.tokens.length - 1].type === tt.dot;
+
     if (!startsWithDot && this.readInt(10) === null) this.raise(start, "Invalid number");
     let next = this.input.charCodeAt(this.state.pos);
-    if (next === 46) { // '.'
+    if (next === 46 && !noFloatsAllowed) { // '.'
       ++this.state.pos;
       this.readInt(10);
       isFloat = true;
@@ -701,6 +707,10 @@ export default class Tokenizer {
       if (next === 43 || next === 45) ++this.state.pos; // '+-'
       if (this.readInt(10) === null) this.raise(start, "Invalid number");
       isFloat = true;
+    }
+    // don't read the decimal if it's not followed by a number; `1.` is illegal, must do `1.0`
+    if (this.hasPlugin("lightscript") && this.input.charCodeAt(this.state.pos - 1) === 46) {
+      --this.state.pos;
     }
     if (isIdentifierStart(this.fullCharCodeAtPos())) this.raise(this.state.pos, "Identifier directly after number");
 

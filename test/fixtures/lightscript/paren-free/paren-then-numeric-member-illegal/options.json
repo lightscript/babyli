@@ -1,0 +1,3 @@
+{
+  "throws": "Decimal numbers must be prefixed with a `0` in LightScript (eg; `0.1`). (1:7)"
+}

@@ -132,41 +132,6 @@ pp.parseObjectComprehension = function(node) {
   return this.finishNode(node, "ObjectComprehension");
 };
 
-pp.isNumberStartingWithDot = function () {
-  return (
-    this.match(tt.num) &&
-    this.state.input.charCodeAt(this.state.start) === 46  // "."
-  );
-};
-
-// the tokenizer reads dots directly into numbers,
-// so "x.1" is tokenized as ["x", .1] not ["x", ".", 1]
-// therefore, we have to hack, reading the number back into a string
-// and parsing out the dot.
-
-pp.parseNumericLiteralMember = function () {
-  // 0.1 -> 1, 0 -> 0
-  let numStr = String(this.state.value);
-  if (numStr.indexOf("0.") === 0) {
-    numStr = numStr.slice(2);
-  } else if (numStr !== "0") {
-    this.unexpected();
-  }
-  const num = parseInt(numStr, 10);
-
-  // must also remove "." from the "raw" property,
-  // b/c that's what's inserted in code
-
-  const node = this.parseLiteral(num, "NumericLiteral");
-  if (node.extra.raw.indexOf(".") === 0) {
-    node.extra.raw = node.extra.raw.slice(1);
-  } else {
-    this.unexpected();
-  }
-
-  return node;
-};
-
 // c/p parseBlock
 
 pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {

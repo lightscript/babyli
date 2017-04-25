@@ -1,0 +1,3 @@
+{
+  "throws": "Numbers with a decimal must end in a number (eg; `1.0`) in LightScript. (1:3)"
+}

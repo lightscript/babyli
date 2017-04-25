@@ -75,12 +75,12 @@
           },
           "property": {
             "type": "NumericLiteral",
-            "start": 4,
+            "start": 5,
             "end": 6,
             "loc": {
               "start": {
                 "line": 2,
-                "column": 2
+                "column": 3
               },
               "end": {
                 "line": 2,
