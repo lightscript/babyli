@@ -413,6 +413,12 @@ export default class Tokenizer extends LocationParser {
         return this.finishToken(tt.arrow, "-*>");
       }
 
+      const next3 = this.input.charCodeAt(this.state.pos + 3);
+      if (next === 47 && next2 === 42 && next3 === 62) {
+        this.state.pos += 4;
+        return this.finishToken(tt.arrow, "-/*>");
+      }
+
       let getOrSet;
       if (next === 103) getOrSet = "get";
       if (next === 115) getOrSet = "set";
@@ -489,6 +495,12 @@ export default class Tokenizer extends LocationParser {
       if (next === 42 && next2 === 62) {
         this.state.pos += 3;
         return this.finishToken(tt.arrow, "=*>");
+      }
+
+      const next3 = this.input.charCodeAt(this.state.pos + 3);
+      if (next === 47 && next2 === 42 && next3 === 62) {
+        this.state.pos += 4;
+        return this.finishToken(tt.arrow, "=/*>");
       }
     }
 
