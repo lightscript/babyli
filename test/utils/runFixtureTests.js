@@ -126,6 +126,11 @@ function save(test, ast) {
   RegExp.prototype.toJSON = toJSON;
 }
 
+function saveLscErr(test, msg) {
+  const lscOptionsLoc = test.actual.loc.replace("actual.js", "options.lightscript.json");
+  require("fs").writeFileSync(lscOptionsLoc, JSON.stringify({ throws: msg }, null, "  "));
+}
+
 function runTest(test, parseFunction) {
   var opts = test.options;
   opts.locations = true;
@@ -146,7 +151,7 @@ function runTest(test, parseFunction) {
         throw err;
       }
     }
-
+    // saveLscErr(test, err.message);
     throw err;
   }
 
