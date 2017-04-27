@@ -1,0 +1,352 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 44,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 1,
+      "column": 44
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 44,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 1,
+        "column": 44
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "ForInArrayStatement",
+        "start": 0,
+        "end": 44,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 44
+          }
+        },
+        "elem": {
+          "type": "ObjectPattern",
+          "start": 9,
+          "end": 34,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 9
+            },
+            "end": {
+              "line": 1,
+              "column": 34
+            }
+          },
+          "properties": [
+            {
+              "type": "ObjectProperty",
+              "start": 11,
+              "end": 12,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 11
+                },
+                "end": {
+                  "line": 1,
+                  "column": 12
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 11,
+                "end": 12,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  },
+                  "identifierName": "a"
+                },
+                "name": "a"
+              },
+              "value": {
+                "type": "Identifier",
+                "start": 11,
+                "end": 12,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 11
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12
+                  },
+                  "identifierName": "a"
+                },
+                "name": "a"
+              },
+              "extra": {
+                "shorthand": true
+              }
+            },
+            {
+              "type": "ObjectProperty",
+              "start": 14,
+              "end": 25,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 14
+                },
+                "end": {
+                  "line": 1,
+                  "column": 25
+                }
+              },
+              "method": false,
+              "shorthand": false,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 14,
+                "end": 15,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 14
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 15
+                  },
+                  "identifierName": "b"
+                },
+                "name": "b"
+              },
+              "value": {
+                "type": "ObjectPattern",
+                "start": 17,
+                "end": 25,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 17
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25
+                  }
+                },
+                "properties": [
+                  {
+                    "type": "ObjectProperty",
+                    "start": 19,
+                    "end": 23,
+                    "loc": {
+                      "start": {
+                        "line": 1,
+                        "column": 19
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 23
+                      }
+                    },
+                    "method": false,
+                    "shorthand": false,
+                    "computed": false,
+                    "key": {
+                      "type": "Identifier",
+                      "start": 19,
+                      "end": 20,
+                      "loc": {
+                        "start": {
+                          "line": 1,
+                          "column": 19
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 20
+                        },
+                        "identifierName": "c"
+                      },
+                      "name": "c"
+                    },
+                    "value": {
+                      "type": "Identifier",
+                      "start": 22,
+                      "end": 23,
+                      "loc": {
+                        "start": {
+                          "line": 1,
+                          "column": 22
+                        },
+                        "end": {
+                          "line": 1,
+                          "column": 23
+                        },
+                        "identifierName": "d"
+                      },
+                      "name": "d"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "type": "ObjectProperty",
+              "start": 27,
+              "end": 32,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 27
+                },
+                "end": {
+                  "line": 1,
+                  "column": 32
+                }
+              },
+              "method": false,
+              "shorthand": true,
+              "computed": false,
+              "key": {
+                "type": "Identifier",
+                "start": 27,
+                "end": 28,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 27
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 28
+                  },
+                  "identifierName": "e"
+                },
+                "name": "e"
+              },
+              "value": {
+                "type": "AssignmentPattern",
+                "start": 27,
+                "end": 32,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 27
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 32
+                  }
+                },
+                "left": {
+                  "type": "Identifier",
+                  "start": 27,
+                  "end": 28,
+                  "loc": {
+                    "start": {
+                      "line": 1,
+                      "column": 27
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 28
+                    },
+                    "identifierName": "e"
+                  },
+                  "name": "e"
+                },
+                "right": {
+                  "type": "NumericLiteral",
+                  "start": 31,
+                  "end": 32,
+                  "loc": {
+                    "start": {
+                      "line": 1,
+                      "column": 31
+                    },
+                    "end": {
+                      "line": 1,
+                      "column": 32
+                    }
+                  },
+                  "extra": {
+                    "rawValue": 1,
+                    "raw": "1"
+                  },
+                  "value": 1
+                }
+              },
+              "extra": {
+                "shorthand": true
+              }
+            }
+          ]
+        },
+        "body": {
+          "type": "BlockStatement",
+          "start": 42,
+          "end": 44,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 42
+            },
+            "end": {
+              "line": 1,
+              "column": 44
+            }
+          },
+          "body": [],
+          "directives": [],
+          "extra": {
+            "curly": true
+          }
+        },
+        "array": {
+          "type": "Identifier",
+          "start": 38,
+          "end": 41,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 38
+            },
+            "end": {
+              "line": 1,
+              "column": 41
+            },
+            "identifierName": "arr"
+          },
+          "name": "arr"
+        }
+      }
+    ],
+    "directives": []
+  }
+}
