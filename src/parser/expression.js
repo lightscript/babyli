@@ -390,13 +390,7 @@ pp.parseSubscripts = function (base, startPos, startLoc, noCalls) {
     } else if (this.hasPlugin("lightscript") && !noCalls && this.eat(tt.tilde)) {
       const node = this.startNodeAt(startPos, startLoc);
       node.left = base;
-      let right;
-      if (this.match(tt._this)) {
-        right = this.parseExprAtom();
-      } else {
-        // allow Identifier or MemberExpression, but not calls
-        right = this.parseIdentifier();
-      }
+      const right = this.match(tt._this) ? this.parseExprAtom() : this.parseIdentifier();
       node.right = this.parseSubscripts(right, this.state.start, this.state.startLoc, true);
 
       this.expect(tt.parenL);
