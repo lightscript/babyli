@@ -390,8 +390,16 @@ pp.parseSubscripts = function (base, startPos, startLoc, noCalls) {
     } else if (this.hasPlugin("lightscript") && !noCalls && this.eat(tt.tilde)) {
       const node = this.startNodeAt(startPos, startLoc);
       node.left = base;
-      // allow Identifier or MemberExpression, but not calls
-      node.right = this.parseSubscripts(this.parseIdentifier(), this.state.start, this.state.startLoc, true);
+      let right;
+      if (this.state.value === 'this') {
+        const thisNode = this.startNode();
+        this.next();
+        right = this.finishNode(thisNode, "ThisExpression");
+      } else {
+        // allow Identifier or MemberExpression, but not calls
+        right = this.parseIdentifier();
+      }
+      node.right = this.parseSubscripts(right, this.state.start, this.state.startLoc, true);
 
       this.expect(tt.parenL);
       node.arguments = this.parseCallExpressionArguments(tt.parenR, false);
