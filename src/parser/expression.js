@@ -391,10 +391,8 @@ pp.parseSubscripts = function (base, startPos, startLoc, noCalls) {
       const node = this.startNodeAt(startPos, startLoc);
       node.left = base;
       let right;
-      if (this.state.value === 'this') {
-        const thisNode = this.startNode();
-        this.next();
-        right = this.finishNode(thisNode, "ThisExpression");
+      if (this.match(tt._this)) {
+        right = this.parseExprAtom();
       } else {
         // allow Identifier or MemberExpression, but not calls
         right = this.parseIdentifier();
