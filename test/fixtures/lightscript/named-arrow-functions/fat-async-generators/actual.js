@@ -1,2 +1,2 @@
-fn() =/*>
+fn() =*/>
   yield await x
