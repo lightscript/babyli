@@ -418,6 +418,11 @@ pp.parseSubscripts = function (base, startPos, startLoc, noCalls) {
         this.unexpected();
       }
       base = this.finishNode(node, "SafeMemberExpression");
+    } else if (this.hasPlugin("lightscript") && this.match(tt.question) && this.state.lastTokEnd === (this.state.pos - 1)) {
+      // A `?` immediately following an expr (no whitespace) could be a
+      // safecall, ternary, or existential.
+      const next = this.parseQuestionSubscript(base, startPos, startLoc, noCalls);
+      if (next) base = next; else return base;
     } else if (this.hasPlugin("lightscript") && !noCalls && this.match(tt.tilde)) {
       if (this.isNonIndentedBreakFrom(startPos)) {
         this.unexpected(null, "Indentation required.");
@@ -428,6 +433,9 @@ pp.parseSubscripts = function (base, startPos, startLoc, noCalls) {
       // allow `this`, Identifier or MemberExpression, but not calls
       const right = this.match(tt._this) ? this.parseExprAtom() : this.parseIdentifier();
       node.right = this.parseSubscripts(right, this.state.start, this.state.startLoc, true);
+
+      // Allow safe tilde calls (a~b?(c))
+      if (this.eat(tt.question)) node.safe = true;
 
       this.expect(tt.parenL);
       node.arguments = this.parseCallExpressionArguments(tt.parenR, false);
