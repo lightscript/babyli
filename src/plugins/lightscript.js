@@ -537,6 +537,7 @@ pp.parseExistential = function(expr, startPos, startLoc) {
 
 pp.parseQuestionSubscript = function(lhs, startPos, startLoc, noCalls) {
   const questionPos = this.state.pos;
+  const questionLine = this.state.curLine;
   const state = this.state.clone();
 
   this.eat(tt.question);
@@ -553,7 +554,7 @@ pp.parseQuestionSubscript = function(lhs, startPos, startLoc, noCalls) {
   }
 
   // If the next token startsExpr, this is a ternary -- unwind recursive descent
-  if (this.state.type.startsExpr) {
+  if (this.state.type.startsExpr && this.state.curLine === questionLine) {
     this.state = state;
     return null;
   }
