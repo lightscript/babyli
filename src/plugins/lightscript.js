@@ -138,7 +138,6 @@ pp.parseObjectComprehension = function(node) {
 
 pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
-  let allowEmptyBody = false;
 
   // must start with colon or arrow
   if (isExpression) {
@@ -147,8 +146,6 @@ pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
   } else if (this.eat(tt.colon)) {
     if (!this.isLineBreak()) return this.parseStatement(false);
   } else if (this.eat(tt.arrow)) {
-    allowEmptyBody = true;
-
     if (!this.isLineBreak()) {
       if (this.match(tt.braceL)) {
         // restart node at brace start instead of arrow start
@@ -157,7 +154,7 @@ pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
         this.parseBlockBody(node, allowDirectives, false, tt.braceR);
         this.addExtra(node, "curly", true);
         return this.finishNode(node, "BlockStatement");
-      } else if (this.state.type.startsExpr) {
+      } else {
         return this.parseMaybeAssign();
       }
     }
@@ -168,9 +165,7 @@ pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
   // never parse directives if curly braces aren't used (TODO: document)
   this.parseBlockBody(node, false, false, indentLevel);
   this.addExtra(node, "curly", false);
-  if (!allowEmptyBody && !node.body.length) {
-    this.unexpected(node.start, "Expected an Indent or Statement");
-  }
+  if (!node.body.length) this.unexpected(node.start, "Expected an Indent or Statement");
 
   return this.finishNode(node, "BlockStatement");
 };
