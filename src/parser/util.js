@@ -65,7 +65,18 @@ pp.isLineBreak = function () {
 pp.canInsertSemicolon = function () {
   return this.match(tt.eof) ||
     this.match(tt.braceR) ||
-    this.isLineBreak();
+    this.isLineBreak() ||
+    (this.hasPlugin("lightscript") && (
+      // LSC oneline statement ASI cases
+      // Allow if x: throw y else: throw z
+      this.match(tt._else) ||
+      this.match(tt._elif) ||
+      // Allow (-> throw new Error)()
+      this.match(tt.parenR) ||
+      // Technically it is legal to insert a ; after a ;.
+      // Allows -> throw new Error; f()
+      this.state.tokens[this.state.tokens.length - 1].type === tt.semi
+    ));
 };
 
 // TODO

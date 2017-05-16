@@ -134,40 +134,41 @@ pp.parseObjectComprehension = function(node) {
   return this.finishNode(node, "ObjectComprehension");
 };
 
-// c/p parseBlock
+pp.parseInlineWhiteBlock = function(node) {
+  if (this.state.type.startsExpr) return this.parseMaybeAssign();
+  // oneline statement case
+  node.body = [this.parseStatement(true)];
+  node.directives = [];
+  this.addExtra(node, "curly", false);
+  return this.finishNode(node, "BlockStatement");
+};
 
-pp.parseWhiteBlock = function (allowDirectives?, isExpression?) {
-  const node = this.startNode(), indentLevel = this.state.indentLevel;
-
-  // must start with colon or arrow
-  if (isExpression) {
-    this.expect(tt.colon);
-    if (!this.isLineBreak()) return this.parseMaybeAssign();
-  } else if (this.eat(tt.colon)) {
-    if (!this.isLineBreak()) return this.parseStatement(false);
-  } else if (this.eat(tt.arrow)) {
-    if (!this.isLineBreak()) {
-      if (this.match(tt.braceL)) {
-        // restart node at brace start instead of arrow start
-        const node = this.startNode();
-        this.next();
-        this.parseBlockBody(node, allowDirectives, false, tt.braceR);
-        this.addExtra(node, "curly", true);
-        return this.finishNode(node, "BlockStatement");
-      } else {
-        return this.parseMaybeAssign();
-      }
-    }
-  } else {
-    this.unexpected(null, "Whitespace Block must start with a colon or arrow");
+pp.parseMultilineWhiteBlock = function(node, indentLevel) {
+  this.parseBlockBody(node, false, false, indentLevel);
+  if (!node.body.length) {
+    this.unexpected(node.start, "Expected an Indent or Statement");
   }
 
-  // never parse directives if curly braces aren't used (TODO: document)
-  this.parseBlockBody(node, false, false, indentLevel);
   this.addExtra(node, "curly", false);
-  if (!node.body.length) this.unexpected(node.start, "Expected an Indent or Statement");
-
   return this.finishNode(node, "BlockStatement");
+};
+
+pp.parseWhiteBlock = function (isExpression?) {
+  const node = this.startNode(), indentLevel = this.state.indentLevel;
+
+  if (!this.eat(tt.colon)) this.unexpected(null, "Whitespace Block must start with a colon or arrow");
+
+  // Oneline whiteblock
+  if (!this.isLineBreak()) {
+    if (isExpression) {
+      return this.parseInlineWhiteBlock(node);
+    } else {
+      return this.parseStatement(false);
+    }
+  }
+
+  // TODO: document the fact that directives aren't parsed
+  return this.parseMultilineWhiteBlock(node, indentLevel);
 };
 
 pp.expectCommaOrLineBreak = function () {
@@ -301,7 +302,23 @@ pp.parseArrowFunctionBody = function (node) {
   this.state.labels = [];
   this.state.inFunction = true;
 
-  node.body = this.parseWhiteBlock(true);
+  const indentLevel = this.state.indentLevel;
+  const nodeAtArrow = this.startNode();
+  this.expect(tt.arrow);
+  if (!this.isLineBreak()) {
+    if (this.match(tt.braceL)) {
+      // restart node at brace start instead of arrow start
+      node.body = this.startNode();
+      this.next();
+      this.parseBlockBody(node.body, true, false, tt.braceR);
+      this.addExtra(node.body, "curly", true);
+      node.body = this.finishNode(node.body, "BlockStatement");
+    } else {
+      node.body = this.parseInlineWhiteBlock(nodeAtArrow);
+    }
+  } else {
+    node.body = this.parseMultilineWhiteBlock(nodeAtArrow, indentLevel);
+  }
 
   if (node.body.type !== "BlockStatement") {
     node.expression = true;
@@ -376,7 +393,7 @@ pp.parseIf = function (node, isExpression) {
     } else if (!isColon) {
       node.consequent = this.parseMaybeAssign();
     } else {
-      node.consequent = this.parseWhiteBlock(false, true);
+      node.consequent = this.parseWhiteBlock(true);
     }
   } else {
     node.consequent = this.parseStatement(false);
@@ -425,7 +442,7 @@ pp.parseIfAlternate = function (node, isExpression, ifIsWhiteBlock, ifIndentLeve
       } else if (!this.match(tt.colon)) {
         return this.parseMaybeAssign();
       } else {
-        return this.parseWhiteBlock(false, true);
+        return this.parseWhiteBlock(true);
       }
     }
 
@@ -613,9 +630,9 @@ export default function (instance) {
   // whitespace following a colon
 
   instance.extend("parseBlock", function (inner) {
-    return function (allowDirectives) {
+    return function () {
       if (this.match(tt.colon)) {
-        return this.parseWhiteBlock(allowDirectives);
+        return this.parseWhiteBlock();
       }
       const block = inner.apply(this, arguments);
       this.addExtra(block, "curly", true);
