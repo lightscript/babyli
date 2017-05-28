@@ -68,8 +68,7 @@
               "end": {
                 "line": 1,
                 "column": 5
-              },
-              "identifierName": "f"
+              }
             },
             "name": "f"
           },
@@ -86,8 +85,7 @@
                 "end": {
                   "line": 1,
                   "column": 7
-                },
-                "identifierName": "g"
+                }
               },
               "name": "g"
             },
@@ -132,8 +130,7 @@
                     "end": {
                       "line": 1,
                       "column": 13
-                    },
-                    "identifierName": "h"
+                    }
                   },
                   "name": "h"
                 },
@@ -149,8 +146,7 @@
                     "end": {
                       "line": 1,
                       "column": 17
-                    },
-                    "identifierName": "i"
+                    }
                   },
                   "name": "i"
                 }
@@ -159,7 +155,6 @@
           ]
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

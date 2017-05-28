@@ -70,8 +70,7 @@
                 "end": {
                   "line": 1,
                   "column": 16
-                },
-                "identifierName": "encrypt"
+                }
               },
               "name": "encrypt"
             },
@@ -87,8 +86,7 @@
                 "end": {
                   "line": 1,
                   "column": 16
-                },
-                "identifierName": "encrypt"
+                }
               },
               "name": "encrypt"
             }
@@ -96,7 +94,7 @@
         ],
         "source": null
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

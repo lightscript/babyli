@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 24
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -106,7 +105,7 @@
                     {
                       "type": "ObjectTypeProperty",
                       "start": 8,
-                      "end": 22,
+                      "end": 23,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -114,7 +113,7 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 22
+                          "column": 23
                         }
                       },
                       "key": {
@@ -129,13 +128,10 @@
                           "end": {
                             "line": 1,
                             "column": 14
-                          },
-                          "identifierName": "numVal"
+                          }
                         },
                         "name": "numVal"
                       },
-                      "static": false,
-                      "kind": "init",
                       "value": {
                         "type": "NumberTypeAnnotation",
                         "start": 16,
@@ -151,12 +147,11 @@
                           }
                         }
                       },
-                      "variance": null,
-                      "optional": false
+                      "optional": false,
+                      "variance": null
                     }
                   ],
-                  "indexers": [],
-                  "exact": false
+                  "indexers": []
                 }
               }
             },
@@ -165,7 +160,7 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

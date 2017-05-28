@@ -69,8 +69,7 @@
               "end": {
                 "line": 1,
                 "column": 1
-              },
-              "identifierName": "x"
+              }
             },
             "name": "x"
           },
@@ -130,7 +129,6 @@
                 "id": null,
                 "generator": false,
                 "expression": false,
-                "async": false,
                 "params": [
                   {
                     "type": "Identifier",
@@ -144,8 +142,7 @@
                       "end": {
                         "line": 1,
                         "column": 18
-                      },
-                      "identifierName": "w"
+                      }
                     },
                     "name": "w"
                   }
@@ -206,8 +203,7 @@
                             "end": {
                               "line": 1,
                               "column": 28
-                            },
-                            "identifierName": "m_null"
+                            }
                           },
                           "name": "m_null"
                         },
@@ -223,8 +219,7 @@
                             "end": {
                               "line": 1,
                               "column": 32
-                            },
-                            "identifierName": "w"
+                            }
                           },
                           "name": "w"
                         }

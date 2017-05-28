@@ -146,7 +146,7 @@
                   }
                 },
                 {
-                  "type": "SpreadElement",
+                  "type": "SpreadProperty",
                   "start": 8,
                   "end": 12,
                   "loc": {

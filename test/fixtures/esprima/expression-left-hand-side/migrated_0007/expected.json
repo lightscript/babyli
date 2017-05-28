@@ -96,15 +96,13 @@
                   "end": {
                     "line": 1,
                     "column": 9
-                  },
-                  "identifierName": "foo"
+                  }
                 },
                 "name": "foo"
               },
               "arguments": [],
               "extra": {
-                "parenthesized": true,
-                "parenStart": 0
+                "parenthesized": true
               }
             },
             "property": {
@@ -119,8 +117,7 @@
                 "end": {
                   "line": 1,
                   "column": 14
-                },
-                "identifierName": "bar"
+                }
               },
               "name": "bar"
             },

@@ -181,10 +181,7 @@
                       "column": 16
                     }
                   },
-                  "extra": {
-                    "rawValue": " ",
-                    "raw": "\" \""
-                  },
+                  "extra": null,
                   "value": " "
                 }
               },
@@ -232,10 +229,7 @@
                       "column": 26
                     }
                   },
-                  "extra": {
-                    "rawValue": "&",
-                    "raw": "\"&amp;\""
-                  },
+                  "extra": null,
                   "value": "&"
                 }
               },
@@ -283,10 +277,7 @@
                       "column": 37
                     }
                   },
-                  "extra": {
-                    "rawValue": "&ampr;",
-                    "raw": "\"&ampr;\""
-                  },
+                  "extra": null,
                   "value": "&ampr;"
                 }
               }

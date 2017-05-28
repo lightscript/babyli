@@ -100,8 +100,7 @@
                     "end": {
                       "line": 1,
                       "column": 5
-                    },
-                    "identifierName": "xxx"
+                    }
                   },
                   "name": "xxx"
                 },
@@ -155,8 +154,7 @@
                     "end": {
                       "line": 1,
                       "column": 13
-                    },
-                    "identifierName": "yyy"
+                    }
                   },
                   "name": "yyy"
                 },
@@ -216,7 +214,7 @@
                 {
                   "type": "ObjectTypeProperty",
                   "start": 24,
-                  "end": 35,
+                  "end": 36,
                   "loc": {
                     "start": {
                       "line": 1,
@@ -224,7 +222,7 @@
                     },
                     "end": {
                       "line": 1,
-                      "column": 35
+                      "column": 36
                     }
                   },
                   "key": {
@@ -239,13 +237,10 @@
                       "end": {
                         "line": 1,
                         "column": 27
-                      },
-                      "identifierName": "xxx"
+                      }
                     },
                     "name": "xxx"
                   },
-                  "static": false,
-                  "kind": "init",
                   "value": {
                     "type": "NumberTypeAnnotation",
                     "start": 29,
@@ -261,8 +256,8 @@
                       }
                     }
                   },
-                  "variance": null,
-                  "optional": false
+                  "optional": false,
+                  "variance": null
                 },
                 {
                   "type": "ObjectTypeProperty",
@@ -290,13 +285,10 @@
                       "end": {
                         "line": 1,
                         "column": 40
-                      },
-                      "identifierName": "yyy"
+                      }
                     },
                     "name": "yyy"
                   },
-                  "static": false,
-                  "kind": "init",
                   "value": {
                     "type": "StringTypeAnnotation",
                     "start": 42,
@@ -312,17 +304,15 @@
                       }
                     }
                   },
-                  "variance": null,
-                  "optional": false
+                  "optional": false,
+                  "variance": null
                 }
               ],
-              "indexers": [],
-              "exact": false
+              "indexers": []
             }
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

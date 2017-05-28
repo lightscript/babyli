@@ -54,8 +54,7 @@
             "end": {
               "line": 1,
               "column": 12
-            },
-            "identifierName": "foo"
+            }
           },
           "name": "foo"
         },
@@ -107,8 +106,7 @@
                     "end": {
                       "line": 1,
                       "column": 15
-                    },
-                    "identifierName": "x"
+                    }
                   },
                   "name": "x"
                 },
@@ -124,13 +122,9 @@
                     "end": {
                       "line": 1,
                       "column": 15
-                    },
-                    "identifierName": "x"
+                    }
                   },
                   "name": "x"
-                },
-                "extra": {
-                  "shorthand": true
                 }
               }
             ],
@@ -167,7 +161,7 @@
                   {
                     "type": "ObjectTypeProperty",
                     "start": 20,
-                    "end": 29,
+                    "end": 30,
                     "loc": {
                       "start": {
                         "line": 1,
@@ -175,7 +169,7 @@
                       },
                       "end": {
                         "line": 1,
-                        "column": 29
+                        "column": 30
                       }
                     },
                     "key": {
@@ -190,13 +184,10 @@
                         "end": {
                           "line": 1,
                           "column": 21
-                        },
-                        "identifierName": "x"
+                        }
                       },
                       "name": "x"
                     },
-                    "static": false,
-                    "kind": "init",
                     "value": {
                       "type": "StringTypeAnnotation",
                       "start": 23,
@@ -212,12 +203,11 @@
                         }
                       }
                     },
-                    "variance": null,
-                    "optional": false
+                    "optional": false,
+                    "variance": null
                   }
                 ],
-                "indexers": [],
-                "exact": false
+                "indexers": []
               }
             }
           }

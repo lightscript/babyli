@@ -146,10 +146,7 @@
                       "column": 14
                     }
                   },
-                  "extra": {
-                    "rawValue": "bar",
-                    "raw": "\"bar\""
-                  },
+                  "extra": null,
                   "value": "bar"
                 }
               }
@@ -218,10 +215,7 @@
                   "column": 16
                 }
               },
-              "extra": {
-                "rawValue": " ",
-                "raw": " "
-              },
+              "extra": null,
               "value": " "
             },
             {
@@ -250,8 +244,7 @@
                   "end": {
                     "line": 1,
                     "column": 22
-                  },
-                  "identifierName": "value"
+                  }
                 },
                 "name": "value"
               }
@@ -270,10 +263,7 @@
                   "column": 24
                 }
               },
-              "extra": {
-                "rawValue": " ",
-                "raw": " "
-              },
+              "extra": null,
               "value": " "
             },
             {

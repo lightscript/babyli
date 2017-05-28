@@ -133,8 +133,7 @@
               "value": 2
             },
             "extra": {
-              "parenthesized": true,
-              "parenStart": 5
+              "parenthesized": true
             }
           }
         }

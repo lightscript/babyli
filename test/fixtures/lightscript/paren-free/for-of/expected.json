@@ -42,7 +42,6 @@
             "column": 22
           }
         },
-        "await": false,
         "left": {
           "type": "VariableDeclaration",
           "start": 4,

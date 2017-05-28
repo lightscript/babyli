@@ -2521,8 +2521,7 @@
                         "end": {
                           "line": 12,
                           "column": 18
-                        },
-                        "identifierName": "foo"
+                        }
                       },
                       "name": "foo"
                     },
@@ -2555,8 +2554,7 @@
                             "end": {
                               "line": 12,
                               "column": 29
-                            },
-                            "identifierName": "qux7"
+                            }
                           },
                           "name": "qux7"
                         }
@@ -2577,8 +2575,7 @@
                   "end": {
                     "line": 12,
                     "column": 39
-                  },
-                  "identifierName": "bar"
+                  }
                 },
                 "name": "bar"
               }

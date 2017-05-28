@@ -42,10 +42,6 @@
             "column": 30
           }
         },
-        "extra": {
-          "hasParens": true
-        },
-        "await": false,
         "left": {
           "type": "Identifier",
           "start": 34,
@@ -62,8 +58,7 @@
             "identifierName": "x"
           },
           "name": "x",
-          "leadingComments": null,
-          "isNowAssign": true
+          "leadingComments": null
         },
         "right": {
           "type": "Identifier",

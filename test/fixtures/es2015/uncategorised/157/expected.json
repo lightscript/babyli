@@ -87,7 +87,6 @@
                     "column": 27
                   }
                 },
-                "static": false,
                 "computed": false,
                 "key": {
                   "type": "Identifier",
@@ -101,16 +100,15 @@
                     "end": {
                       "line": 1,
                       "column": 9
-                    },
-                    "identifierName": "f"
+                    }
                   },
                   "name": "f"
                 },
+                "static": false,
                 "kind": "method",
                 "id": null,
                 "generator": false,
                 "expression": false,
-                "async": false,
                 "params": [
                   {
                     "type": "AssignmentPattern",
@@ -170,8 +168,7 @@
                               "end": {
                                 "line": 1,
                                 "column": 12
-                              },
-                              "identifierName": "x"
+                              }
                             },
                             "name": "x"
                           },
@@ -187,13 +184,9 @@
                               "end": {
                                 "line": 1,
                                 "column": 12
-                              },
-                              "identifierName": "x"
+                              }
                             },
                             "name": "x"
-                          },
-                          "extra": {
-                            "shorthand": true
                           }
                         }
                       ]
@@ -242,8 +235,7 @@
                               "end": {
                                 "line": 1,
                                 "column": 18
-                              },
-                              "identifierName": "x"
+                              }
                             },
                             "name": "x"
                           },
@@ -293,8 +285,7 @@
             ]
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

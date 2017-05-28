@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 10
-            },
-            "identifierName": "x"
+            }
           },
           "name": "x"
         },
         "generator": false,
         "expression": false,
-        "async": false,
         "params": [
           {
             "type": "ArrayPattern",
@@ -90,8 +88,7 @@
                   "end": {
                     "line": 1,
                     "column": 14
-                  },
-                  "identifierName": "a"
+                  }
                 },
                 "name": "a"
               },
@@ -107,8 +104,7 @@
                   "end": {
                     "line": 1,
                     "column": 17
-                  },
-                  "identifierName": "b"
+                  }
                 },
                 "name": "b"
               }
@@ -129,11 +125,10 @@
               "column": 22
             }
           },
-          "body": [],
-          "directives": []
+          "body": []
         }
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

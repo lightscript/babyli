@@ -1,14 +1,9 @@
 /* eslint max-len: 0 */
 
-// @flow
-
 import type { TokenType } from "./types";
-import type { Options } from "../options";
-import type { Position } from "../util/location";
 import { isIdentifierStart, isIdentifierChar, isKeyword } from "../util/identifier";
 import { types as tt, keywords as keywordTypes } from "./types";
-import { type TokContext, types as ct } from "./context";
-import LocationParser from "../parser/location";
+import { types as ct } from "./context";
 import { SourceLocation } from "../util/location";
 import { lineBreak, lineBreakG, isNewLine, nonASCIIwhitespace } from "../util/whitespace";
 import State from "./state";
@@ -18,7 +13,7 @@ import State from "./state";
 // used for the onToken callback and the external tokenizer.
 
 export class Token {
-  constructor(state: State) {
+  constructor(state) {
     this.type = state.type;
     this.value = state.value;
     this.start = state.start;
@@ -35,7 +30,7 @@ export class Token {
 
 // ## Tokenizer
 
-function codePointToString(code: number): string {
+function codePointToString(code) {
   // UTF-16 Decoding
   if (code <= 0xFFFF) {
     return String.fromCharCode(code);
@@ -44,22 +39,15 @@ function codePointToString(code: number): string {
   }
 }
 
-export default class Tokenizer extends LocationParser {
-  // Forward-declarations
-  // parser/util.js
-  +unexpected: (pos?: ?number, messageOrType?: string | TokenType) => empty;
-
-  isLookahead: boolean;
-
-  constructor(options: Options, input: string) {
-    super();
+export default class Tokenizer {
+  constructor(options, input) {
     this.state = new State;
     this.state.init(options, input);
   }
 
   // Move to the next token
 
-  next(): void {
+  next() {
     if (!this.isLookahead) {
       this.state.tokens.push(new Token(this.state));
     }
@@ -73,7 +61,7 @@ export default class Tokenizer extends LocationParser {
 
   // TODO
 
-  eat(type: TokenType): boolean {
+  eat(type) {
     if (this.match(type)) {
       this.next();
       return true;
@@ -84,19 +72,19 @@ export default class Tokenizer extends LocationParser {
 
   // TODO
 
-  match(type: TokenType): boolean {
+  match(type) {
     return this.state.type === type;
   }
 
   // TODO
 
-  isKeyword(word: string): boolean {
+  isKeyword(word) {
     return isKeyword(word);
   }
 
   // TODO
 
-  lookahead(): State {
+  lookahead() {
     const old = this.state;
     this.state = old.clone(true);
 
@@ -112,7 +100,7 @@ export default class Tokenizer extends LocationParser {
   // Toggle strict mode. Re-reads the next number or string to please
   // pedantic tests (`"use strict"; 010;` should fail).
 
-  setStrict(strict: boolean): void {
+  setStrict(strict) {
     this.state.strict = strict;
     if (!this.match(tt.num) && !this.match(tt.string)) return;
     this.state.pos = this.state.start;
@@ -123,14 +111,14 @@ export default class Tokenizer extends LocationParser {
     this.nextToken();
   }
 
-  curContext(): TokContext {
+  curContext() {
     return this.state.context[this.state.context.length - 1];
   }
 
   // Read a single token, updating the parser object's token-related
   // properties.
 
-  nextToken(): void {
+  nextToken() {
     const curContext = this.curContext();
     if (!curContext || !curContext.preserveSpace) this.skipSpace();
 
@@ -147,7 +135,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  readToken(code: number): void {
+  readToken(code) {
     // Identifier or keyword. '\uXXXX' sequences are allowed in
     // identifiers, so '\' also dispatches to that.
     if (isIdentifierStart(code) || code === 92 /* '\' */) {
@@ -157,7 +145,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  fullCharCodeAtPos(): number {
+  fullCharCodeAtPos() {
     const code = this.input.charCodeAt(this.state.pos);
     if (code <= 0xd7ff || code >= 0xe000) return code;
 
@@ -165,7 +153,7 @@ export default class Tokenizer extends LocationParser {
     return (code << 10) + next - 0x35fdc00;
   }
 
-  pushComment(block: boolean, text: string, start: number, end: number, startLoc: Position, endLoc: Position): void {
+  pushComment(block, text, start, end, startLoc, endLoc) {
     const comment = {
       type: block ? "CommentBlock" : "CommentLine",
       value: text,
@@ -181,7 +169,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  skipBlockComment(): void {
+  skipBlockComment() {
     const startLoc = this.state.curPosition();
     const start = this.state.pos;
     const end = this.input.indexOf("*/", this.state.pos += 2);
@@ -198,7 +186,7 @@ export default class Tokenizer extends LocationParser {
     this.pushComment(true, this.input.slice(start + 2, end), start, this.state.pos, startLoc, this.state.curPosition());
   }
 
-  skipLineComment(startSkip: number): void {
+  skipLineComment(startSkip) {
     const start = this.state.pos;
     const startLoc = this.state.curPosition();
     let ch = this.input.charCodeAt(this.state.pos += startSkip);
@@ -213,7 +201,7 @@ export default class Tokenizer extends LocationParser {
   // Called at the start of the parse and after every token. Skips
   // whitespace and comments, and.
 
-  skipSpace(): void {
+  skipSpace() {
     let isNewLine = false;  // for lightscript
     loop: while (this.state.pos < this.input.length) {
       const ch = this.input.charCodeAt(this.state.pos);
@@ -288,7 +276,7 @@ export default class Tokenizer extends LocationParser {
   // the token, so that the next one's `start` will point at the
   // right position.
 
-  finishToken(type: TokenType, val: any): void {
+  finishToken(type, val) {
     this.state.end = this.state.pos;
     this.state.endLoc = this.state.curPosition();
     const prevType = this.state.type;
@@ -307,7 +295,7 @@ export default class Tokenizer extends LocationParser {
   //
   // All in the name of speed.
   //
-  readToken_dot(): void {
+  readToken_dot() {
     const next = this.input.charCodeAt(this.state.pos + 1);
     // in lightscript, numbers cannot start with a naked `.`
     if (next >= 48 && next <= 57 && !this.hasPlugin("lightscript")) {
@@ -324,7 +312,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  readToken_slash(): void { // '/'
+  readToken_slash() { // '/'
     const looksLikeRegex = this.hasPlugin("lightscript") &&
       this.isLineBreak() &&
       !this.isWhitespaceAt(this.state.pos + 1) &&
@@ -347,7 +335,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  readToken_mult_modulo(code: number): void { // '%*'
+  readToken_mult_modulo(code) { // '%*'
     let type = code === 42 ? tt.star : tt.modulo;
     let width = 1;
     let next = this.input.charCodeAt(this.state.pos + 1);
@@ -366,7 +354,7 @@ export default class Tokenizer extends LocationParser {
     return this.finishOp(type, width);
   }
 
-  readToken_pipe_amp(code: number): void { // '|&'
+  readToken_pipe_amp(code) { // '|&'
     const next = this.input.charCodeAt(this.state.pos + 1);
     if (next === code) return this.finishOp(code === 124 ? tt.logicalOR : tt.logicalAND, 2);
     if (next === 61) return this.finishOp(tt.assign, 2);
@@ -374,7 +362,7 @@ export default class Tokenizer extends LocationParser {
     return this.finishOp(code === 124 ? tt.bitwiseOR : tt.bitwiseAND, 1);
   }
 
-  readToken_caret(): void { // '^'
+  readToken_caret() { // '^'
     const next = this.input.charCodeAt(this.state.pos + 1);
     if (next === 61) {
       return this.finishOp(tt.assign, 2);
@@ -383,7 +371,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  readToken_plus_min(code: number): void { // '+-'
+  readToken_plus_min(code) { // '+-'
     const next = this.input.charCodeAt(this.state.pos + 1);
 
     if (next === code) {
@@ -440,7 +428,7 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  readToken_lt_gt(code: number): void { // '<>'
+  readToken_lt_gt(code) { // '<>'
     const next = this.input.charCodeAt(this.state.pos + 1);
     let size = 1;
 
@@ -477,7 +465,7 @@ export default class Tokenizer extends LocationParser {
     return this.finishOp(tt.relational, size);
   }
 
-  readToken_eq_excl(code: number): void { // '=!'
+  readToken_eq_excl(code) { // '=!'
     const next = this.input.charCodeAt(this.state.pos + 1);
     if (next === 61) return this.finishOp(tt.equality, this.input.charCodeAt(this.state.pos + 2) === 61 ? 3 : 2);
 
@@ -516,7 +504,7 @@ export default class Tokenizer extends LocationParser {
     return this.finishOp(code === 61 ? tt.eq : tt.prefix, 1);
   }
 
-  getTokenFromCode(code: number): void {
+  getTokenFromCode(code) {
     switch (code) {
       // The interpretation of a dot depends on whether it is followed
       // by a digit or another two dots.
@@ -619,13 +607,13 @@ export default class Tokenizer extends LocationParser {
     this.raise(this.state.pos, `Unexpected character '${codePointToString(code)}'`);
   }
 
-  finishOp(type: TokenType, size: number): void {
+  finishOp(type, size) {
     const str = this.input.slice(this.state.pos, this.state.pos + size);
     this.state.pos += size;
     return this.finishToken(type, str);
   }
 
-  readRegexp(): void {
+  readRegexp() {
     const start = this.state.pos;
     let escaped, inClass;
 
@@ -677,7 +665,7 @@ export default class Tokenizer extends LocationParser {
   // were read, the integer value otherwise. When `len` is given, this
   // will return `null` unless the integer has exactly `len` digits.
 
-  readInt(radix: number, len?: number): number | null {
+  readInt(radix, len) {
     const start = this.state.pos;
     let total = 0;
 
@@ -702,7 +690,7 @@ export default class Tokenizer extends LocationParser {
     return total;
   }
 
-  readRadixNumber(radix: number): void {
+  readRadixNumber(radix) {
     this.state.pos += 2; // 0x
     const val = this.readInt(radix);
     if (val == null) this.raise(this.state.start + 2, "Expected number in radix " + radix);
@@ -712,9 +700,9 @@ export default class Tokenizer extends LocationParser {
 
   // Read an integer, octal integer, or floating-point number.
 
-  readNumber(startsWithDot: boolean): void {
+  readNumber(startsWithDot) {
     const start = this.state.pos;
-    let octal = this.input.charCodeAt(start) === 48; // '0'
+    const octal = this.input.charCodeAt(this.state.pos) === 48;
     let isFloat = false;
 
     // for numeric array access (eg; arr.0), don't read floats (numbers with a decimal).
@@ -723,17 +711,14 @@ export default class Tokenizer extends LocationParser {
       this.state.tokens[this.state.tokens.length - 1].type === tt.dot;
 
     if (!startsWithDot && this.readInt(10) === null) this.raise(start, "Invalid number");
-    if (octal && this.state.pos == start + 1) octal = false; // number === 0
-
     let next = this.input.charCodeAt(this.state.pos);
-    if (next === 46 && !octal && !noFloatsAllowed) { // '.'
+    if (next === 46 && !noFloatsAllowed) { // '.'
       ++this.state.pos;
       this.readInt(10);
       isFloat = true;
       next = this.input.charCodeAt(this.state.pos);
     }
-
-    if ((next === 69 || next === 101) && !octal) { // 'eE'
+    if (next === 69 || next === 101) { // 'eE'
       next = this.input.charCodeAt(++this.state.pos);
       if (next === 43 || next === 45) ++this.state.pos; // '+-'
       if (this.readInt(10) === null) this.raise(start, "Invalid number");
@@ -743,7 +728,6 @@ export default class Tokenizer extends LocationParser {
     if (this.hasPlugin("lightscript") && this.input.charCodeAt(this.state.pos - 1) === 46) {
       --this.state.pos;
     }
-
     if (isIdentifierStart(this.fullCharCodeAtPos())) this.raise(this.state.pos, "Identifier directly after number");
 
     const str = this.input.slice(start, this.state.pos);
@@ -752,10 +736,8 @@ export default class Tokenizer extends LocationParser {
       val = parseFloat(str);
     } else if (!octal || str.length === 1) {
       val = parseInt(str, 10);
-    } else if (this.state.strict) {
+    } else if (/[89]/.test(str) || this.state.strict) {
       this.raise(start, "Invalid number");
-    } else if (/[89]/.test(str)) {
-      val = parseInt(str, 10);
     } else {
       val = parseInt(str, 8);
     }
@@ -764,31 +746,22 @@ export default class Tokenizer extends LocationParser {
 
   // Read a string value, interpreting backslash-escapes.
 
-  readCodePoint(throwOnInvalid: boolean): number | null {
+  readCodePoint() {
     const ch = this.input.charCodeAt(this.state.pos);
     let code;
 
-    if (ch === 123) { // '{'
+    if (ch === 123) {
       const codePos = ++this.state.pos;
-      code = this.readHexChar(this.input.indexOf("}", this.state.pos) - this.state.pos, throwOnInvalid);
+      code = this.readHexChar(this.input.indexOf("}", this.state.pos) - this.state.pos);
       ++this.state.pos;
-      if (code === null) {
-        --this.state.invalidTemplateEscapePosition; // to point to the '\'' instead of the 'u'
-      } else if (code > 0x10FFFF) {
-        if (throwOnInvalid) {
-          this.raise(codePos, "Code point out of bounds");
-        } else {
-          this.state.invalidTemplateEscapePosition = codePos - 2;
-          return null;
-        }
-      }
+      if (code > 0x10FFFF) this.raise(codePos, "Code point out of bounds");
     } else {
-      code = this.readHexChar(4, throwOnInvalid);
+      code = this.readHexChar(4);
     }
     return code;
   }
 
-  readString(quote: number): void {
+  readString(quote) {
     let out = "", chunkStart = ++this.state.pos;
     for (;;) {
       if (this.state.pos >= this.input.length) this.raise(this.state.start, "Unterminated string constant");
@@ -796,7 +769,6 @@ export default class Tokenizer extends LocationParser {
       if (ch === quote) break;
       if (ch === 92) { // '\'
         out += this.input.slice(chunkStart, this.state.pos);
-        // $FlowFixMe
         out += this.readEscapedChar(false);
         chunkStart = this.state.pos;
       } else {
@@ -810,8 +782,8 @@ export default class Tokenizer extends LocationParser {
 
   // Reads template string tokens.
 
-  readTmplToken(): void {
-    let out = "", chunkStart = this.state.pos, containsInvalid = false;
+  readTmplToken() {
+    let out = "", chunkStart = this.state.pos;
     for (;;) {
       if (this.state.pos >= this.input.length) this.raise(this.state.start, "Unterminated template");
       const ch = this.input.charCodeAt(this.state.pos);
@@ -826,16 +798,11 @@ export default class Tokenizer extends LocationParser {
           }
         }
         out += this.input.slice(chunkStart, this.state.pos);
-        return this.finishToken(tt.template, containsInvalid ? null : out);
+        return this.finishToken(tt.template, out);
       }
       if (ch === 92) { // '\'
         out += this.input.slice(chunkStart, this.state.pos);
-        const escaped = this.readEscapedChar(true);
-        if (escaped === null) {
-          containsInvalid = true;
-        } else {
-          out += escaped;
-        }
+        out += this.readEscapedChar(true);
         chunkStart = this.state.pos;
       } else if (isNewLine(ch)) {
         out += this.input.slice(chunkStart, this.state.pos);
@@ -861,21 +828,14 @@ export default class Tokenizer extends LocationParser {
 
   // Used to read escaped characters
 
-  readEscapedChar(inTemplate: boolean): string | null {
-    const throwOnInvalid = !inTemplate;
+  readEscapedChar(inTemplate) {
     const ch = this.input.charCodeAt(++this.state.pos);
     ++this.state.pos;
     switch (ch) {
       case 110: return "\n"; // 'n' -> '\n'
       case 114: return "\r"; // 'r' -> '\r'
-      case 120: { // 'x'
-        const code = this.readHexChar(2, throwOnInvalid);
-        return code === null ? null : String.fromCharCode(code);
-      }
-      case 117: { // 'u'
-        const code = this.readCodePoint(throwOnInvalid);
-        return code === null ? null : codePointToString(code);
-      }
+      case 120: return String.fromCharCode(this.readHexChar(2)); // 'x'
+      case 117: return codePointToString(this.readCodePoint()); // 'u'
       case 116: return "\t"; // 't' -> '\t'
       case 98: return "\b"; // 'b' -> '\b'
       case 118: return "\u000b"; // 'v' -> '\u000b'
@@ -887,8 +847,6 @@ export default class Tokenizer extends LocationParser {
         return "";
       default:
         if (ch >= 48 && ch <= 55) {
-          const codePos = this.state.pos - 1;
-          // $FlowFixMe
           let octalStr = this.input.substr(this.state.pos - 1, 3).match(/^[0-7]+/)[0];
           let octal = parseInt(octalStr, 8);
           if (octal > 255) {
@@ -896,16 +854,12 @@ export default class Tokenizer extends LocationParser {
             octal = parseInt(octalStr, 8);
           }
           if (octal > 0) {
-            if (inTemplate) {
-              this.state.invalidTemplateEscapePosition = codePos;
-              return null;
-            } else if (this.state.strict) {
-              this.raise(codePos, "Octal literal in strict mode");
-            } else if (!this.state.containsOctal) {
-              // These properties are only used to throw an error for an octal which occurs
-              // in a directive which occurs prior to a "use strict" directive.
+            if (!this.state.containsOctal) {
               this.state.containsOctal = true;
-              this.state.octalPosition = codePos;
+              this.state.octalPosition = this.state.pos - 2;
+            }
+            if (this.state.strict || inTemplate) {
+              this.raise(this.state.pos - 2, "Octal literal in strict mode");
             }
           }
           this.state.pos += octalStr.length - 1;
@@ -915,19 +869,12 @@ export default class Tokenizer extends LocationParser {
     }
   }
 
-  // Used to read character escape sequences ('\x', '\u').
+  // Used to read character escape sequences ('\x', '\u', '\U').
 
-  readHexChar(len: number, throwOnInvalid: boolean): number | null {
+  readHexChar(len) {
     const codePos = this.state.pos;
     const n = this.readInt(16, len);
-    if (n === null) {
-      if (throwOnInvalid) {
-        this.raise(codePos, "Bad character escape sequence");
-      } else {
-        this.state.pos = codePos - 1;
-        this.state.invalidTemplateEscapePosition = codePos - 1;
-      }
-    }
+    if (n === null) this.raise(codePos, "Bad character escape sequence");
     return n;
   }
 
@@ -937,7 +884,7 @@ export default class Tokenizer extends LocationParser {
   // Incrementally adds only escaped chars, adding other chunks as-is
   // as a micro-optimization.
 
-  readWord1(): string {
+  readWord1() {
     this.state.containsEsc = false;
     let word = "", first = true, chunkStart = this.state.pos;
     while (this.state.pos < this.input.length) {
@@ -955,13 +902,11 @@ export default class Tokenizer extends LocationParser {
         }
 
         ++this.state.pos;
-        const esc = this.readCodePoint(true);
-        // $FlowFixMe (thinks esc may be null, but throwOnInvalid is true)
+        const esc = this.readCodePoint();
         if (!(first ? isIdentifierStart : isIdentifierChar)(esc, true)) {
           this.raise(escStart, "Invalid Unicode escape");
         }
 
-        // $FlowFixMe
         word += codePointToString(esc);
         chunkStart = this.state.pos;
       } else {
@@ -975,7 +920,7 @@ export default class Tokenizer extends LocationParser {
   // Read an identifier or keyword token. Will check for reserved
   // words when necessary.
 
-  readWord(): void {
+  readWord() {
     const word = this.readWord1();
     let type = tt.name;
     if (!this.state.containsEsc && this.isKeyword(word)) {
@@ -984,7 +929,7 @@ export default class Tokenizer extends LocationParser {
     return this.finishToken(type, word);
   }
 
-  braceIsBlock(prevType: TokenType): boolean {
+  braceIsBlock(prevType) {
     if (prevType === tt.colon) {
       const parent = this.curContext();
       if (parent === ct.braceStatement || parent === ct.braceExpression) {
@@ -1007,7 +952,7 @@ export default class Tokenizer extends LocationParser {
     return !this.state.exprAllowed;
   }
 
-  updateContext(prevType: TokenType): void {
+  updateContext(prevType) {
     const type = this.state.type;
     let update;
 
@@ -1019,27 +964,4 @@ export default class Tokenizer extends LocationParser {
       this.state.exprAllowed = type.beforeExpr;
     }
   }
-
-  // added for lightscript:
-
-  isLineBreak(): boolean {
-    if (this.hasPlugin("lightscript")) {
-      // treat start-of-file as newline.
-      // TODO: reconsider/reevaluate
-      if (!this.state.lastTokEnd) return true;
-    }
-    return lineBreak.test(this.input.slice(this.state.lastTokEnd, this.state.start));
-  }
-
-  // lightscript only allows plain space (ascii-32), \r\n, and \n.
-  // note that the space could appear within a string.
-  isWhitespaceAt(pos: number) {
-    const ch = this.state.input.charCodeAt(pos);
-    return (ch === 32 || ch === 13 || ch === 10);
-  }
-
-  isNextCharWhitespace() {
-    return this.isWhitespaceAt(this.state.end);
-  }
-
 }

@@ -101,8 +101,7 @@
                       "end": {
                         "line": 1,
                         "column": 10
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x"
                   },
@@ -150,8 +149,7 @@
                             "end": {
                               "line": 1,
                               "column": 14
-                            },
-                            "identifierName": "y"
+                            }
                           },
                           "name": "y"
                         },
@@ -213,7 +211,6 @@
                   "id": null,
                   "generator": false,
                   "expression": false,
-                  "async": false,
                   "params": [],
                   "body": {
                     "type": "BlockStatement",

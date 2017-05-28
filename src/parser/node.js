@@ -1,41 +1,30 @@
-// @flow
-
 import Parser from "./index";
-import UtilParser from "./util";
-import { SourceLocation, type Position } from "../util/location";
-import type { Comment, Node as NodeType, NodeBase } from "../types";
+import { SourceLocation } from "../util/location";
 
 // Start an AST node, attaching a start offset.
 
+const pp = Parser.prototype;
 const commentKeys = ["leadingComments", "trailingComments", "innerComments"];
 
-class Node implements NodeBase {
-  constructor(parser: Parser, pos: number, loc: Position) {
+class Node {
+  constructor(pos?: number, loc?: number, filename?: string) {
     this.type = "";
     this.start = pos;
     this.end = 0;
     this.loc = new SourceLocation(loc);
-    if (parser && parser.options.ranges) this.range = [pos, 0];
-    if (parser && parser.filename) this.loc.filename = parser.filename;
+    if (filename) this.loc.filename = filename;
   }
 
   type: string;
-  start: number;
+  start: ?number;
   end: number;
   loc: SourceLocation;
-  range: [number, number];
-  leadingComments: ?Array<Comment>;
-  trailingComments: ?Array<Comment>;
-  innerComments: ?Array<Comment>;
-  extra: { [key: string]: any };
 
-  __clone(): this {
-    // $FlowIgnore
-    const node2: any = new Node;
+  __clone(): Node {
+    const node2 = new Node;
     for (const key in this) {
       // Do not clone comments that are already attached to the node
       if (commentKeys.indexOf(key) < 0) {
-        // $FlowIgnore
         node2[key] = this[key];
       }
     }
@@ -44,40 +33,30 @@ class Node implements NodeBase {
   }
 }
 
-export class NodeUtils extends UtilParser {
-  startNode<T : NodeType>(): T {
-    // $FlowIgnore
-    return new Node(this, this.state.start, this.state.startLoc);
-  }
+pp.startNode = function () {
+  return new Node(this.state.start, this.state.startLoc, this.filename);
+};
 
-  startNodeAt<T : NodeType>(pos: number, loc: Position): T {
-    // $FlowIgnore
-    return new Node(this, pos, loc);
-  }
+pp.startNodeAt = function (pos, loc) {
+  return new Node(pos, loc, this.filename);
+};
 
-  // Finish an AST node, adding `type` and `end` properties.
-
-  finishNode<T : NodeType>(node: T, type: string): T {
-    return this.finishNodeAt(node, type, this.state.lastTokEnd, this.state.lastTokEndLoc);
-  }
-
-  // Finish node at given position
-
-  finishNodeAt<T : NodeType>(node: T, type: string, pos: number, loc: Position): T {
-    node.type = type;
-    node.end = pos;
-    node.loc.end = loc;
-    if (this.options.ranges) node.range[1] = pos;
-    this.processComment(node);
-    return node;
-  }
-
-  /**
-   * Reset the start location of node to the start location of locationNode
-   */
-  resetStartLocationFromNode(node: NodeBase, locationNode: NodeBase): void {
-    node.start = locationNode.start;
-    node.loc.start = locationNode.loc.start;
-    if (this.options.ranges) node.range[0] = locationNode.range[0];
-  }
+function finishNodeAt(node, type, pos, loc) {
+  node.type = type;
+  node.end = pos;
+  node.loc.end = loc;
+  this.processComment(node);
+  return node;
 }
+
+// Finish an AST node, adding `type` and `end` properties.
+
+pp.finishNode = function (node, type) {
+  return finishNodeAt.call(this, node, type, this.state.lastTokEnd, this.state.lastTokEndLoc);
+};
+
+// Finish node at given position
+
+pp.finishNodeAt = function (node, type, pos, loc) {
+  return finishNodeAt.call(this, node, type, pos, loc);
+};

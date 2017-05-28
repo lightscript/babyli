@@ -83,8 +83,7 @@
                   "end": {
                     "line": 1,
                     "column": 9
-                  },
-                  "identifierName": "decorate"
+                  }
                 },
                 "name": "decorate"
               },
@@ -106,7 +105,6 @@
                   "id": null,
                   "generator": false,
                   "expression": true,
-                  "async": false,
                   "params": [
                     {
                       "type": "Identifier",
@@ -120,8 +118,7 @@
                         "end": {
                           "line": 1,
                           "column": 14
-                        },
-                        "identifierName": "arg"
+                        }
                       },
                       "name": "arg"
                     }
@@ -158,8 +155,7 @@
             "end": {
               "line": 2,
               "column": 8
-            },
-            "identifierName": "Ex"
+            }
           },
           "name": "Ex"
         },
@@ -181,7 +177,6 @@
           "body": []
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

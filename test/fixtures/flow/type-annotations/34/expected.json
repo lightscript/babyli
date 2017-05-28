@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 50
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -106,7 +105,7 @@
                     {
                       "type": "ObjectTypeProperty",
                       "start": 8,
-                      "end": 22,
+                      "end": 23,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -114,7 +113,7 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 22
+                          "column": 23
                         }
                       },
                       "key": {
@@ -129,13 +128,10 @@
                           "end": {
                             "line": 1,
                             "column": 14
-                          },
-                          "identifierName": "numVal"
+                          }
                         },
                         "name": "numVal"
                       },
-                      "static": false,
-                      "kind": "init",
                       "value": {
                         "type": "NumberTypeAnnotation",
                         "start": 16,
@@ -151,8 +147,8 @@
                           }
                         }
                       },
-                      "variance": null,
-                      "optional": false
+                      "optional": false,
+                      "variance": null
                     }
                   ],
                   "indexers": [
@@ -170,7 +166,6 @@
                           "column": 49
                         }
                       },
-                      "static": false,
                       "id": {
                         "type": "Identifier",
                         "start": 25,
@@ -183,8 +178,7 @@
                           "end": {
                             "line": 1,
                             "column": 32
-                          },
-                          "identifierName": "indexer"
+                          }
                         },
                         "name": "indexer"
                       },
@@ -220,8 +214,7 @@
                       },
                       "variance": null
                     }
-                  ],
-                  "exact": false
+                  ]
                 }
               }
             },
@@ -230,7 +223,7 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

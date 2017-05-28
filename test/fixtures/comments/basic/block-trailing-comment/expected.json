@@ -83,8 +83,7 @@
                   "end": {
                     "line": 2,
                     "column": 5
-                  },
-                  "identifierName": "a"
+                  }
                 },
                 "name": "a"
               },

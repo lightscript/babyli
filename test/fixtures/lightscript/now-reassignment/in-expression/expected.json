@@ -164,8 +164,7 @@
             },
             "value": 4
           },
-          "isNowAssign": true,
-          "extra": {}
+          "isNowAssign": true
         },
         "consequent": {
           "type": "BlockStatement",

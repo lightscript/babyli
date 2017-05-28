@@ -87,8 +87,7 @@
               "extra": {
                 "rawValue": 1,
                 "raw": "1",
-                "parenthesized": true,
-                "parenStart": 0
+                "parenthesized": true
               },
               "value": 1
             },
@@ -110,8 +109,7 @@
               "extra": {
                 "rawValue": 2,
                 "raw": "2",
-                "parenthesized": true,
-                "parenStart": 6
+                "parenthesized": true
               },
               "value": 2
             }

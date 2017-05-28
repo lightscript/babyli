@@ -175,8 +175,7 @@
                             "column": 10
                           }
                         },
-                        "name": "T",
-                        "variance": null
+                        "name": "T"
                       }
                     ]
                   }
@@ -267,8 +266,7 @@
                             "column": 10
                           }
                         },
-                        "name": "T",
-                        "variance": null
+                        "name": "T"
                       }
                     ]
                   }
@@ -359,8 +357,7 @@
                             "column": 9
                           }
                         },
-                        "name": "T",
-                        "variance": null
+                        "name": "T"
                       }
                     ]
                   }
@@ -451,8 +448,7 @@
                             "column": 6
                           }
                         },
-                        "name": "T",
-                        "variance": null
+                        "name": "T"
                       }
                     ]
                   }

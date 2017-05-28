@@ -83,8 +83,7 @@
                 "end": {
                   "line": 1,
                   "column": 6
-                },
-                "identifierName": "module"
+                }
               },
               "name": "module"
             },
@@ -100,8 +99,7 @@
                 "end": {
                   "line": 1,
                   "column": 14
-                },
-                "identifierName": "exports"
+                }
               },
               "name": "exports"
             },
@@ -124,7 +122,6 @@
             "id": null,
             "generator": false,
             "expression": false,
-            "async": false,
             "params": [
               {
                 "type": "Identifier",
@@ -138,8 +135,7 @@
                   "end": {
                     "line": 1,
                     "column": 33
-                  },
-                  "identifierName": "context"
+                  }
                 },
                 "name": "context"
               }
@@ -185,14 +181,12 @@
                       "end": {
                         "line": 3,
                         "column": 23
-                      },
-                      "identifierName": "isConstant"
+                      }
                     },
                     "name": "isConstant"
                   },
                   "generator": false,
                   "expression": false,
-                  "async": false,
                   "params": [
                     {
                       "type": "Identifier",
@@ -206,8 +200,7 @@
                         "end": {
                           "line": 3,
                           "column": 28
-                        },
-                        "identifierName": "node"
+                        }
                       },
                       "name": "node"
                     }
@@ -267,8 +260,7 @@
                               "end": {
                                 "line": 4,
                                 "column": 20
-                              },
-                              "identifierName": "node"
+                              }
                             },
                             "name": "node"
                           },
@@ -284,8 +276,7 @@
                               "end": {
                                 "line": 4,
                                 "column": 25
-                              },
-                              "identifierName": "type"
+                              }
                             },
                             "name": "type"
                           },
@@ -347,8 +338,7 @@
                                       "end": {
                                         "line": 6,
                                         "column": 33
-                                      },
-                                      "identifierName": "isConstant"
+                                      }
                                     },
                                     "name": "isConstant"
                                   },
@@ -393,8 +383,7 @@
                                             "end": {
                                               "line": 6,
                                               "column": 38
-                                            },
-                                            "identifierName": "node"
+                                            }
                                           },
                                           "name": "node"
                                         },
@@ -410,8 +399,7 @@
                                             "end": {
                                               "line": 6,
                                               "column": 50
-                                            },
-                                            "identifierName": "expressions"
+                                            }
                                           },
                                           "name": "expressions"
                                         },
@@ -471,8 +459,7 @@
                                                 "end": {
                                                   "line": 6,
                                                   "column": 55
-                                                },
-                                                "identifierName": "node"
+                                                }
                                               },
                                               "name": "node"
                                             },
@@ -488,8 +475,7 @@
                                                 "end": {
                                                   "line": 6,
                                                   "column": 67
-                                                },
-                                                "identifierName": "expressions"
+                                                }
                                               },
                                               "name": "expressions"
                                             },
@@ -507,8 +493,7 @@
                                               "end": {
                                                 "line": 6,
                                                 "column": 74
-                                              },
-                                              "identifierName": "length"
+                                              }
                                             },
                                             "name": "length"
                                           },

@@ -70,8 +70,7 @@
                 "end": {
                   "line": 1,
                   "column": 11
-                },
-                "identifierName": "foo"
+                }
               },
               "name": "foo"
             },
@@ -87,8 +86,7 @@
                 "end": {
                   "line": 1,
                   "column": 11
-                },
-                "identifierName": "foo"
+                }
               },
               "name": "foo"
             }
@@ -119,8 +117,7 @@
                 "end": {
                   "line": 1,
                   "column": 16
-                },
-                "identifierName": "bar"
+                }
               },
               "name": "bar"
             },
@@ -136,8 +133,7 @@
                 "end": {
                   "line": 1,
                   "column": 16
-                },
-                "identifierName": "bar"
+                }
               },
               "name": "bar"
             }
@@ -145,7 +141,6 @@
         ],
         "source": null
       }
-    ],
-    "directives": []
+    ]
   }
 }

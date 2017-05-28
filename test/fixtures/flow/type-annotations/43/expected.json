@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 26
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -106,7 +105,7 @@
                     {
                       "type": "ObjectTypeProperty",
                       "start": 9,
-                      "end": 23,
+                      "end": 24,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -114,28 +113,9 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 23
+                          "column": 24
                         }
                       },
-                      "key": {
-                        "type": "Identifier",
-                        "start": 9,
-                        "end": 11,
-                        "loc": {
-                          "start": {
-                            "line": 1,
-                            "column": 9
-                          },
-                          "end": {
-                            "line": 1,
-                            "column": 11
-                          },
-                          "identifierName": "id"
-                        },
-                        "name": "id"
-                      },
-                      "static": false,
-                      "kind": "init",
                       "value": {
                         "type": "FunctionTypeAnnotation",
                         "start": 9,
@@ -177,8 +157,7 @@
                                 "end": {
                                   "line": 1,
                                   "column": 16
-                                },
-                                "identifierName": "x"
+                                }
                               },
                               "name": "x"
                             },
@@ -210,8 +189,7 @@
                                   "end": {
                                     "line": 1,
                                     "column": 19
-                                  },
-                                  "identifierName": "T"
+                                  }
                                 },
                                 "name": "T"
                               }
@@ -248,8 +226,7 @@
                                   "column": 13
                                 }
                               },
-                              "name": "T",
-                              "variance": null
+                              "name": "T"
                             }
                           ]
                         },
@@ -280,18 +257,32 @@
                               "end": {
                                 "line": 1,
                                 "column": 23
-                              },
-                              "identifierName": "T"
+                              }
                             },
                             "name": "T"
                           }
                         }
                       },
+                      "key": {
+                        "type": "Identifier",
+                        "start": 9,
+                        "end": 11,
+                        "loc": {
+                          "start": {
+                            "line": 1,
+                            "column": 9
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 11
+                          }
+                        },
+                        "name": "id"
+                      },
                       "optional": false
                     }
                   ],
-                  "indexers": [],
-                  "exact": false
+                  "indexers": []
                 }
               }
             },

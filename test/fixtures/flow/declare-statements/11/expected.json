@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 15
-            },
-            "identifierName": "A"
+            }
           },
           "name": "A"
         },
         "typeParameters": null,
         "extends": [],
-        "mixins": [],
         "body": {
           "type": "ObjectTypeAnnotation",
           "start": 16,
@@ -106,8 +104,7 @@
                   "end": {
                     "line": 1,
                     "column": 34
-                  },
-                  "identifierName": "indexer"
+                  }
                 },
                 "name": "indexer"
               },
@@ -143,11 +140,10 @@
               },
               "variance": null
             }
-          ],
-          "exact": false
+          ]
         }
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

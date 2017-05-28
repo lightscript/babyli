@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 6
-                },
-                "identifierName": "hi"
+                }
               },
               "name": "hi"
             },
@@ -100,14 +99,12 @@
                   "end": {
                     "line": 1,
                     "column": 27
-                  },
-                  "identifierName": "arguments"
+                  }
                 },
                 "name": "arguments"
               },
               "generator": false,
               "expression": false,
-              "async": false,
               "params": [],
               "body": {
                 "type": "BlockStatement",
@@ -123,15 +120,13 @@
                     "column": 33
                   }
                 },
-                "body": [],
-                "directives": []
+                "body": []
               }
             }
           }
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
+    ]
   }
 }

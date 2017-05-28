@@ -56,7 +56,59 @@
               "column": 21
             }
           },
-          "predicate": null,
+          "id": null,
+          "generator": false,
+          "expression": true,
+          "async": false,
+          "params": [
+            {
+              "type": "Identifier",
+              "start": 1,
+              "end": 4,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 1
+                },
+                "end": {
+                  "line": 1,
+                  "column": 4
+                }
+              },
+              "name": "foo"
+            },
+            {
+              "type": "Identifier",
+              "start": 6,
+              "end": 9,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 6
+                },
+                "end": {
+                  "line": 1,
+                  "column": 9
+                }
+              },
+              "name": "bar"
+            }
+          ],
+          "body": {
+            "type": "NullLiteral",
+            "start": 17,
+            "end": 21,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 17
+              },
+              "end": {
+                "line": 1,
+                "column": 21
+              }
+            }
+          },
           "returnType": {
             "type": "TypeAnnotation",
             "start": 10,
@@ -98,65 +150,9 @@
                   "end": {
                     "line": 1,
                     "column": 13
-                  },
-                  "identifierName": "z"
+                  }
                 },
                 "name": "z"
-              }
-            }
-          },
-          "id": null,
-          "generator": false,
-          "expression": true,
-          "async": false,
-          "params": [
-            {
-              "type": "Identifier",
-              "start": 1,
-              "end": 4,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 1
-                },
-                "end": {
-                  "line": 1,
-                  "column": 4
-                },
-                "identifierName": "foo"
-              },
-              "name": "foo"
-            },
-            {
-              "type": "Identifier",
-              "start": 6,
-              "end": 9,
-              "loc": {
-                "start": {
-                  "line": 1,
-                  "column": 6
-                },
-                "end": {
-                  "line": 1,
-                  "column": 9
-                },
-                "identifierName": "bar"
-              },
-              "name": "bar"
-            }
-          ],
-          "body": {
-            "type": "NullLiteral",
-            "start": 17,
-            "end": 21,
-            "loc": {
-              "start": {
-                "line": 1,
-                "column": 17
-              },
-              "end": {
-                "line": 1,
-                "column": 21
               }
             }
           }
@@ -164,5 +160,6 @@
       }
     ],
     "directives": []
-  }
+  },
+  "comments": []
 }

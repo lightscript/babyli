@@ -89,7 +89,6 @@
                   "column": 14
                 }
               },
-              "static": false,
               "computed": false,
               "key": {
                 "type": "Identifier",
@@ -108,6 +107,7 @@
                 },
                 "name": "method"
               },
+              "static": false,
               "kind": "set",
               "id": null,
               "generator": false,
@@ -241,8 +241,7 @@
                           "identifierName": "x"
                         },
                         "name": "x"
-                      },
-                      "isNowAssign": false
+                      }
                     }
                   }
                 ],

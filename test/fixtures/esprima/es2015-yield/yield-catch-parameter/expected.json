@@ -56,8 +56,7 @@
               "column": 6
             }
           },
-          "body": [],
-          "directives": []
+          "body": []
         },
         "handler": {
           "type": "CatchClause",
@@ -85,8 +84,7 @@
               "end": {
                 "line": 1,
                 "column": 19
-              },
-              "identifierName": "yield"
+              }
             },
             "name": "yield"
           },
@@ -104,14 +102,12 @@
                 "column": 23
               }
             },
-            "body": [],
-            "directives": []
+            "body": []
           }
         },
         "guardedHandlers": [],
         "finalizer": null
       }
-    ],
-    "directives": []
+    ]
   }
 }

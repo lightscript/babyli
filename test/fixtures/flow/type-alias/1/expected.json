@@ -54,8 +54,7 @@
             "end": {
               "line": 1,
               "column": 9
-            },
-            "identifierName": "FBID"
+            }
           },
           "name": "FBID"
         },
@@ -76,7 +75,7 @@
           }
         }
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 28
-                },
-                "identifierName": "identity"
+                }
               },
               "name": "identity",
               "typeAnnotation": {
@@ -130,8 +129,7 @@
                             "column": 16
                           }
                         },
-                        "name": "T",
-                        "variance": null
+                        "name": "T"
                       }
                     ]
                   },
@@ -162,8 +160,7 @@
                           "end": {
                             "line": 1,
                             "column": 19
-                          },
-                          "identifierName": "x"
+                          }
                         },
                         "name": "x"
                       },
@@ -195,8 +192,7 @@
                             "end": {
                               "line": 1,
                               "column": 22
-                            },
-                            "identifierName": "T"
+                            }
                           },
                           "name": "T"
                         }
@@ -231,8 +227,7 @@
                         "end": {
                           "line": 1,
                           "column": 28
-                        },
-                        "identifierName": "T"
+                        }
                       },
                       "name": "T"
                     }

@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 10
-            },
-            "identifierName": "f"
+            }
           },
           "name": "f"
         },
         "generator": false,
         "expression": false,
-        "async": false,
         "params": [],
         "body": {
           "type": "BlockStatement",
@@ -119,8 +117,7 @@
                       "end": {
                         "line": 2,
                         "column": 9
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x"
                   },
@@ -150,8 +147,7 @@
                         "end": {
                           "line": 2,
                           "column": 15
-                        },
-                        "identifierName": "new"
+                        }
                       },
                       "name": "new"
                     },
@@ -167,8 +163,7 @@
                         "end": {
                           "line": 2,
                           "column": 22
-                        },
-                        "identifierName": "target"
+                        }
                       },
                       "name": "target"
                     }
@@ -177,11 +172,9 @@
               ],
               "kind": "let"
             }
-          ],
-          "directives": []
+          ]
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

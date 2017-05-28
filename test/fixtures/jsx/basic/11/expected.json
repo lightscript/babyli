@@ -135,10 +135,7 @@
                   "column": 18
                 }
               },
-              "extra": {
-                "rawValue": "@test content",
-                "raw": "@test content"
-              },
+              "extra": null,
               "value": "@test content"
             }
           ]

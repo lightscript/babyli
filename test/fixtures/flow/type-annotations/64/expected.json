@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 12
-            },
-            "identifierName": "foo"
+            }
           },
           "name": "foo"
         },
         "generator": false,
         "expression": false,
-        "async": false,
         "params": [
           {
             "type": "ArrayPattern",
@@ -90,8 +88,7 @@
                   "end": {
                     "line": 1,
                     "column": 15
-                  },
-                  "identifierName": "x"
+                  }
                 },
                 "name": "x"
               }
@@ -168,8 +165,7 @@
                     "end": {
                       "line": 1,
                       "column": 23
-                    },
-                    "identifierName": "Array"
+                    }
                   },
                   "name": "Array"
                 }

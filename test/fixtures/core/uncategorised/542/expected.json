@@ -102,8 +102,7 @@
                 "end": {
                   "line": 2,
                   "column": 6
-                },
-                "identifierName": "split"
+                }
               },
               "name": "split"
             },

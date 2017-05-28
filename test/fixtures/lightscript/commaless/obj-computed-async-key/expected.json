@@ -43,9 +43,6 @@
           }
         },
         "kind": "const",
-        "extra": {
-          "implicit": true
-        },
         "declarations": [
           {
             "type": "VariableDeclarator",
@@ -126,7 +123,6 @@
                     },
                     "name": "async"
                   },
-                  "computed": false,
                   "value": {
                     "type": "Identifier",
                     "start": 8,

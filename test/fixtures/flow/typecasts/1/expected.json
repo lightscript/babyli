@@ -68,8 +68,7 @@
               "end": {
                 "line": 1,
                 "column": 4
-              },
-              "identifierName": "xxx"
+              }
             },
             "name": "xxx"
           },
@@ -104,8 +103,7 @@
             }
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

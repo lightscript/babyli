@@ -69,8 +69,7 @@
               "end": {
                 "line": 1,
                 "column": 1
-              },
-              "identifierName": "a"
+              }
             },
             "name": "a"
           },
@@ -118,8 +117,7 @@
                     "end": {
                       "line": 1,
                       "column": 6
-                    },
-                    "identifierName": "id"
+                    }
                   },
                   "name": "id"
                 },
@@ -141,8 +139,7 @@
                       "end": {
                         "line": 1,
                         "column": 14
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x",
                     "typeAnnotation": {
@@ -186,8 +183,7 @@
                             "end": {
                               "line": 1,
                               "column": 14
-                            },
-                            "identifierName": "T"
+                            }
                           },
                           "name": "T"
                         }
@@ -195,7 +191,6 @@
                     }
                   }
                 ],
-                "predicate": null,
                 "returnType": {
                   "type": "TypeAnnotation",
                   "start": 15,
@@ -237,8 +232,7 @@
                         "end": {
                           "line": 1,
                           "column": 18
-                        },
-                        "identifierName": "T"
+                        }
                       },
                       "name": "T"
                     }
@@ -290,8 +284,7 @@
                           "column": 8
                         }
                       },
-                      "name": "T",
-                      "variance": null
+                      "name": "T"
                     }
                   ]
                 }

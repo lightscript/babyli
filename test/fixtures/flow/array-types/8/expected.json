@@ -26,7 +26,6 @@
         "column": 19
       }
     },
-    "sourceType": "module",
     "body": [
       {
         "type": "VariableDeclaration",
@@ -69,8 +68,7 @@
                 "end": {
                   "line": 1,
                   "column": 19
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -154,7 +152,7 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

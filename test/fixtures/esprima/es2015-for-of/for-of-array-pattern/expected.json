@@ -42,7 +42,6 @@
             "column": 18
           }
         },
-        "await": false,
         "left": {
           "type": "ArrayPattern",
           "start": 5,
@@ -70,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 7
-                },
-                "identifierName": "p"
+                }
               },
               "name": "p"
             },
@@ -87,8 +85,7 @@
                 "end": {
                   "line": 1,
                   "column": 10
-                },
-                "identifierName": "q"
+                }
               },
               "name": "q"
             }
@@ -106,8 +103,7 @@
             "end": {
               "line": 1,
               "column": 16
-            },
-            "identifierName": "r"
+            }
           },
           "name": "r"
         },
@@ -127,7 +123,6 @@
           }
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

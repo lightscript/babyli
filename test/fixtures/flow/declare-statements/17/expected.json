@@ -81,7 +81,7 @@
             {
               "type": "ObjectTypeProperty",
               "start": 19,
-              "end": 28,
+              "end": 29,
               "loc": {
                 "start": {
                   "line": 2,
@@ -89,7 +89,7 @@
                 },
                 "end": {
                   "line": 2,
-                  "column": 10
+                  "column": 11
                 }
               },
               "key": {
@@ -109,8 +109,6 @@
                 },
                 "name": "a"
               },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "NumberTypeAnnotation",
                 "start": 22,
@@ -126,13 +124,14 @@
                   }
                 }
               },
-              "variance": null,
-              "optional": false
+              "optional": false,
+              "static": false,
+              "variance": null
             },
             {
               "type": "ObjectTypeProperty",
               "start": 31,
-              "end": 47,
+              "end": 48,
               "loc": {
                 "start": {
                   "line": 3,
@@ -140,7 +139,7 @@
                 },
                 "end": {
                   "line": 3,
-                  "column": 17
+                  "column": 18
                 }
               },
               "key": {
@@ -160,8 +159,6 @@
                 },
                 "name": "b"
               },
-              "static": true,
-              "kind": "init",
               "value": {
                 "type": "NumberTypeAnnotation",
                 "start": 41,
@@ -177,13 +174,14 @@
                   }
                 }
               },
-              "variance": null,
-              "optional": false
+              "optional": false,
+              "static": true,
+              "variance": null
             },
             {
               "type": "ObjectTypeProperty",
               "start": 50,
-              "end": 59,
+              "end": 60,
               "loc": {
                 "start": {
                   "line": 4,
@@ -191,7 +189,7 @@
                 },
                 "end": {
                   "line": 4,
-                  "column": 10
+                  "column": 11
                 }
               },
               "key": {
@@ -211,8 +209,6 @@
                 },
                 "name": "c"
               },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "NumberTypeAnnotation",
                 "start": 53,
@@ -228,8 +224,9 @@
                   }
                 }
               },
-              "variance": null,
-              "optional": false
+              "optional": false,
+              "static": false,
+              "variance": null
             }
           ],
           "indexers": [],

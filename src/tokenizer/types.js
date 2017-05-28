@@ -1,5 +1,3 @@
-// @flow
-
 // ## Token types
 
 // The assignment of fine-grained, information-carrying type objects
@@ -25,33 +23,8 @@ const isAssign = true;
 const prefix = true;
 const postfix = true;
 
-type TokenOptions = {
-  keyword?: string;
-
-  beforeExpr?: boolean;
-  startsExpr?: boolean;
-  rightAssociative?: boolean;
-  isLoop?: boolean;
-  isAssign?: boolean;
-  prefix?: boolean;
-  postfix?: boolean;
-  binop?: ?number;
-};
-
 export class TokenType {
-  label: string;
-  keyword: ?string;
-  beforeExpr: boolean;
-  startsExpr: boolean;
-  rightAssociative: boolean;
-  isLoop: boolean;
-  isAssign: boolean;
-  prefix: boolean;
-  postfix: boolean;
-  binop: ?number;
-  updateContext: ?((prevType: TokenType) => void);
-
-  constructor(label: string, conf: TokenOptions = {}) {
+  constructor(label, conf = {}) {
     this.label = label;
     this.keyword = conf.keyword;
     this.beforeExpr = !!conf.beforeExpr;
@@ -67,7 +40,7 @@ export class TokenType {
 }
 
 class KeywordTokenType extends TokenType {
-  constructor(name: string, options: TokenOptions = {}) {
+  constructor(name, options = {}) {
     options.keyword = name;
 
     super(name, options);
@@ -75,12 +48,12 @@ class KeywordTokenType extends TokenType {
 }
 
 export class BinopTokenType extends TokenType {
-  constructor(name: string, prec: number) {
+  constructor(name, prec) {
     super(name, { beforeExpr, binop: prec });
   }
 }
 
-export const types: { [name: string]: TokenType } = {
+export const types = {
   // LightScript
   tilde: new TokenType("~"),
   awaitArrow: new TokenType("<-", { beforeExpr, isAssign }),
@@ -179,7 +152,7 @@ export const keywords = {
   "new": new KeywordTokenType("new", { beforeExpr, startsExpr }),
   "this": new KeywordTokenType("this", { startsExpr }),
   "super": new KeywordTokenType("super", { startsExpr }),
-  "class": new KeywordTokenType("class"),
+  "class": new KeywordTokenType("class", { startsExpr }),
   "extends": new KeywordTokenType("extends", { beforeExpr }),
   "export": new KeywordTokenType("export"),
   "import": new KeywordTokenType("import", { startsExpr }),

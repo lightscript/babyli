@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 11
-            },
-            "identifierName": "g"
+            }
           },
           "name": "g"
         },
         "generator": true,
         "expression": false,
-        "async": false,
         "params": [],
         "body": {
           "type": "BlockStatement",
@@ -149,8 +147,7 @@
                           "end": {
                             "line": 1,
                             "column": 23
-                          },
-                          "identifierName": "a"
+                          }
                         },
                         "name": "a"
                       },
@@ -166,8 +163,7 @@
                           "end": {
                             "line": 1,
                             "column": 25
-                          },
-                          "identifierName": "b"
+                          }
                         },
                         "name": "b"
                       }
@@ -215,8 +211,7 @@
                           "end": {
                             "line": 1,
                             "column": 35
-                          },
-                          "identifierName": "c"
+                          }
                         },
                         "name": "c"
                       },
@@ -232,8 +227,7 @@
                           "end": {
                             "line": 1,
                             "column": 37
-                          },
-                          "identifierName": "d"
+                          }
                         },
                         "name": "d"
                       }
@@ -251,19 +245,16 @@
                       "end": {
                         "line": 1,
                         "column": 40
-                      },
-                      "identifierName": "e"
+                      }
                     },
                     "name": "e"
                   }
                 ]
               }
             }
-          ],
-          "directives": []
+          ]
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

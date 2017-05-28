@@ -1,3 +1,3 @@
 {
-  "throws": "throw is a reserved word (1:2)"
+  "throws": "Unexpected token, expected , (1:8)"
 }

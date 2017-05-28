@@ -54,8 +54,7 @@
             "end": {
               "line": 1,
               "column": 7
-            },
-            "identifierName": "C"
+            }
           },
           "name": "C"
         },
@@ -88,23 +87,8 @@
                   "column": 10
                 }
               },
-              "name": "T",
-              "variance": {
-                "type": "Variance",
-                "start": 8,
-                "end": 9,
-                "loc": {
-                  "start": {
-                    "line": 1,
-                    "column": 8
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 9
-                  }
-                },
-                "kind": "plus"
-              }
+              "variance": "plus",
+              "name": "T"
             },
             {
               "type": "TypeParameter",
@@ -120,23 +104,8 @@
                   "column": 13
                 }
               },
-              "name": "U",
-              "variance": {
-                "type": "Variance",
-                "start": 11,
-                "end": 12,
-                "loc": {
-                  "start": {
-                    "line": 1,
-                    "column": 11
-                  },
-                  "end": {
-                    "line": 1,
-                    "column": 12
-                  }
-                },
-                "kind": "minus"
-              }
+              "variance": "minus",
+              "name": "U"
             }
           ]
         },
@@ -184,8 +153,7 @@
             "end": {
               "line": 2,
               "column": 10
-            },
-            "identifierName": "f"
+            }
           },
           "name": "f"
         },
@@ -221,23 +189,8 @@
                   "column": 13
                 }
               },
-              "name": "T",
-              "variance": {
-                "type": "Variance",
-                "start": 29,
-                "end": 30,
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 11
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 12
-                  }
-                },
-                "kind": "plus"
-              }
+              "variance": "plus",
+              "name": "T"
             },
             {
               "type": "TypeParameter",
@@ -253,23 +206,8 @@
                   "column": 16
                 }
               },
-              "name": "U",
-              "variance": {
-                "type": "Variance",
-                "start": 32,
-                "end": 33,
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 14
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 15
-                  }
-                },
-                "kind": "minus"
-              }
+              "variance": "minus",
+              "name": "U"
             }
           ]
         },
@@ -318,8 +256,7 @@
             "end": {
               "line": 3,
               "column": 6
-            },
-            "identifierName": "T"
+            }
           },
           "name": "T"
         },
@@ -352,23 +289,8 @@
                   "column": 9
                 }
               },
-              "name": "T",
-              "variance": {
-                "type": "Variance",
-                "start": 48,
-                "end": 49,
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 7
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 8
-                  }
-                },
-                "kind": "plus"
-              }
+              "variance": "plus",
+              "name": "T"
             },
             {
               "type": "TypeParameter",
@@ -384,23 +306,8 @@
                   "column": 12
                 }
               },
-              "name": "U",
-              "variance": {
-                "type": "Variance",
-                "start": 51,
-                "end": 52,
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 10
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 11
-                  }
-                },
-                "kind": "minus"
-              }
+              "variance": "minus",
+              "name": "U"
             }
           ]
         },
@@ -420,8 +327,7 @@
           },
           "callProperties": [],
           "properties": [],
-          "indexers": [],
-          "exact": false
+          "indexers": []
         }
       }
     ],

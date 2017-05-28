@@ -79,7 +79,7 @@
             {
               "type": "ObjectTypeProperty",
               "start": 13,
-              "end": 30,
+              "end": 31,
               "loc": {
                 "start": {
                   "line": 2,
@@ -87,28 +87,9 @@
                 },
                 "end": {
                   "line": 2,
-                  "column": 19
+                  "column": 20
                 }
               },
-              "key": {
-                "type": "Identifier",
-                "start": 13,
-                "end": 19,
-                "loc": {
-                  "start": {
-                    "line": 2,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 2,
-                    "column": 8
-                  },
-                  "identifierName": "foobar"
-                },
-                "name": "foobar"
-              },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "FunctionTypeAnnotation",
                 "start": 13,
@@ -154,8 +135,7 @@
                           "column": 10
                         }
                       },
-                      "name": "T",
-                      "variance": null
+                      "name": "T"
                     }
                   ]
                 },
@@ -175,12 +155,30 @@
                   }
                 }
               },
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start": 13,
+                "end": 19,
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 8
+                  },
+                  "identifierName": "foobar"
+                },
+                "name": "foobar"
+              },
               "optional": false
             },
             {
               "type": "ObjectTypeProperty",
               "start": 34,
-              "end": 51,
+              "end": 52,
               "loc": {
                 "start": {
                   "line": 3,
@@ -188,28 +186,9 @@
                 },
                 "end": {
                   "line": 3,
-                  "column": 19
+                  "column": 20
                 }
               },
-              "key": {
-                "type": "Identifier",
-                "start": 34,
-                "end": 40,
-                "loc": {
-                  "start": {
-                    "line": 3,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 3,
-                    "column": 8
-                  },
-                  "identifierName": "delete"
-                },
-                "name": "delete"
-              },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "FunctionTypeAnnotation",
                 "start": 34,
@@ -255,8 +234,7 @@
                           "column": 10
                         }
                       },
-                      "name": "T",
-                      "variance": null
+                      "name": "T"
                     }
                   ]
                 },
@@ -276,12 +254,30 @@
                   }
                 }
               },
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start": 34,
+                "end": 40,
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 8
+                  },
+                  "identifierName": "delete"
+                },
+                "name": "delete"
+              },
               "optional": false
             },
             {
               "type": "ObjectTypeProperty",
               "start": 55,
-              "end": 71,
+              "end": 72,
               "loc": {
                 "start": {
                   "line": 4,
@@ -289,28 +285,9 @@
                 },
                 "end": {
                   "line": 4,
-                  "column": 18
+                  "column": 19
                 }
               },
-              "key": {
-                "type": "Identifier",
-                "start": 55,
-                "end": 60,
-                "loc": {
-                  "start": {
-                    "line": 4,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 4,
-                    "column": 7
-                  },
-                  "identifierName": "yield"
-                },
-                "name": "yield"
-              },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "FunctionTypeAnnotation",
                 "start": 55,
@@ -356,8 +333,7 @@
                           "column": 9
                         }
                       },
-                      "name": "T",
-                      "variance": null
+                      "name": "T"
                     }
                   ]
                 },
@@ -377,12 +353,30 @@
                   }
                 }
               },
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start": 55,
+                "end": 60,
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 7
+                  },
+                  "identifierName": "yield"
+                },
+                "name": "yield"
+              },
               "optional": false
             },
             {
               "type": "ObjectTypeProperty",
               "start": 75,
-              "end": 88,
+              "end": 89,
               "loc": {
                 "start": {
                   "line": 5,
@@ -390,28 +384,9 @@
                 },
                 "end": {
                   "line": 5,
-                  "column": 15
+                  "column": 16
                 }
               },
-              "key": {
-                "type": "Identifier",
-                "start": 75,
-                "end": 77,
-                "loc": {
-                  "start": {
-                    "line": 5,
-                    "column": 2
-                  },
-                  "end": {
-                    "line": 5,
-                    "column": 4
-                  },
-                  "identifierName": "do"
-                },
-                "name": "do"
-              },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "FunctionTypeAnnotation",
                 "start": 75,
@@ -457,8 +432,7 @@
                           "column": 6
                         }
                       },
-                      "name": "T",
-                      "variance": null
+                      "name": "T"
                     }
                   ]
                 },
@@ -477,6 +451,24 @@
                     }
                   }
                 }
+              },
+              "static": false,
+              "key": {
+                "type": "Identifier",
+                "start": 75,
+                "end": 77,
+                "loc": {
+                  "start": {
+                    "line": 5,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 5,
+                    "column": 4
+                  },
+                  "identifierName": "do"
+                },
+                "name": "do"
               },
               "optional": false
             }

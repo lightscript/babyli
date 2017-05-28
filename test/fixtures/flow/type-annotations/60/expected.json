@@ -101,8 +101,7 @@
                       "end": {
                         "line": 1,
                         "column": 6
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x"
                   },
@@ -118,13 +117,9 @@
                       "end": {
                         "line": 1,
                         "column": 6
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x"
-                  },
-                  "extra": {
-                    "shorthand": true
                   }
                 }
               ],
@@ -161,7 +156,7 @@
                     {
                       "type": "ObjectTypeProperty",
                       "start": 10,
-                      "end": 19,
+                      "end": 20,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -169,7 +164,7 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 19
+                          "column": 20
                         }
                       },
                       "key": {
@@ -184,13 +179,10 @@
                           "end": {
                             "line": 1,
                             "column": 11
-                          },
-                          "identifierName": "x"
+                          }
                         },
                         "name": "x"
                       },
-                      "static": false,
-                      "kind": "init",
                       "value": {
                         "type": "StringTypeAnnotation",
                         "start": 13,
@@ -206,12 +198,11 @@
                           }
                         }
                       },
-                      "variance": null,
-                      "optional": false
+                      "optional": false,
+                      "variance": null
                     }
                   ],
-                  "indexers": [],
-                  "exact": false
+                  "indexers": []
                 }
               }
             },
@@ -259,8 +250,7 @@
                       "end": {
                         "line": 1,
                         "column": 28
-                      },
-                      "identifierName": "x"
+                      }
                     },
                     "name": "x"
                   },

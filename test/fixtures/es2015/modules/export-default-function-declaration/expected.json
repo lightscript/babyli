@@ -68,14 +68,12 @@
               "end": {
                 "line": 1,
                 "column": 25
-              },
-              "identifierName": "a"
+              }
             },
             "name": "a"
           },
           "generator": false,
           "expression": false,
-          "async": false,
           "params": [],
           "body": {
             "type": "BlockStatement",
@@ -91,12 +89,10 @@
                 "column": 30
               }
             },
-            "body": [],
-            "directives": []
+            "body": []
           }
         }
       }
-    ],
-    "directives": []
+    ]
   }
 }

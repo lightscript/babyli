@@ -59,7 +59,6 @@
           "id": null,
           "generator": false,
           "expression": true,
-          "async": false,
           "params": [
             {
               "type": "AssignmentPattern",
@@ -87,8 +86,7 @@
                   "end": {
                     "line": 1,
                     "column": 2
-                  },
-                  "identifierName": "x"
+                  }
                 },
                 "name": "x"
               },
@@ -140,8 +138,7 @@
                 "end": {
                   "line": 1,
                   "column": 10
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x"
             },
@@ -158,8 +155,7 @@
                 "end": {
                   "line": 1,
                   "column": 14
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x"
             }

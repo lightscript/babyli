@@ -101,8 +101,7 @@
                     "end": {
                       "line": 2,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -118,13 +117,9 @@
                     "end": {
                       "line": 2,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
-                },
-                "extra": {
-                  "shorthand": true
                 }
               },
               {
@@ -156,8 +151,7 @@
                     "end": {
                       "line": 3,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -173,8 +167,7 @@
                     "end": {
                       "line": 3,
                       "column": 7
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 }
@@ -208,8 +201,7 @@
                     "end": {
                       "line": 4,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -239,8 +231,7 @@
                       "end": {
                         "line": 4,
                         "column": 7
-                      },
-                      "identifierName": "a"
+                      }
                     },
                     "name": "a"
                   },
@@ -256,8 +247,7 @@
                       "end": {
                         "line": 4,
                         "column": 9
-                      },
-                      "identifierName": "a"
+                      }
                     },
                     "name": "a"
                   }
@@ -292,8 +282,7 @@
                     "end": {
                       "line": 5,
                       "column": 6
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -341,8 +330,7 @@
                           "end": {
                             "line": 5,
                             "column": 10
-                          },
-                          "identifierName": "a"
+                          }
                         },
                         "name": "a"
                       },
@@ -358,13 +346,9 @@
                           "end": {
                             "line": 5,
                             "column": 10
-                          },
-                          "identifierName": "a"
+                          }
                         },
                         "name": "a"
-                      },
-                      "extra": {
-                        "shorthand": true
                       }
                     }
                   ]
@@ -399,8 +383,7 @@
                     "end": {
                       "line": 6,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -444,8 +427,7 @@
                         "end": {
                           "line": 6,
                           "column": 15
-                        },
-                        "identifierName": "some_call"
+                        }
                       },
                       "name": "some_call"
                     },
@@ -463,8 +445,7 @@
                       "end": {
                         "line": 6,
                         "column": 19
-                      },
-                      "identifierName": "a"
+                      }
                     },
                     "name": "a"
                   },
@@ -500,8 +481,7 @@
                     "end": {
                       "line": 7,
                       "column": 5
-                    },
-                    "identifierName": "a"
+                    }
                   },
                   "name": "a"
                 },
@@ -546,8 +526,7 @@
                       "end": {
                         "line": 7,
                         "column": 12
-                      },
-                      "identifierName": "a"
+                      }
                     },
                     "name": "a"
                   },
@@ -577,8 +556,7 @@
             "value": 0
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

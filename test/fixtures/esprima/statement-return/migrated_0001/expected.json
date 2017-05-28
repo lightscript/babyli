@@ -59,7 +59,6 @@
           "id": null,
           "generator": false,
           "expression": false,
-          "async": false,
           "params": [],
           "body": {
             "type": "BlockStatement",
@@ -96,8 +95,7 @@
             "directives": []
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

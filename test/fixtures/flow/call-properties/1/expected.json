@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 22
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -116,7 +115,6 @@
                           "column": 20
                         }
                       },
-                      "static": false,
                       "value": {
                         "type": "FunctionTypeAnnotation",
                         "start": 10,
@@ -153,8 +151,7 @@
                     }
                   ],
                   "properties": [],
-                  "indexers": [],
-                  "exact": false
+                  "indexers": []
                 }
               }
             },
@@ -163,7 +160,7 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

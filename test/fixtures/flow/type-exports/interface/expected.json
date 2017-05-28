@@ -71,8 +71,7 @@
               "end": {
                 "line": 1,
                 "column": 20
-              },
-              "identifierName": "foo"
+              }
             },
             "name": "foo"
           },
@@ -121,13 +120,10 @@
                     "end": {
                       "line": 1,
                       "column": 24
-                    },
-                    "identifierName": "p"
+                    }
                   },
                   "name": "p"
                 },
-                "static": false,
-                "kind": "init",
                 "value": {
                   "type": "NumberTypeAnnotation",
                   "start": 26,
@@ -143,12 +139,11 @@
                     }
                   }
                 },
-                "variance": null,
-                "optional": false
+                "optional": false,
+                "variance": null
               }
             ],
-            "indexers": [],
-            "exact": false
+            "indexers": []
           }
         }
       },
@@ -210,8 +205,7 @@
               "end": {
                 "line": 2,
                 "column": 20
-              },
-              "identifierName": "bar"
+              }
             },
             "name": "bar"
           },
@@ -244,8 +238,7 @@
                     "column": 22
                   }
                 },
-                "name": "T",
-                "variance": null
+                "name": "T"
               }
             ]
           },
@@ -293,13 +286,10 @@
                     "end": {
                       "line": 2,
                       "column": 27
-                    },
-                    "identifierName": "p"
+                    }
                   },
                   "name": "p"
                 },
-                "static": false,
-                "kind": "init",
                 "value": {
                   "type": "GenericTypeAnnotation",
                   "start": 65,
@@ -327,18 +317,16 @@
                       "end": {
                         "line": 2,
                         "column": 30
-                      },
-                      "identifierName": "T"
+                      }
                     },
                     "name": "T"
                   }
                 },
-                "variance": null,
-                "optional": false
+                "optional": false,
+                "variance": null
               }
             ],
-            "indexers": [],
-            "exact": false
+            "indexers": []
           }
         }
       },

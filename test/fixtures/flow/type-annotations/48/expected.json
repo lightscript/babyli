@@ -54,8 +54,7 @@
             "end": {
               "line": 1,
               "column": 9
-            },
-            "identifierName": "Foo"
+            }
           },
           "name": "Foo"
         },
@@ -88,8 +87,7 @@
                   "column": 11
                 }
               },
-              "name": "T",
-              "variance": null
+              "name": "T"
             }
           ]
         },
@@ -105,8 +103,7 @@
             "end": {
               "line": 1,
               "column": 24
-            },
-            "identifierName": "Bar"
+            }
           },
           "name": "Bar"
         },
@@ -152,8 +149,7 @@
                   "end": {
                     "line": 1,
                     "column": 26
-                  },
-                  "identifierName": "T"
+                  }
                 },
                 "name": "T"
               }

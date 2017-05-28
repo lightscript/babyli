@@ -56,7 +56,6 @@
               "column": 45
             }
           },
-          "predicate": null,
           "returnType": {
             "type": "TypeAnnotation",
             "start": 23,
@@ -112,8 +111,7 @@
                     "end": {
                       "line": 1,
                       "column": 36
-                    },
-                    "identifierName": "ReturnType"
+                    }
                   },
                   "name": "ReturnType"
                 }
@@ -151,8 +149,7 @@
                   "end": {
                     "line": 1,
                     "column": 10
-                  },
-                  "identifierName": "props"
+                  }
                 },
                 "name": "props"
               },
@@ -197,8 +194,7 @@
                       "end": {
                         "line": 1,
                         "column": 20
-                      },
-                      "identifierName": "SomeType"
+                      }
                     },
                     "name": "SomeType"
                   }

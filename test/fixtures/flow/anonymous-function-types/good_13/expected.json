@@ -88,7 +88,6 @@
                   "column": 37
                 }
               },
-              "predicate": null,
               "returnType": {
                 "type": "TypeAnnotation",
                 "start": 11,
@@ -159,7 +158,7 @@
                   ],
                   "rest": null,
                   "returnType": {
-                    "type": "NumberLiteralTypeAnnotation",
+                    "type": "NumericLiteralTypeAnnotation",
                     "start": 26,
                     "end": 29,
                     "loc": {
@@ -172,11 +171,11 @@
                         "column": 29
                       }
                     },
+                    "value": 123,
                     "extra": {
                       "rawValue": 123,
                       "raw": "123"
-                    },
-                    "value": 123
+                    }
                   },
                   "typeParameters": null
                 }

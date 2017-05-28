@@ -122,8 +122,7 @@
             "closingElement": null,
             "children": [],
             "extra": {
-              "parenthesized": true,
-              "parenStart": 7
+              "parenthesized": true
             }
           },
           "alternate": {

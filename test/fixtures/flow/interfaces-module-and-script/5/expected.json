@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 20
-            },
-            "identifierName": "Dictionary"
+            }
           },
           "name": "Dictionary"
         },
         "typeParameters": null,
         "extends": [],
-        "mixins": [],
         "body": {
           "type": "ObjectTypeAnnotation",
           "start": 21,
@@ -81,7 +79,7 @@
             {
               "type": "ObjectTypeProperty",
               "start": 48,
-              "end": 62,
+              "end": 63,
               "loc": {
                 "start": {
                   "line": 1,
@@ -89,7 +87,7 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 62
+                  "column": 63
                 }
               },
               "key": {
@@ -104,13 +102,10 @@
                   "end": {
                     "line": 1,
                     "column": 54
-                  },
-                  "identifierName": "length"
+                  }
                 },
                 "name": "length"
               },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "NumberTypeAnnotation",
                 "start": 56,
@@ -126,15 +121,15 @@
                   }
                 }
               },
-              "variance": null,
-              "optional": false
+              "optional": false,
+              "variance": null
             }
           ],
           "indexers": [
             {
               "type": "ObjectTypeIndexer",
               "start": 23,
-              "end": 46,
+              "end": 47,
               "loc": {
                 "start": {
                   "line": 1,
@@ -142,10 +137,9 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 46
+                  "column": 47
                 }
               },
-              "static": false,
               "id": {
                 "type": "Identifier",
                 "start": 24,
@@ -158,8 +152,7 @@
                   "end": {
                     "line": 1,
                     "column": 29
-                  },
-                  "identifierName": "index"
+                  }
                 },
                 "name": "index"
               },
@@ -195,11 +188,10 @@
               },
               "variance": null
             }
-          ],
-          "exact": false
+          ]
         }
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

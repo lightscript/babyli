@@ -84,8 +84,7 @@
                   "end": {
                     "line": 1,
                     "column": 2
-                  },
-                  "identifierName": "a"
+                  }
                 },
                 "name": "a"
               },
@@ -133,8 +132,7 @@
                         "end": {
                           "line": 1,
                           "column": 6
-                        },
-                        "identifierName": "b"
+                        }
                       },
                       "name": "b"
                     },
@@ -182,8 +180,7 @@
                               "end": {
                                 "line": 1,
                                 "column": 10
-                              },
-                              "identifierName": "c"
+                              }
                             },
                             "name": "c"
                           },
@@ -213,8 +210,7 @@
                                 "end": {
                                   "line": 1,
                                   "column": 10
-                                },
-                                "identifierName": "c"
+                                }
                               },
                               "name": "c"
                             },
@@ -238,9 +234,6 @@
                               },
                               "value": 1
                             }
-                          },
-                          "extra": {
-                            "shorthand": true
                           }
                         }
                       ]
@@ -262,8 +255,7 @@
               "end": {
                 "line": 1,
                 "column": 23
-              },
-              "identifierName": "arr"
+              }
             },
             "name": "arr"
           }

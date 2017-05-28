@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 11
-            },
-            "identifierName": "A"
+            }
           },
           "name": "A"
         },
         "typeParameters": null,
         "extends": [],
-        "mixins": [],
         "body": {
           "type": "ObjectTypeAnnotation",
           "start": 12,
@@ -81,7 +79,7 @@
             {
               "type": "ObjectTypeProperty",
               "start": 14,
-              "end": 31,
+              "end": 32,
               "loc": {
                 "start": {
                   "line": 1,
@@ -89,7 +87,7 @@
                 },
                 "end": {
                   "line": 1,
-                  "column": 31
+                  "column": 32
                 }
               },
               "key": {
@@ -104,13 +102,10 @@
                   "end": {
                     "line": 1,
                     "column": 17
-                  },
-                  "identifierName": "foo"
+                  }
                 },
                 "name": "foo"
               },
-              "static": false,
-              "kind": "init",
               "value": {
                 "type": "FunctionTypeAnnotation",
                 "start": 19,
@@ -144,15 +139,14 @@
                 },
                 "typeParameters": null
               },
-              "variance": null,
-              "optional": false
+              "optional": false,
+              "variance": null
             }
           ],
-          "indexers": [],
-          "exact": false
+          "indexers": []
         }
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

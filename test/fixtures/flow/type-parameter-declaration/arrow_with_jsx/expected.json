@@ -110,8 +110,7 @@
                     "column": 2
                   }
                 },
-                "name": "T",
-                "variance": null
+                "name": "T"
               }
             ]
           }
@@ -162,8 +161,7 @@
                 "end": {
                   "line": 2,
                   "column": 5
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x"
             }
@@ -217,8 +215,7 @@
                     "column": 2
                   }
                 },
-                "name": "T",
-                "variance": null
+                "name": "T"
               }
             ]
           }
@@ -269,8 +266,7 @@
                 "end": {
                   "line": 3,
                   "column": 13
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x",
               "typeAnnotation": {
@@ -354,8 +350,7 @@
                     "column": 2
                   }
                 },
-                "name": "T",
-                "variance": null
+                "name": "T"
               }
             ]
           }
@@ -406,8 +401,7 @@
                 "end": {
                   "line": 4,
                   "column": 13
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x",
               "typeAnnotation": {
@@ -524,8 +518,7 @@
                     "column": 2
                   }
                 },
-                "name": "T",
-                "variance": null
+                "name": "T"
               }
             ]
           }

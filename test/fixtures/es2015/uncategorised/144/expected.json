@@ -86,8 +86,7 @@
                   "end": {
                     "line": 1,
                     "column": 4
-                  },
-                  "identifierName": "x"
+                  }
                 },
                 "name": "x"
               },
@@ -141,8 +140,7 @@
                   "end": {
                     "line": 1,
                     "column": 12
-                  },
-                  "identifierName": "y"
+                  }
                 },
                 "name": "y"
               },
@@ -169,8 +167,7 @@
             }
           ],
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

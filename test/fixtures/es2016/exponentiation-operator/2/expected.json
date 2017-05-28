@@ -117,9 +117,6 @@
               "parenthesized": true,
               "parenStart": 1
             }
-          },
-          "extra": {
-            "parenthesizedArgument": false
           }
         }
       }

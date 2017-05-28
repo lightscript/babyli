@@ -42,7 +42,6 @@
             "column": 24
           }
         },
-        "await": false,
         "left": {
           "type": "VariableDeclaration",
           "start": 5,
@@ -116,8 +115,7 @@
                         "end": {
                           "line": 1,
                           "column": 13
-                        },
-                        "identifierName": "x"
+                        }
                       },
                       "name": "x"
                     },
@@ -133,13 +131,9 @@
                         "end": {
                           "line": 1,
                           "column": 13
-                        },
-                        "identifierName": "x"
+                        }
                       },
                       "name": "x"
-                    },
-                    "extra": {
-                      "shorthand": true
                     }
                   },
                   {
@@ -171,8 +165,7 @@
                         "end": {
                           "line": 1,
                           "column": 16
-                        },
-                        "identifierName": "y"
+                        }
                       },
                       "name": "y"
                     },
@@ -188,13 +181,9 @@
                         "end": {
                           "line": 1,
                           "column": 16
-                        },
-                        "identifierName": "y"
+                        }
                       },
                       "name": "y"
-                    },
-                    "extra": {
-                      "shorthand": true
                     }
                   }
                 ]
@@ -216,8 +205,7 @@
             "end": {
               "line": 1,
               "column": 22
-            },
-            "identifierName": "z"
+            }
           },
           "name": "z"
         },

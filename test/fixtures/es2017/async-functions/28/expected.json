@@ -141,7 +141,6 @@
                         },
                         "name": "async"
                       },
-                      "computed": false,
                       "value": {
                         "type": "Identifier",
                         "start": 22,

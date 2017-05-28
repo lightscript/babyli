@@ -69,12 +69,10 @@
                 "end": {
                   "line": 1,
                   "column": 18
-                },
-                "identifierName": "foo"
+                }
               },
               "name": "foo"
             },
-            "importKind": null,
             "local": {
               "type": "Identifier",
               "start": 22,
@@ -87,8 +85,7 @@
                 "end": {
                   "line": 1,
                   "column": 25
-                },
-                "identifierName": "bar"
+                }
               },
               "name": "bar"
             }

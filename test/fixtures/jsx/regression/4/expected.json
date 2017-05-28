@@ -135,10 +135,7 @@
                   "column": 10
                 }
               },
-              "extra": {
-                "rawValue": "/text",
-                "raw": "/text"
-              },
+              "extra": null,
               "value": "/text"
             }
           ]

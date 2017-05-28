@@ -56,8 +56,7 @@
               "column": 7
             }
           },
-          "body": [],
-          "directives": []
+          "body": []
         },
         "handler": {
           "type": "CatchClause",
@@ -85,8 +84,7 @@
               "end": {
                 "line": 1,
                 "column": 16
-              },
-              "identifierName": "e"
+              }
             },
             "name": "e"
           },
@@ -145,8 +143,7 @@
                       "end": {
                         "line": 1,
                         "column": 23
-                      },
-                      "identifierName": "say"
+                      }
                     },
                     "name": "say"
                   },
@@ -163,22 +160,19 @@
                         "end": {
                           "line": 1,
                           "column": 25
-                        },
-                        "identifierName": "e"
+                        }
                       },
                       "name": "e"
                     }
                   ]
                 }
               }
-            ],
-            "directives": []
+            ]
           }
         },
         "guardedHandlers": [],
         "finalizer": null
       }
-    ],
-    "directives": []
+    ]
   }
 }

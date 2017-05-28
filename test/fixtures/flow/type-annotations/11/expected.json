@@ -54,14 +54,12 @@
             "end": {
               "line": 1,
               "column": 12
-            },
-            "identifierName": "foo"
+            }
           },
           "name": "foo"
         },
         "generator": false,
         "expression": false,
-        "async": false,
         "params": [
           {
             "type": "Identifier",
@@ -75,8 +73,7 @@
               "end": {
                 "line": 1,
                 "column": 64
-              },
-              "identifierName": "callback"
+              }
             },
             "name": "callback",
             "typeAnnotation": {
@@ -134,8 +131,7 @@
                         "end": {
                           "line": 1,
                           "column": 26
-                        },
-                        "identifierName": "_1"
+                        }
                       },
                       "name": "_1"
                     },
@@ -183,8 +179,7 @@
                       "end": {
                         "line": 1,
                         "column": 39
-                      },
-                      "identifierName": "foo"
+                      }
                     },
                     "name": "foo"
                   },
@@ -247,8 +242,7 @@
                         "end": {
                           "line": 1,
                           "column": 45
-                        },
-                        "identifierName": "Array"
+                        }
                       },
                       "name": "Array"
                     }

@@ -59,7 +59,6 @@
           "id": null,
           "generator": true,
           "expression": false,
-          "async": false,
           "params": [
             {
               "type": "Identifier",
@@ -73,8 +72,7 @@
                 "end": {
                   "line": 1,
                   "column": 12
-                },
-                "identifierName": "x"
+                }
               },
               "name": "x"
             },
@@ -90,8 +88,7 @@
                 "end": {
                   "line": 1,
                   "column": 15
-                },
-                "identifierName": "y"
+                }
               },
               "name": "y"
             },
@@ -107,8 +104,7 @@
                 "end": {
                   "line": 1,
                   "column": 18
-                },
-                "identifierName": "z"
+                }
               },
               "name": "z"
             }
@@ -131,8 +127,7 @@
             "directives": []
           },
           "extra": {
-            "parenthesized": true,
-            "parenStart": 0
+            "parenthesized": true
           }
         }
       }

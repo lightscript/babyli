@@ -42,10 +42,6 @@
             "column": 24
           }
         },
-        "extra": {
-          "hasParens": true
-        },
-        "await": false,
         "left": {
           "type": "ObjectPattern",
           "start": 36,
@@ -155,8 +151,7 @@
               }
             }
           ],
-          "leadingComments": null,
-          "isNowAssign": true
+          "leadingComments": null
         },
         "right": {
           "type": "Identifier",

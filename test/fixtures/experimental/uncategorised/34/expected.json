@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 7
-                },
-                "identifierName": "Foo"
+                }
               },
               "name": "Foo"
             },
@@ -115,8 +114,7 @@
                       "end": {
                         "line": 1,
                         "column": 14
-                      },
-                      "identifierName": "foo"
+                      }
                     },
                     "name": "foo"
                   }
@@ -134,8 +132,7 @@
                   "end": {
                     "line": 1,
                     "column": 24
-                  },
-                  "identifierName": "Foo"
+                  }
                 },
                 "name": "Foo"
               },
@@ -161,7 +158,6 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
+    ]
   }
 }

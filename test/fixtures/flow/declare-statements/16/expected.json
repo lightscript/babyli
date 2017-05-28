@@ -176,8 +176,7 @@
           },
           "callProperties": [],
           "properties": [],
-          "indexers": [],
-          "exact": false
+          "indexers": []
         }
       }
     ],

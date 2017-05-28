@@ -88,7 +88,6 @@
                   "column": 25
                 }
               },
-              "predicate": null,
               "returnType": {
                 "type": "TypeAnnotation",
                 "start": 11,
@@ -119,7 +118,7 @@
                   },
                   "types": [
                     {
-                      "type": "NumberLiteralTypeAnnotation",
+                      "type": "NumericLiteralTypeAnnotation",
                       "start": 15,
                       "end": 16,
                       "loc": {
@@ -132,14 +131,14 @@
                           "column": 16
                         }
                       },
+                      "value": 1,
                       "extra": {
                         "rawValue": 1,
                         "raw": "1"
-                      },
-                      "value": 1
+                      }
                     },
                     {
-                      "type": "NumberLiteralTypeAnnotation",
+                      "type": "NumericLiteralTypeAnnotation",
                       "start": 19,
                       "end": 20,
                       "loc": {
@@ -152,11 +151,11 @@
                           "column": 20
                         }
                       },
+                      "value": 2,
                       "extra": {
                         "rawValue": 2,
                         "raw": "2"
-                      },
-                      "value": 2
+                      }
                     }
                   ]
                 }

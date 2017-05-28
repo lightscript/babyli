@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 52
-                },
-                "identifierName": "a"
+                }
               },
               "name": "a",
               "typeAnnotation": {
@@ -107,7 +106,7 @@
                     {
                       "type": "ObjectTypeIndexer",
                       "start": 9,
-                      "end": 28,
+                      "end": 29,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -115,10 +114,9 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 28
+                          "column": 29
                         }
                       },
-                      "static": false,
                       "id": {
                         "type": "Identifier",
                         "start": 10,
@@ -131,8 +129,7 @@
                           "end": {
                             "line": 1,
                             "column": 11
-                          },
-                          "identifierName": "a"
+                          }
                         },
                         "name": "a"
                       },
@@ -165,13 +162,12 @@
                             "column": 28
                           }
                         }
-                      },
-                      "variance": null
+                      }
                     },
                     {
                       "type": "ObjectTypeIndexer",
                       "start": 30,
-                      "end": 49,
+                      "end": 50,
                       "loc": {
                         "start": {
                           "line": 1,
@@ -179,10 +175,9 @@
                         },
                         "end": {
                           "line": 1,
-                          "column": 49
+                          "column": 50
                         }
                       },
-                      "static": false,
                       "id": {
                         "type": "Identifier",
                         "start": 31,
@@ -195,8 +190,7 @@
                           "end": {
                             "line": 1,
                             "column": 32
-                          },
-                          "identifierName": "b"
+                          }
                         },
                         "name": "b"
                       },
@@ -232,8 +226,7 @@
                       },
                       "variance": null
                     }
-                  ],
-                  "exact": false
+                  ]
                 }
               }
             },
@@ -242,7 +235,7 @@
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
-  }
+    ]
+  },
+  "comments": []
 }

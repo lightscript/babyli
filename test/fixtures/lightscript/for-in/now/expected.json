@@ -42,7 +42,6 @@
             "column": 20
           }
         },
-        "await": false,
         "left": {
           "type": "Identifier",
           "start": 8,
@@ -58,8 +57,7 @@
             },
             "identifierName": "k"
           },
-          "name": "k",
-          "isNowAssign": true
+          "name": "k"
         },
         "right": {
           "type": "Identifier",

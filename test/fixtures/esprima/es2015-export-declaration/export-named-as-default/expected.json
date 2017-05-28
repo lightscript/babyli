@@ -70,8 +70,7 @@
                 "end": {
                   "line": 1,
                   "column": 11
-                },
-                "identifierName": "foo"
+                }
               },
               "name": "foo"
             },
@@ -87,8 +86,7 @@
                 "end": {
                   "line": 1,
                   "column": 22
-                },
-                "identifierName": "default"
+                }
               },
               "name": "default"
             }
@@ -96,7 +94,6 @@
         ],
         "source": null
       }
-    ],
-    "directives": []
+    ]
   }
 }

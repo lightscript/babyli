@@ -185,10 +185,7 @@
                   "column": 35
                 }
               },
-              "extra": {
-                "rawValue": "7x invalid-js-identifier",
-                "raw": "7x invalid-js-identifier"
-              },
+              "extra": null,
               "value": "7x invalid-js-identifier"
             }
           ]

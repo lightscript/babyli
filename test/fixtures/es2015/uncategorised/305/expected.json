@@ -101,8 +101,7 @@
                       "end": {
                         "line": 1,
                         "column": 13
-                      },
-                      "identifierName": "propName"
+                      }
                     },
                     "name": "propName"
                   },
@@ -132,8 +131,7 @@
                         "end": {
                           "line": 1,
                           "column": 13
-                        },
-                        "identifierName": "propName"
+                        }
                       },
                       "name": "propName"
                     },
@@ -149,14 +147,10 @@
                         "end": {
                           "line": 1,
                           "column": 28
-                        },
-                        "identifierName": "defaultValue"
+                        }
                       },
                       "name": "defaultValue"
                     }
-                  },
-                  "extra": {
-                    "shorthand": true
                   }
                 }
               ]
@@ -173,8 +167,7 @@
                 "end": {
                   "line": 1,
                   "column": 35
-                },
-                "identifierName": "obj"
+                }
               },
               "name": "obj"
             }

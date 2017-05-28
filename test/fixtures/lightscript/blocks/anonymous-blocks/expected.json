@@ -94,9 +94,6 @@
                 }
               },
               "kind": "const",
-              "extra": {
-                "implicit": true
-              },
               "declarations": [
                 {
                   "type": "VariableDeclarator",
@@ -182,9 +179,6 @@
                     }
                   },
                   "kind": "const",
-                  "extra": {
-                    "implicit": true
-                  },
                   "declarations": [
                     {
                       "type": "VariableDeclarator",

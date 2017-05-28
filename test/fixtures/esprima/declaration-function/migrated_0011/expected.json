@@ -69,8 +69,7 @@
                 "end": {
                   "line": 1,
                   "column": 9
-                },
-                "identifierName": "hello"
+                }
               },
               "name": "hello"
             },
@@ -100,14 +99,12 @@
                   "end": {
                     "line": 1,
                     "column": 23
-                  },
-                  "identifierName": "hi"
+                  }
                 },
                 "name": "hi"
               },
               "generator": false,
               "expression": false,
-              "async": false,
               "params": [],
               "body": {
                 "type": "BlockStatement",
@@ -164,23 +161,20 @@
                           "end": {
                             "line": 1,
                             "column": 33
-                          },
-                          "identifierName": "sayHi"
+                          }
                         },
                         "name": "sayHi"
                       },
                       "arguments": []
                     }
                   }
-                ],
-                "directives": []
+                ]
               }
             }
           }
         ],
         "kind": "var"
       }
-    ],
-    "directives": []
+    ]
   }
 }
