@@ -202,7 +202,7 @@ export default class Tokenizer {
   // whitespace and comments, and.
 
   skipSpace() {
-    let isNewLine = false;  // for lightscript
+    let isNewLine = this.state.pos === 0;  // for lightscript
     loop: while (this.state.pos < this.input.length) {
       const ch = this.input.charCodeAt(this.state.pos);
       switch (ch) {
