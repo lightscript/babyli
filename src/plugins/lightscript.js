@@ -155,8 +155,7 @@ pp.parseMultilineWhiteBlock = function(node, indentLevel) {
 
 pp.parseWhiteBlock = function (isExpression?) {
   const node = this.startNode(), indentLevel = this.state.indentLevel;
-
-  if (!this.eat(tt.colon)) this.unexpected(null, "Whitespace Block must start with a colon or arrow");
+  if (!this.eat(tt.colon)) this.unexpected(this.state.lastTokEnd, tt.colon);
 
   // Oneline whiteblock
   if (!this.isLineBreak()) {
@@ -383,12 +382,18 @@ pp.popBlockState = function() {
 
 // c/p parseIfStatement
 
-pp.parseIf = function (node, isExpression) {
+pp.parseIf = function (node, isExpression, requireColon = null) {
   const indentLevel = this.state.indentLevel;
   this.next();
   node.test = this.parseParenExpression();
 
-  const isColon = this.match(tt.colon);
+  const isColon = requireColon
+    ? this.check(tt.colon)
+    : this.match(tt.colon);
+
+  // colon not allowed, parent `if` didn't use one.
+  if (isColon && requireColon === false) this.expect(tt.braceL);
+
   if (isColon) this.pushBlockState("if", indentLevel);
 
   if (isExpression) {
@@ -425,7 +430,7 @@ pp.parseIfAlternate = function (node, isExpression, ifIsWhiteBlock, ifIndentLeve
   }
 
   if (this.match(tt._elif)) {
-    return this.parseIf(this.startNode(), isExpression);
+    return this.parseIf(this.startNode(), isExpression, ifIsWhiteBlock);
   }
 
   if (this.eat(tt._else)) {
@@ -433,20 +438,20 @@ pp.parseIfAlternate = function (node, isExpression, ifIsWhiteBlock, ifIndentLeve
       if (this.isLineBreak()) {
         this.unexpected(this.state.lastTokEnd, "Illegal newline.");
       }
-      return this.parseIf(this.startNode(), isExpression);
+      return this.parseIf(this.startNode(), isExpression, ifIsWhiteBlock);
     }
 
-    if (this.isLineBreak()) {
-      this.unexpected(this.state.lastTokEnd, tt.colon);
+    if (ifIsWhiteBlock) {
+      return this.parseWhiteBlock(isExpression);
+    } else if (this.match(tt.colon)) {
+      this.expect(tt.braceL);
     }
 
     if (isExpression) {
       if (this.match(tt.braceL)) {
         return this.parseBlock(false);
-      } else if (!this.match(tt.colon)) {
-        return this.parseMaybeAssign();
       } else {
-        return this.parseWhiteBlock(true);
+        return this.parseMaybeAssign();
       }
     }
 
