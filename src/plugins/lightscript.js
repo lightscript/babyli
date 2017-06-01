@@ -397,6 +397,12 @@ pp.parseIf = function (node, isExpression, requireColon = null) {
   if (isColon) this.pushBlockState("if", indentLevel);
 
   if (isExpression) {
+    // disallow return/continue/break, etc. c/p doExpression
+    const oldInFunction = this.state.inFunction;
+    const oldLabels = this.state.labels;
+    this.state.labels = [];
+    this.state.inFunction = false;
+
     if (this.match(tt.braceL)) {
       node.consequent = this.parseBlock(false);
     } else if (!isColon) {
@@ -404,6 +410,9 @@ pp.parseIf = function (node, isExpression, requireColon = null) {
     } else {
       node.consequent = this.parseWhiteBlock(true);
     }
+
+    this.state.inFunction = oldInFunction;
+    this.state.labels = oldLabels;
   } else {
     node.consequent = this.parseStatement(false);
   }
