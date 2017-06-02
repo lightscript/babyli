@@ -834,11 +834,18 @@ pp.flowParseTypeAnnotatableIdentifier = function () {
 };
 
 pp.typeCastToParameter = function (node) {
-  node.expression.typeAnnotation = node.typeAnnotation;
+  // Lightscript: Existential expressions look like optional flow types
+  // Unwrap them
+  let innerNode = node.expression;
+  if (this.hasPlugin("lightscript") && innerNode.type === "ExistentialExpression") {
+    innerNode = this.existentialToParameter(innerNode);
+  }
+
+  innerNode.typeAnnotation = node.typeAnnotation;
 
   return this.finishNodeAt(
-    node.expression,
-    node.expression.type,
+    innerNode,
+    innerNode.type,
     node.typeAnnotation.end,
     node.typeAnnotation.loc.end
   );
@@ -1049,6 +1056,9 @@ export default function (instance) {
     return function (node, isBinding, contextDescription) {
       if (node.type === "TypeCastExpression") {
         return inner.call(this, this.typeCastToParameter(node), isBinding, contextDescription);
+      } else if (this.hasPlugin("lightscript") && node.type === "ExistentialExpression") {
+        // Existential expression looks like an optional flow parameter
+        return inner.call(this, this.existentialToParameter(node), isBinding, contextDescription);
       } else {
         return inner.call(this, node, isBinding, contextDescription);
       }
@@ -1062,6 +1072,9 @@ export default function (instance) {
         const expr = exprList[i];
         if (expr && expr.type === "TypeCastExpression") {
           exprList[i] = this.typeCastToParameter(expr);
+        } else if (this.hasPlugin("lightscript") && expr && expr.type === "ExistentialExpression") {
+          // Existential expression looks like an optional flow parameter
+          exprList[i] = this.existentialToParameter(expr);
         }
       }
       return inner.call(this, exprList, isBinding, contextDescription);
