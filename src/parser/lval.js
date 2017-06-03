@@ -151,7 +151,11 @@ pp.parseBindingList = function (close, allowEmpty) {
     if (first) {
       first = false;
     } else {
-      this.expect(tt.comma);
+      if (this.hasPlugin("lightscript")) {
+        this.expectCommaOrLineBreak();
+      } else {
+        this.expect(tt.comma);
+      }
     }
     if (allowEmpty && this.match(tt.comma)) {
       elts.push(null);

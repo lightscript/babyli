@@ -170,9 +170,9 @@ pp.parseWhiteBlock = function (isExpression?) {
   return this.parseMultilineWhiteBlock(node, indentLevel);
 };
 
-pp.expectCommaOrLineBreak = function () {
+pp.expectCommaOrLineBreak = function (loc = null) {
   // TODO: consider error message like "Missing comma or newline."
-  if (!(this.eat(tt.comma) || this.isLineBreak())) this.unexpected(null, tt.comma);
+  if (!(this.eat(tt.comma) || this.isLineBreak())) this.unexpected(loc, tt.comma);
 };
 
 // lightscript only allows plain space (ascii-32), \r\n, and \n.

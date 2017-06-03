@@ -805,7 +805,11 @@ pp.parseParenAndDistinguishExpression = function (startPos, startLoc, canBeArrow
     if (first) {
       first = false;
     } else {
-      this.expect(tt.comma, refNeedsArrowPos.start || null);
+      if (this.hasPlugin("lightscript")) {
+        this.expectCommaOrLineBreak(refNeedsArrowPos.start || null);
+      } else {
+        this.expect(tt.comma, refNeedsArrowPos.start || null);
+      }
       if (this.match(tt.parenR)) {
         optionalCommaStart = this.state.start;
         break;
