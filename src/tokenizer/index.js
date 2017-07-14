@@ -408,17 +408,6 @@ export default class Tokenizer {
           return this.finishToken(tt.arrow, "-*/>");
         }
       }
-
-      let getOrSet;
-      if (next === 103) getOrSet = "get";
-      if (next === 115) getOrSet = "set";
-      if (getOrSet && next2 === 101 &&
-        this.input.charCodeAt(this.state.pos + 3) === 116 &&
-        this.input.charCodeAt(this.state.pos + 4) === 62
-      ) {
-        this.state.pos += 5;
-        return this.finishToken(tt.arrow, `-${getOrSet}>`);
-      }
     }
 
     if (next === 61) {

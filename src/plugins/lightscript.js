@@ -253,8 +253,6 @@ pp.parseArrowType = function (node) {
   const isPlainFatArrow = val === "=>" && !node.id && !node.key;
   if (node.async && !isPlainFatArrow) this.unexpected(node.start, "Can't use async with lightscript arrows.");
   if (node.generator) this.unexpected(node.start, "Can't declare generators with arrows; try -*> instead.");
-  if (node.kind === "get") this.unexpected(node.start, "Can't use arrow method with get; try -get> instead.");
-  if (node.kind === "set") this.unexpected(node.start, "Can't use arrow method with set; try -set> instead.");
   if (node.kind === "constructor" && val !== "->") this.unexpected(null, "Can only use -> with constructor.");
 
   switch (val) {
@@ -267,15 +265,6 @@ pp.parseArrowType = function (node) {
     case "=*/>": case "-*/>":
       node.async = true;
       node.generator = true;
-      break;
-    case "-get>":
-      // TODO: validate that it's in a method not a function
-      if (!node.kind) this.unexpected(null, "Only methods can be getters.");
-      node.kind = "get";
-      break;
-    case "-set>":
-      if (!node.kind) this.unexpected(null, "Only methods can be setters.");
-      node.kind = "set";
       break;
     case "=>": case "->":
       break;
