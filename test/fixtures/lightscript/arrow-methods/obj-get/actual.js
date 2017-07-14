@@ -1,5 +1,5 @@
 x = {
-  method() -get>
+  get method() ->
     a
     b
 }

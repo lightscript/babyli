@@ -1,4 +1,4 @@
 class X {
-  method(x, y) -set>
+  set method(x, y) ->
     this.x = x
 }

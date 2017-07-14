@@ -1,5 +1,5 @@
 class X {
-  method() -get>
+  get method() ->
     a
     b
 }
