@@ -1,4 +1,4 @@
 class X {
-  method(x) -get>
+  get method(x) ->
     x
 }

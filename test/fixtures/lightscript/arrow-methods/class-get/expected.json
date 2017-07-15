@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 40,
+  "end": 41,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 40,
+    "end": 41,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ClassDeclaration",
         "start": 0,
-        "end": 40,
+        "end": 41,
         "loc": {
           "start": {
             "line": 1,
@@ -63,7 +63,7 @@
         "body": {
           "type": "ClassBody",
           "start": 8,
-          "end": 40,
+          "end": 41,
           "loc": {
             "start": {
               "line": 1,
@@ -78,7 +78,7 @@
             {
               "type": "ClassMethod",
               "start": 12,
-              "end": 38,
+              "end": 39,
               "loc": {
                 "start": {
                   "line": 2,
@@ -92,16 +92,16 @@
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 12,
-                "end": 18,
+                "start": 16,
+                "end": 22,
                 "loc": {
                   "start": {
                     "line": 2,
-                    "column": 2
+                    "column": 6
                   },
                   "end": {
                     "line": 2,
-                    "column": 8
+                    "column": 12
                   },
                   "identifierName": "method"
                 },
@@ -117,12 +117,12 @@
               "skinny": true,
               "body": {
                 "type": "BlockStatement",
-                "start": 21,
-                "end": 38,
+                "start": 25,
+                "end": 39,
                 "loc": {
                   "start": {
                     "line": 2,
-                    "column": 11
+                    "column": 15
                   },
                   "end": {
                     "line": 4,
@@ -132,8 +132,8 @@
                 "body": [
                   {
                     "type": "ExpressionStatement",
-                    "start": 31,
-                    "end": 32,
+                    "start": 32,
+                    "end": 33,
                     "loc": {
                       "start": {
                         "line": 3,
@@ -146,8 +146,8 @@
                     },
                     "expression": {
                       "type": "Identifier",
-                      "start": 31,
-                      "end": 32,
+                      "start": 32,
+                      "end": 33,
                       "loc": {
                         "start": {
                           "line": 3,
@@ -164,8 +164,8 @@
                   },
                   {
                     "type": "ExpressionStatement",
-                    "start": 37,
-                    "end": 38,
+                    "start": 38,
+                    "end": 39,
                     "loc": {
                       "start": {
                         "line": 4,
@@ -178,8 +178,8 @@
                     },
                     "expression": {
                       "type": "Identifier",
-                      "start": 37,
-                      "end": 38,
+                      "start": 38,
+                      "end": 39,
                       "loc": {
                         "start": {
                           "line": 4,

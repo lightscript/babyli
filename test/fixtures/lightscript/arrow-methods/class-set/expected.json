@@ -1,7 +1,7 @@
 {
   "type": "File",
   "start": 0,
-  "end": 44,
+  "end": 45,
   "loc": {
     "start": {
       "line": 1,
@@ -15,7 +15,7 @@
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 44,
+    "end": 45,
     "loc": {
       "start": {
         "line": 1,
@@ -31,7 +31,7 @@
       {
         "type": "ClassDeclaration",
         "start": 0,
-        "end": 44,
+        "end": 45,
         "loc": {
           "start": {
             "line": 1,
@@ -63,7 +63,7 @@
         "body": {
           "type": "ClassBody",
           "start": 8,
-          "end": 44,
+          "end": 45,
           "loc": {
             "start": {
               "line": 1,
@@ -78,7 +78,7 @@
             {
               "type": "ClassMethod",
               "start": 12,
-              "end": 42,
+              "end": 43,
               "loc": {
                 "start": {
                   "line": 2,
@@ -92,16 +92,16 @@
               "computed": false,
               "key": {
                 "type": "Identifier",
-                "start": 12,
-                "end": 18,
+                "start": 16,
+                "end": 22,
                 "loc": {
                   "start": {
                     "line": 2,
-                    "column": 2
+                    "column": 6
                   },
                   "end": {
                     "line": 2,
-                    "column": 8
+                    "column": 12
                   },
                   "identifierName": "method"
                 },
@@ -116,16 +116,16 @@
               "params": [
                 {
                   "type": "Identifier",
-                  "start": 19,
-                  "end": 20,
+                  "start": 23,
+                  "end": 24,
                   "loc": {
                     "start": {
                       "line": 2,
-                      "column": 9
+                      "column": 13
                     },
                     "end": {
                       "line": 2,
-                      "column": 10
+                      "column": 14
                     },
                     "identifierName": "x"
                   },
@@ -135,12 +135,12 @@
               "skinny": true,
               "body": {
                 "type": "BlockStatement",
-                "start": 22,
-                "end": 42,
+                "start": 26,
+                "end": 43,
                 "loc": {
                   "start": {
                     "line": 2,
-                    "column": 12
+                    "column": 16
                   },
                   "end": {
                     "line": 3,
@@ -150,8 +150,8 @@
                 "body": [
                   {
                     "type": "ExpressionStatement",
-                    "start": 32,
-                    "end": 42,
+                    "start": 33,
+                    "end": 43,
                     "loc": {
                       "start": {
                         "line": 3,
@@ -164,8 +164,8 @@
                     },
                     "expression": {
                       "type": "AssignmentExpression",
-                      "start": 32,
-                      "end": 42,
+                      "start": 33,
+                      "end": 43,
                       "loc": {
                         "start": {
                           "line": 3,
@@ -179,8 +179,8 @@
                       "operator": "=",
                       "left": {
                         "type": "MemberExpression",
-                        "start": 32,
-                        "end": 38,
+                        "start": 33,
+                        "end": 39,
                         "loc": {
                           "start": {
                             "line": 3,
@@ -193,8 +193,8 @@
                         },
                         "object": {
                           "type": "ThisExpression",
-                          "start": 32,
-                          "end": 36,
+                          "start": 33,
+                          "end": 37,
                           "loc": {
                             "start": {
                               "line": 3,
@@ -208,8 +208,8 @@
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 37,
-                          "end": 38,
+                          "start": 38,
+                          "end": 39,
                           "loc": {
                             "start": {
                               "line": 3,
@@ -227,8 +227,8 @@
                       },
                       "right": {
                         "type": "Identifier",
-                        "start": 41,
-                        "end": 42,
+                        "start": 42,
+                        "end": 43,
                         "loc": {
                           "start": {
                             "line": 3,
@@ -241,7 +241,8 @@
                           "identifierName": "x"
                         },
                         "name": "x"
-                      }
+                      },
+                      "isNowAssign": false
                     }
                   }
                 ],
