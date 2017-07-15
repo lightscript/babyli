@@ -255,6 +255,10 @@ pp.parseArrowType = function (node) {
   if (node.generator) this.unexpected(node.start, "Can't declare generators with arrows; try -*> instead.");
   if (node.kind === "constructor" && val !== "->") this.unexpected(null, "Can only use -> with constructor.");
 
+  if ((node.kind === "get" || node.kind === "set") && val !== "->") {
+    this.unexpected(node.start, "Can only use -> with getters & setters.");
+  }
+
   switch (val) {
     case "=/>": case "-/>":
       node.async = true;
