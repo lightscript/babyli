@@ -1,0 +1,11 @@
+match x:
+  | 2: "two"
+  | "hello": "hi"
+  | /\w+/: "word"
+  | /\w+/ig: "word"
+  | +1: "equal to positive one"
+  | -1: "equal to negative one"
+  | null: "null"
+  | undefined: "undefined"
+  | true: "strict true"
+  | false: "strict false"

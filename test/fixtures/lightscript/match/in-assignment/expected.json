@@ -1,0 +1,256 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 57,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 3,
+      "column": 28
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 57,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 3,
+        "column": 28
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "VariableDeclaration",
+        "start": 0,
+        "end": 57,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 3,
+            "column": 28
+          }
+        },
+        "kind": "const",
+        "extra": {
+          "implicit": true
+        },
+        "declarations": [
+          {
+            "type": "VariableDeclarator",
+            "start": 0,
+            "end": 57,
+            "loc": {
+              "start": {
+                "line": 1,
+                "column": 0
+              },
+              "end": {
+                "line": 3,
+                "column": 28
+              }
+            },
+            "id": {
+              "type": "Identifier",
+              "start": 0,
+              "end": 1,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 1
+                },
+                "identifierName": "a"
+              },
+              "name": "a"
+            },
+            "init": {
+              "type": "MatchExpression",
+              "start": 4,
+              "end": 57,
+              "loc": {
+                "start": {
+                  "line": 1,
+                  "column": 4
+                },
+                "end": {
+                  "line": 3,
+                  "column": 28
+                }
+              },
+              "discriminant": {
+                "type": "Identifier",
+                "start": 10,
+                "end": 11,
+                "loc": {
+                  "start": {
+                    "line": 1,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 11
+                  },
+                  "identifierName": "x"
+                },
+                "name": "x"
+              },
+              "cases": [
+                {
+                  "type": "MatchCase",
+                  "start": 15,
+                  "end": 28,
+                  "loc": {
+                    "start": {
+                      "line": 2,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 2,
+                      "column": 15
+                    }
+                  },
+                  "test": {
+                    "type": "NumericLiteral",
+                    "start": 17,
+                    "end": 18,
+                    "loc": {
+                      "start": {
+                        "line": 2,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 5
+                      }
+                    },
+                    "extra": {
+                      "rawValue": 2,
+                      "raw": "2"
+                    },
+                    "value": 2
+                  },
+                  "consequent": {
+                    "type": "ExpressionStatement",
+                    "start": 20,
+                    "end": 28,
+                    "loc": {
+                      "start": {
+                        "line": 2,
+                        "column": 7
+                      },
+                      "end": {
+                        "line": 2,
+                        "column": 15
+                      }
+                    },
+                    "expression": {
+                      "type": "StringLiteral",
+                      "start": 20,
+                      "end": 28,
+                      "loc": {
+                        "start": {
+                          "line": 2,
+                          "column": 7
+                        },
+                        "end": {
+                          "line": 2,
+                          "column": 15
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "eq two",
+                        "raw": "\"eq two\""
+                      },
+                      "value": "eq two"
+                    }
+                  }
+                },
+                {
+                  "type": "MatchCase",
+                  "start": 31,
+                  "end": 57,
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 2
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 28
+                    }
+                  },
+                  "test": {
+                    "type": "MatchElse",
+                    "start": 33,
+                    "end": 37,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 8
+                      }
+                    }
+                  },
+                  "consequent": {
+                    "type": "ExpressionStatement",
+                    "start": 39,
+                    "end": 57,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 10
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 28
+                      }
+                    },
+                    "expression": {
+                      "type": "StringLiteral",
+                      "start": 39,
+                      "end": 57,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 28
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "some other thing",
+                        "raw": "\"some other thing\""
+                      },
+                      "value": "some other thing"
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  }
+}

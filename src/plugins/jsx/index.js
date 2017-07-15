@@ -434,6 +434,11 @@ export default function(instance) {
     return function(code) {
       if (this.state.inPropertyName) return inner.call(this, code);
 
+      // don't allow jsx inside match case tests
+      if (this.hasPlugin("lightscript") && this.state.inMatchCaseTest) {
+        return inner.call(this, code);
+      }
+
       const context = this.curContext();
 
       if (this.hasPlugin("lightscript") && code === 60) {

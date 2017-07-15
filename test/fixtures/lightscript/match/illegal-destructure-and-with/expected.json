@@ -1,0 +1,333 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 145,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 4,
+      "column": 35
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 145,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 4,
+        "column": 35
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "MatchStatement",
+        "start": 0,
+        "end": 145,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 4,
+            "column": 35
+          }
+        },
+        "discriminant": {
+          "type": "Identifier",
+          "start": 6,
+          "end": 7,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 6
+            },
+            "end": {
+              "line": 1,
+              "column": 7
+            },
+            "identifierName": "x"
+          },
+          "name": "x"
+        },
+        "cases": [
+          {
+            "type": "MatchCase",
+            "start": 112,
+            "end": 145,
+            "loc": {
+              "start": {
+                "line": 4,
+                "column": 2
+              },
+              "end": {
+                "line": 4,
+                "column": 35
+              }
+            },
+            "test": {
+              "type": "ObjectExpression",
+              "start": 114,
+              "end": 119,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 4
+                },
+                "end": {
+                  "line": 4,
+                  "column": 9
+                }
+              },
+              "properties": [
+                {
+                  "type": "ObjectProperty",
+                  "start": 116,
+                  "end": 117,
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 6
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 7
+                    }
+                  },
+                  "method": false,
+                  "shorthand": true,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 116,
+                    "end": 117,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 7
+                      },
+                      "identifierName": "a"
+                    },
+                    "name": "a",
+                    "leadingComments": null
+                  },
+                  "value": {
+                    "type": "Identifier",
+                    "start": 116,
+                    "end": 117,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 7
+                      },
+                      "identifierName": "a"
+                    },
+                    "name": "a"
+                  },
+                  "leadingComments": null,
+                  "extra": {
+                    "shorthand": true
+                  }
+                }
+              ],
+              "leadingComments": null
+            },
+            "binding": {
+              "type": "ObjectPattern",
+              "start": 125,
+              "end": 130,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 15
+                },
+                "end": {
+                  "line": 4,
+                  "column": 20
+                }
+              },
+              "properties": [
+                {
+                  "type": "ObjectProperty",
+                  "start": 127,
+                  "end": 128,
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 17
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 18
+                    }
+                  },
+                  "method": false,
+                  "shorthand": true,
+                  "computed": false,
+                  "key": {
+                    "type": "Identifier",
+                    "start": 127,
+                    "end": 128,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 17
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 18
+                      },
+                      "identifierName": "a"
+                    },
+                    "name": "a"
+                  },
+                  "value": {
+                    "type": "Identifier",
+                    "start": 127,
+                    "end": 128,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 17
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 18
+                      },
+                      "identifierName": "a"
+                    },
+                    "name": "a"
+                  },
+                  "extra": {
+                    "shorthand": true
+                  }
+                }
+              ]
+            },
+            "consequent": {
+              "type": "ExpressionStatement",
+              "start": 132,
+              "end": 145,
+              "loc": {
+                "start": {
+                  "line": 4,
+                  "column": 22
+                },
+                "end": {
+                  "line": 4,
+                  "column": 35
+                }
+              },
+              "expression": {
+                "type": "StringLiteral",
+                "start": 132,
+                "end": 145,
+                "loc": {
+                  "start": {
+                    "line": 4,
+                    "column": 22
+                  },
+                  "end": {
+                    "line": 4,
+                    "column": 35
+                  }
+                },
+                "extra": {
+                  "rawValue": "not allowed",
+                  "raw": "\"not allowed\""
+                },
+                "value": "not allowed"
+              }
+            },
+            "leadingComments": [
+              {
+                "type": "CommentLine",
+                "value": " error must be thrown at the compiler level",
+                "start": 11,
+                "end": 56,
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 47
+                  }
+                }
+              },
+              {
+                "type": "CommentLine",
+                "value": " TODO: consider using lodash `isMatch` for this.",
+                "start": 59,
+                "end": 109,
+                "loc": {
+                  "start": {
+                    "line": 3,
+                    "column": 2
+                  },
+                  "end": {
+                    "line": 3,
+                    "column": 52
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "directives": []
+  },
+  "comments": [
+    {
+      "type": "CommentLine",
+      "value": " error must be thrown at the compiler level",
+      "start": 11,
+      "end": 56,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 2
+        },
+        "end": {
+          "line": 2,
+          "column": 47
+        }
+      }
+    },
+    {
+      "type": "CommentLine",
+      "value": " TODO: consider using lodash `isMatch` for this.",
+      "start": 59,
+      "end": 109,
+      "loc": {
+        "start": {
+          "line": 3,
+          "column": 2
+        },
+        "end": {
+          "line": 3,
+          "column": 52
+        }
+      }
+    }
+  ]
+}

@@ -38,7 +38,9 @@ export default class State {
     this.pos = this.lineStart = 0;
     this.curLine = options.startLine;
 
+    // for lightscript
     this.indentLevel = 0;
+    this.inMatchCaseTest = false;
 
     this.type = tt.eof;
     this.value = null;

@@ -1,0 +1,3 @@
+{
+  "throws": "Bitwise operators have been disabled in LightScript. Use the stdlib functions instead (eg; `bitwiseAnd(a, b)`). (2:9)"
+}

@@ -116,6 +116,9 @@ pp.parseStatement = function (declaration, topLevel) {
       }
       return starttype === tt._import ? this.parseImport(node) : this.parseExport(node);
 
+    case tt._match:
+      if (this.hasPlugin("lightscript")) return this.parseMatchStatement(node);
+
     case tt.name:
       if (this.state.value === "async") {
         // peek ahead and see if next token is a function

@@ -239,9 +239,12 @@ pp.parseExprOps = function (noIn, refShorthandDefaultPos) {
 pp.parseExprOp = function(left, leftStartPos, leftStartLoc, minPrec, noIn) {
   // correct ASI failures.
   if (this.hasPlugin("lightscript") && this.isLineBreak()) {
-
     // if it's a newline followed by a unary +/-, bail so it can be parsed separately.
     if (this.match(tt.plusMin) && !this.isNextCharWhitespace()) {
+      return left;
+    }
+    // for match/case
+    if (this.match(tt.bitwiseOR)) {
       return left;
     }
   }
@@ -716,6 +719,12 @@ pp.parseExprAtom = function (refShorthandDefaultPos) {
         return this.parseIfExpression(node);
       }
 
+    case tt._match:
+      if (this.hasPlugin("lightscript")) {
+        node = this.startNode();
+        return this.parseMatchExpression(node);
+      }
+
     case tt.arrow:
       if (this.hasPlugin("lightscript")) {
         node = this.startNode();
@@ -1151,6 +1160,9 @@ pp.parsePropertyName = function (prop) {
 // Initialize empty function node.
 
 pp.initFunction = function (node, isAsync) {
+  if (this.hasPlugin("lightscript") && this.state.inMatchCaseTest) {
+    this.unexpected(node.start, "Cannot match on functions.");
+  }
   node.id = null;
   node.generator = false;
   node.expression = false;

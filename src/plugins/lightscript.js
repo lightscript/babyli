@@ -111,9 +111,10 @@ pp.expectParenFreeBlockStart = function (node) {
   // if true: blah
   // if true { blah }
   // if (true) blah
+  // match (foo) as bar:
   if (node && node.extra && node.extra.hasParens) {
     this.expect(tt.parenR);
-  } else if (!(this.match(tt.colon) || this.match(tt.braceL))) {
+  } else if (!(this.match(tt.colon) || this.match(tt.braceL) || this.isContextual("as"))) {
     this.unexpected(null, "Paren-free test expressions must be followed by braces or a colon.");
   }
 };
@@ -543,6 +544,112 @@ pp.isBitwiseOp = function () {
   );
 };
 
+pp.parseMatchExpression = function (node) {
+  return this.parseMatch(node, true);
+};
+
+pp.parseMatchStatement = function (node) {
+  return this.parseMatch(node, false);
+};
+
+pp.parseMatch = function (node, isExpression) {
+  if (this.state.inMatchCaseTest) this.unexpected();
+  this.expect(tt._match);
+
+  node.discriminant = this.parseParenExpression();
+  if (this.eatContextual("as")) {
+    node.alias = this.parseIdentifier();
+  }
+
+  const isColon = this.match(tt.colon);
+  let isEnd;
+  if (isColon) {
+    const indentLevel = this.state.indentLevel;
+    this.next();
+    isEnd = () => this.state.indentLevel <= indentLevel || this.match(tt.eof);
+  } else {
+    this.expect(tt.braceL);
+    isEnd = () => this.eat(tt.braceR);
+  }
+
+  node.cases = [];
+  const caseIndentLevel = this.state.indentLevel;
+  let hasUsedElse = false;
+  while (!isEnd()) {
+    if (hasUsedElse) {
+      this.unexpected(null, "`else` must be last case.");
+    }
+    if (isColon && this.state.indentLevel !== caseIndentLevel) {
+      this.unexpected(null, "Mismatched indent.");
+    }
+
+    const matchCase = this.parseMatchCase(isExpression);
+    if (matchCase.test && matchCase.test.type === "MatchElse") {
+      hasUsedElse = true;
+    }
+    node.cases.push(matchCase);
+  }
+
+  if (!node.cases.length) {
+    this.unexpected(null, tt.bitwiseOR);
+  }
+
+  return this.finishNode(node, isExpression ? "MatchExpression" : "MatchStatement");
+};
+
+pp.parseMatchCase = function (isExpression) {
+  const node = this.startNode();
+
+  this.parseMatchCaseTest(node);
+
+  if (isExpression) {
+    // disallow return/continue/break, etc. c/p doExpression
+    const oldInFunction = this.state.inFunction;
+    const oldLabels = this.state.labels;
+    this.state.labels = [];
+    this.state.inFunction = false;
+
+    node.consequent = this.parseBlock(false);
+
+    this.state.inFunction = oldInFunction;
+    this.state.labels = oldLabels;
+  } else {
+    node.consequent = this.parseBlock(false);
+  }
+
+  return this.finishNode(node, "MatchCase");
+};
+
+pp.parseMatchCaseTest = function (node) {
+  // can't be nested so no need to read/restore old value
+  this.state.inMatchCaseTest = true;
+
+  this.expect(tt.bitwiseOR);
+  if (this.isLineBreak()) this.unexpected(this.state.lastTokEnd, "Illegal newline.");
+
+  if (this.match(tt._else)) {
+    const elseNode = this.startNode();
+    this.next();
+    node.test = this.finishNode(elseNode, "MatchElse");
+  } else if (this.eat(tt._with)) {
+    this.parseMatchCaseBinding(node);
+  } else {
+    node.test = this.parseExprOps();
+  }
+
+  if (this.eat(tt._with)) {
+    this.parseMatchCaseBinding(node);
+  }
+
+  this.state.inMatchCaseTest = false;
+};
+
+pp.parseMatchCaseBinding = function (node) {
+  if (node.binding) this.unexpected(this.state.lastTokStart, "Cannot destructure twice.");
+  if (!(this.match(tt.braceL) || this.match(tt.bracketL))) this.unexpected();
+  node.binding = this.parseBindingAtom();
+};
+
 
 export default function (instance) {
 
@@ -561,7 +668,8 @@ export default function (instance) {
         // first, try paren-free style
         try {
           const val = this.parseExpression();
-          if (this.match(tt.braceL) || this.match(tt.colon)) {
+          // "as" for `match (foo) as bar:`, bit dirty to allow for all but not a problem
+          if (this.match(tt.braceL) || this.match(tt.colon) || this.isContextual("as")) {
             if (val.extra && val.extra.parenthesized) {
               delete val.extra.parenthesized;
               delete val.extra.parenStart;

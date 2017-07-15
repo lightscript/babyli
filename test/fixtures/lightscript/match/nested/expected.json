@@ -1,0 +1,506 @@
+{
+  "type": "File",
+  "start": 0,
+  "end": 137,
+  "loc": {
+    "start": {
+      "line": 1,
+      "column": 0
+    },
+    "end": {
+      "line": 6,
+      "column": 28
+    }
+  },
+  "program": {
+    "type": "Program",
+    "start": 0,
+    "end": 137,
+    "loc": {
+      "start": {
+        "line": 1,
+        "column": 0
+      },
+      "end": {
+        "line": 6,
+        "column": 28
+      }
+    },
+    "sourceType": "script",
+    "body": [
+      {
+        "type": "MatchStatement",
+        "start": 0,
+        "end": 137,
+        "loc": {
+          "start": {
+            "line": 1,
+            "column": 0
+          },
+          "end": {
+            "line": 6,
+            "column": 28
+          }
+        },
+        "discriminant": {
+          "type": "Identifier",
+          "start": 6,
+          "end": 7,
+          "loc": {
+            "start": {
+              "line": 1,
+              "column": 6
+            },
+            "end": {
+              "line": 1,
+              "column": 7
+            },
+            "identifierName": "x"
+          },
+          "name": "x"
+        },
+        "cases": [
+          {
+            "type": "MatchCase",
+            "start": 11,
+            "end": 108,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 2
+              },
+              "end": {
+                "line": 5,
+                "column": 23
+              }
+            },
+            "test": {
+              "type": "BinaryExpression",
+              "start": 13,
+              "end": 18,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 4
+                },
+                "end": {
+                  "line": 2,
+                  "column": 9
+                }
+              },
+              "left": {
+                "type": "Identifier",
+                "start": 13,
+                "end": 14,
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 5
+                  },
+                  "identifierName": "x"
+                },
+                "name": "x"
+              },
+              "operator": ">",
+              "right": {
+                "type": "NumericLiteral",
+                "start": 17,
+                "end": 18,
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 8
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 9
+                  }
+                },
+                "extra": {
+                  "rawValue": 2,
+                  "raw": "2"
+                },
+                "value": 2
+              }
+            },
+            "consequent": {
+              "type": "MatchStatement",
+              "start": 20,
+              "end": 108,
+              "loc": {
+                "start": {
+                  "line": 2,
+                  "column": 11
+                },
+                "end": {
+                  "line": 5,
+                  "column": 23
+                }
+              },
+              "discriminant": {
+                "type": "Identifier",
+                "start": 26,
+                "end": 27,
+                "loc": {
+                  "start": {
+                    "line": 2,
+                    "column": 17
+                  },
+                  "end": {
+                    "line": 2,
+                    "column": 18
+                  },
+                  "identifierName": "y"
+                },
+                "name": "y"
+              },
+              "cases": [
+                {
+                  "type": "MatchCase",
+                  "start": 33,
+                  "end": 52,
+                  "loc": {
+                    "start": {
+                      "line": 3,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 3,
+                      "column": 23
+                    }
+                  },
+                  "test": {
+                    "type": "BinaryExpression",
+                    "start": 35,
+                    "end": 41,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 12
+                      }
+                    },
+                    "left": {
+                      "type": "Identifier",
+                      "start": 35,
+                      "end": 36,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 6
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 7
+                        },
+                        "identifierName": "y"
+                      },
+                      "name": "y"
+                    },
+                    "operator": ">",
+                    "right": {
+                      "type": "NumericLiteral",
+                      "start": 39,
+                      "end": 41,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 12
+                        }
+                      },
+                      "extra": {
+                        "rawValue": 10,
+                        "raw": "10"
+                      },
+                      "value": 10
+                    }
+                  },
+                  "consequent": {
+                    "type": "ExpressionStatement",
+                    "start": 43,
+                    "end": 52,
+                    "loc": {
+                      "start": {
+                        "line": 3,
+                        "column": 14
+                      },
+                      "end": {
+                        "line": 3,
+                        "column": 23
+                      }
+                    },
+                    "expression": {
+                      "type": "StringLiteral",
+                      "start": 43,
+                      "end": 52,
+                      "loc": {
+                        "start": {
+                          "line": 3,
+                          "column": 14
+                        },
+                        "end": {
+                          "line": 3,
+                          "column": 23
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "soo big",
+                        "raw": "\"soo big\""
+                      },
+                      "value": "soo big"
+                    }
+                  }
+                },
+                {
+                  "type": "MatchCase",
+                  "start": 57,
+                  "end": 84,
+                  "loc": {
+                    "start": {
+                      "line": 4,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 4,
+                      "column": 31
+                    }
+                  },
+                  "test": {
+                    "type": "BinaryExpression",
+                    "start": 59,
+                    "end": 64,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 11
+                      }
+                    },
+                    "left": {
+                      "type": "Identifier",
+                      "start": 59,
+                      "end": 60,
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 6
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 7
+                        },
+                        "identifierName": "y"
+                      },
+                      "name": "y"
+                    },
+                    "operator": ">",
+                    "right": {
+                      "type": "NumericLiteral",
+                      "start": 63,
+                      "end": 64,
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 11
+                        }
+                      },
+                      "extra": {
+                        "rawValue": 5,
+                        "raw": "5"
+                      },
+                      "value": 5
+                    }
+                  },
+                  "consequent": {
+                    "type": "ExpressionStatement",
+                    "start": 66,
+                    "end": 84,
+                    "loc": {
+                      "start": {
+                        "line": 4,
+                        "column": 13
+                      },
+                      "end": {
+                        "line": 4,
+                        "column": 31
+                      }
+                    },
+                    "expression": {
+                      "type": "StringLiteral",
+                      "start": 66,
+                      "end": 84,
+                      "loc": {
+                        "start": {
+                          "line": 4,
+                          "column": 13
+                        },
+                        "end": {
+                          "line": 4,
+                          "column": 31
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "still pretty big",
+                        "raw": "\"still pretty big\""
+                      },
+                      "value": "still pretty big"
+                    }
+                  }
+                },
+                {
+                  "type": "MatchCase",
+                  "start": 89,
+                  "end": 108,
+                  "loc": {
+                    "start": {
+                      "line": 5,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 5,
+                      "column": 23
+                    }
+                  },
+                  "test": {
+                    "type": "MatchElse",
+                    "start": 91,
+                    "end": 95,
+                    "loc": {
+                      "start": {
+                        "line": 5,
+                        "column": 6
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 10
+                      }
+                    }
+                  },
+                  "consequent": {
+                    "type": "ExpressionStatement",
+                    "start": 97,
+                    "end": 108,
+                    "loc": {
+                      "start": {
+                        "line": 5,
+                        "column": 12
+                      },
+                      "end": {
+                        "line": 5,
+                        "column": 23
+                      }
+                    },
+                    "expression": {
+                      "type": "StringLiteral",
+                      "start": 97,
+                      "end": 108,
+                      "loc": {
+                        "start": {
+                          "line": 5,
+                          "column": 12
+                        },
+                        "end": {
+                          "line": 5,
+                          "column": 23
+                        }
+                      },
+                      "extra": {
+                        "rawValue": "kinda big",
+                        "raw": "\"kinda big\""
+                      },
+                      "value": "kinda big"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "type": "MatchCase",
+            "start": 111,
+            "end": 137,
+            "loc": {
+              "start": {
+                "line": 6,
+                "column": 2
+              },
+              "end": {
+                "line": 6,
+                "column": 28
+              }
+            },
+            "test": {
+              "type": "MatchElse",
+              "start": 113,
+              "end": 117,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 4
+                },
+                "end": {
+                  "line": 6,
+                  "column": 8
+                }
+              }
+            },
+            "consequent": {
+              "type": "ExpressionStatement",
+              "start": 119,
+              "end": 137,
+              "loc": {
+                "start": {
+                  "line": 6,
+                  "column": 10
+                },
+                "end": {
+                  "line": 6,
+                  "column": 28
+                }
+              },
+              "expression": {
+                "type": "StringLiteral",
+                "start": 119,
+                "end": 137,
+                "loc": {
+                  "start": {
+                    "line": 6,
+                    "column": 10
+                  },
+                  "end": {
+                    "line": 6,
+                    "column": 28
+                  }
+                },
+                "extra": {
+                  "rawValue": "some other thing",
+                  "raw": "\"some other thing\""
+                },
+                "value": "some other thing"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "directives": []
+  }
+}

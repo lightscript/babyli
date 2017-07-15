@@ -1,0 +1,3 @@
+{
+  "plugins": ["objectRestSpread", "lightscript", "jsx", "flow"]
+}
